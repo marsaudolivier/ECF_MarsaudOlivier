@@ -12028,4 +12028,19 @@ h1, .h1 {
   h1, .h1 {
     font-size: 30px;
   }
+}
+.footer_bandeau {
+  background-color: #1E1E1E;
+}
+
+@media screen and (max-width: 768px) {
+  .hidden {
+    visibility: collapse;
+  }
+  .logo_footer {
+    width: 100px;
+  }
+}
+.logo_social {
+  padding: 15px;
 }/*# sourceMappingURL=main.css.map */

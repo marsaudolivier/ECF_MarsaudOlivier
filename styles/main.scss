@@ -61,3 +61,19 @@ h1{
     }
 }
 
+//Ajout Css Footer
+.footer_bandeau{
+    background-color: $warning;
+}
+//Affichage logo format 768px et +
+@media screen and (max-width : 768px) {
+    .hidden{
+        visibility: collapse;
+        }
+    .logo_footer{
+        width: 100px;
+        }
+    }
+    .logo_social{
+        padding: 15px;
+    }
