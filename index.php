@@ -1,6 +1,8 @@
 <?php
  require_once("./templates/header.php");
 ?>
+</head>
+<body>
 
 <div class="container">
     <div class="row">

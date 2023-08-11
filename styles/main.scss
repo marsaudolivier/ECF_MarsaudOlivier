@@ -1,2 +1,10 @@
 //Import Custom
 @import 'custom';
+
+//Ajout Css personnalisé
+
+//Ajout dela couleur de fond + Polices écriture global 
+body{
+    background-color: $secondary;
+    font-family: 'Aref Ruqaa Ink', serif;
+}
