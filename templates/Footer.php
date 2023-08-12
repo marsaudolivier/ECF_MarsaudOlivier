@@ -1,16 +1,13 @@
+<?php
+require_once('./lib/horaires.php');
+?>
 <!--Ajout Pied de page-->
 <div class="d-flex footer_bandeau text-center text-uppercase p-3">
     <div class="row col-12">
         <div class="col-12 col-md-5">
             <!-- Horaire du garage -->
             <h3 class="text-success">Horaires d’ouverture</h3>
-            <p class="text-info">lun.: 08h45-12;00, 14h00-18:00</br>
-                mar.: 08h45-12;00, 14h00-18:00</br>
-                mer.: 08h45-12;00, 14h00-18:00</br>
-                jeu.: 08h45-12;00, 14h00-18:00</br>
-                ven.: 08h45-12;00, 14h00-18:00</br>
-                sam.: 08h45-12;00, 14h00-18:00</br>
-                dim.: fermé</p>
+            <?php horaires($pdo); ?>
         </div>
         <!-- Ajout logo + social -->
         <img class="col-0 col-md-2 logo_footer hidden" src="../assets/images/Logo Parrot.svg" alt="Logo Garage V. Parrot"></img>
