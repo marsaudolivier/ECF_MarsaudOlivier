@@ -1,3 +1,6 @@
+<?php
+require ("./lib/pdo.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
