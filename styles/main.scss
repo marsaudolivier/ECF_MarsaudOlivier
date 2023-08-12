@@ -80,3 +80,18 @@ h2{
     .logo_social{
         padding: 15px;
     }
+
+//Ajout Css Index
+.index_image{
+    border-radius: 50px;
+    border: 3px solid $success;
+    width: 100%;
+}
+// Affichage des photo page acceuil taille 50 % pour les grands écrans
+@media screen and (min-width : 768px) {
+    .index_image{
+        border-radius: 50px;
+        border: 3px solid $success;
+        width:60%;
+        margin: auto;
+    }}
