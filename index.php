@@ -29,6 +29,10 @@ Nous savons que la concurrence est rude dans l'industrie automobile, et c'est po
 </br></br>Alors, si vous cherchez un garage de confiance pour entretenir, réparer ou vendre votre voiture, ne cherchez plus ! Garage V. Parrot est là pour répondre à tous vos besoins en matière d'automobile. Contactez-nous dès maintenant pour prendre rendez-vous ou pour en savoir plus sur nos services. Nous sommes impatients de vous accueillir dans notre atelier et de prendre soin de votre voiture.
   </p>
 </div>
+<!--Ajout photo + style-->
+<div class="p-4 d-flex">
+  <img src="./assets/images/index2.jpg" alt="Notre mécanicien, en train de sérré une rotule" class="index_image">
+</div>
 <?php
 require_once("./templates/footer.php");
 ?>
