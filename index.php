@@ -37,5 +37,10 @@ Nous savons que la concurrence est rude dans l'industrie automobile, et c'est po
   <h2 class="p-4">Nos services</h2>
 </div>
 <?php
+require_once("lib/Services.php");
+Services($pdo);
+
+?>
+<?php
 require_once("./templates/footer.php");
 ?>
