@@ -6,7 +6,7 @@ function Horaires($pdo){
         $jours = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach ($jours as $jour) {
             ?>
-            <p class="text-info"><?=$jour['jour']?> :<?=$jour['Ouverture']?> ,<?=$jour['Fermeture']?> </p>
+            <p class="text-info lib_horaires"><?=$jour['jour']?> :<?=$jour['Ouverture']?> ,<?=$jour['Fermeture']?> </p>
             <?php
         }
 
