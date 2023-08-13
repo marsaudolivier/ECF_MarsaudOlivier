@@ -1,114 +1,151 @@
 //Import Custom
-@import 'custom';
+@import "custom";
 
 //Ajout Css personnalisé
 
-//Ajout dela couleur de fond + Polices écriture global 
-body{
-    background-color: $secondary;
-    font-family: 'Aref Ruqaa Ink', serif;
+//Ajout dela couleur de fond + Polices écriture global
+body {
+  background-color: $secondary;
+  font-family: "Aref Ruqaa Ink", serif;
 }
 
-// Styles Titres 
-h1,h2,h3 {
-    text-transform: uppercase;
-background: linear-gradient(to bottom right, #2F2569 0%, #9C122B 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #2F2569 0%, #9C122B 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #2F2569 0%, #9C122B 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #2F2569 0%, #9C122B 50%) top right / 50% 50% no-repeat;
-background-clip: text;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+// Styles Titres
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  background: linear-gradient(to bottom right, #2f2569 0%, #9c122b 50%) bottom
+      right / 50% 50% no-repeat,
+    linear-gradient(to bottom left, #2f2569 0%, #9c122b 50%) bottom left / 50%
+      50% no-repeat,
+    linear-gradient(to top left, #2f2569 0%, #9c122b 50%) top left / 50% 50%
+      no-repeat,
+    linear-gradient(to top right, #2f2569 0%, #9c122b 50%) top right / 50% 50%
+      no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-h1{
-    font-size: 45px;
+h1 {
+  font-size: 45px;
 }
-h2{
-    text-align: center;
-    font-size: 50px;
+h2 {
+  text-align: center;
+  font-size: 50px;
+}
+//Style bouton
+.index_bouton{
+    margin: 0px 50px 20px;
 }
 //Ajout Css Navbar
-.navigation_bandeau{
-    background-color: $warning;
-    height: 150px;
-    display: flex;
-    justify-content: space-between;
+.navigation_bandeau {
+  background-color: $warning;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
 }
-.navbar-text{
-    color:$info
+.navbar-text {
+  color: $info;
 }
-.logo{
-    width: 180px;
+.logo {
+  width: 180px;
 }
-.navigation_link{
-    margin-left: 100px;
-
+.navigation_link {
+  margin-left: 100px;
 }
 //Media Query navbar
-@media screen and (max-width : 992px) {
-    h1{
-    font-size: 35px; 
-    }
-    .navigation_link{
-        margin-left: 0px;
-    }
+@media screen and (max-width: 992px) {
+  h1 {
+    font-size: 35px;
+  }
+  .navigation_link {
+    margin-left: 0px;
+  }
 }
-@media screen and (max-width : 600px) {
-    .logo{
-        width: 100px;
-    }
+@media screen and (max-width: 600px) {
+  .logo {
+    width: 100px;
+  }
 }
-@media screen and (max-width : 400px) {
-    .logo{
-        width: 50px;
-    }
-    h1{
-        font-size: 30px; 
-    }
+@media screen and (max-width: 400px) {
+  .logo {
+    width: 50px;
+  }
+  h1 {
+    font-size: 30px;
+  }
 }
 
 //Ajout Css Footer
-.footer_bandeau{
-    background-color: $warning;
+.footer_bandeau {
+  background-color: $warning;
 }
 //Affichage logo format 768px et +
-@media screen and (max-width : 768px) {
-    .hidden{
-        visibility: collapse;
-        }
-    .logo_footer{
-        width: 100px;
-        }
-    }
-    .logo_social{
-        padding: 15px;
-    }
+@media screen and (max-width: 768px) {
+  .hidden {
+    visibility: collapse;
+  }
+  .logo_footer {
+    width: 100px;
+  }
+}
+.logo_social {
+  padding: 15px;
+}
 
 //Ajout Css Index
-.index_image{
-    border-radius: 50px;
-    border: 3px solid $success;
-    width: 100%;
+.index_image {
+  border-radius: 50px;
+  border: 3px solid $success;
+  width: 100%;
 }
 // Affichage des photo page acceuil taille 50 % pour les grands écrans
-@media screen and (min-width : 768px) {
-    .index_image{
-        border-radius: 50px;
-        border: 3px solid $success;
-        width:60%;
-        margin: auto;
-    }}
+@media screen and (min-width: 768px) {
+  .index_image {
+    border-radius: 50px;
+    border: 3px solid $success;
+    width: 60%;
+    margin: auto;
+  }
+}
 
 //Affichage Text sur la page index
-    .index_text{
-        background-color: $info;
-        color: $primary;
-        border-radius: 50px;
-        border: 3px solid $success;
-        text-align: center;
-        font-size: 19px;
+.index_text {
+  background-color: $info;
+  color: $primary;
+  border-radius: 50px;
+  border: 3px solid $success;
+  text-align: center;
+  font-size: 19px;
+}
+//Ajout style horaires gooter
+.lib_horaires {
+  display: flex;
+  flex-direction: column;
+  margin: 1px;
+  font-size: 16px;
+}
+//Ajout style fonction Service
+.service {
+  background-color: $info;
+  color: $primary;
+  border-radius: 50px;
+  border: 3px solid $success;
+  text-align: center;
+  font-size: 19px;
+}
+//Ajout média query
+@media screen and (min-width : 960px) {
+    ul{
+        display: grid;
+        grid-template-columns: auto auto ;
     }
-
-.lib_horaires{
-    display: flex;
-    flex-direction: column;
-    margin: 1px;
-    font-size: 16px;    
-    }
+}
+//Ajout style modal
+.modal-dialog{
+    border-radius: 10px;
+    border: 3px solid $success;
+}
+.test{
+    background-color: $info;
+}

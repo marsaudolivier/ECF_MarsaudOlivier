@@ -11977,9 +11977,13 @@ body {
   font-family: "Aref Ruqaa Ink", serif;
 }
 
-h1, .h1, h2, .h2, h3, .h3 {
+h1, .h1,
+h2,
+.h2,
+h3,
+.h3 {
   text-transform: uppercase;
-  background: linear-gradient(to bottom right, #2F2569 0%, #9C122B 50%) bottom right/50% 50% no-repeat, linear-gradient(to bottom left, #2F2569 0%, #9C122B 50%) bottom left/50% 50% no-repeat, linear-gradient(to top left, #2F2569 0%, #9C122B 50%) top left/50% 50% no-repeat, linear-gradient(to top right, #2F2569 0%, #9C122B 50%) top right/50% 50% no-repeat;
+  background: linear-gradient(to bottom right, #2f2569 0%, #9c122b 50%) bottom right/50% 50% no-repeat, linear-gradient(to bottom left, #2f2569 0%, #9c122b 50%) bottom left/50% 50% no-repeat, linear-gradient(to top left, #2f2569 0%, #9c122b 50%) top left/50% 50% no-repeat, linear-gradient(to top right, #2f2569 0%, #9c122b 50%) top right/50% 50% no-repeat;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -11992,6 +11996,10 @@ h1, .h1 {
 h2, .h2 {
   text-align: center;
   font-size: 50px;
+}
+
+.index_bouton {
+  margin: 0px 50px 20px;
 }
 
 .navigation_bandeau {
@@ -12078,4 +12086,28 @@ h2, .h2 {
   flex-direction: column;
   margin: 1px;
   font-size: 16px;
+}
+
+.service {
+  background-color: #5CB8FF;
+  color: #2F2569;
+  border-radius: 50px;
+  border: 3px solid #FF8778;
+  text-align: center;
+  font-size: 19px;
+}
+
+@media screen and (min-width: 960px) {
+  ul {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
+.modal-dialog {
+  border-radius: 10px;
+  border: 3px solid #FF8778;
+}
+
+.test {
+  background-color: #5CB8FF;
 }/*# sourceMappingURL=main.css.map */
