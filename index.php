@@ -39,7 +39,8 @@ Nous savons que la concurrence est rude dans l'industrie automobile, et c'est po
 <?php
 require_once("lib/Services.php");
 Services($pdo);
-
+require_once("lib/avis.php");
+Avis($pdo);
 ?>
 <?php
 require_once("./templates/footer.php");
