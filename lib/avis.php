@@ -11,9 +11,9 @@ function Avis($pdo)
       <?php
       $i = 0;
       foreach ($Validations as $Validationn) {
-        $i = $i + 1;
         if ($Validationn['valider'] === 'oui') {
-          if ($i === 1) {
+          $i = $i + 1;
+          if ($i == '1') {
       ?>
             <div class="index_avis p-2">
               <H3>Avis Client</H3>
