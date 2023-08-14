@@ -192,3 +192,30 @@ grid-template-columns: auto;
     display: grid;
   }
 }
+//Ajout style page contact
+.FormulaireContact{
+  display: grid;
+  grid-template-columns: 150px auto 150px auto ;
+  padding: 15px;
+  width: 95%;
+}
+.FormulaireContact2{
+  display: grid;
+  grid-template-columns: 150px auto   ;
+  padding: 15px;
+  width: 95%;
+  height: 250px;
+}
+@media screen and (max-width : 768px) {
+  .FormulaireContact{
+      display: flex;
+      flex-direction: column; 
+      padding:  5px ;
+  }
+  .FormulaireContact2{
+      display: flex;
+      flex-direction: column; 
+      padding:  5px ;
+      height: auto;
+  }
+}

@@ -41,6 +41,8 @@ require_once("lib/Services.php");
 Services($pdo);
 require_once("lib/avis.php");
 Avis($pdo);
+require_once("lib/contact.php");
+Contact();
 ?>
 <?php
 require_once("./templates/footer.php");
