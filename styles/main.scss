@@ -33,6 +33,15 @@ h2 {
   text-align: center;
   font-size: 50px;
 }
+h3{
+  font-size: 28px;
+  text-align: center;
+}
+h4{
+  text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+}
 //Style bouton
 .index_bouton{
     margin: 0px 50px 20px;
@@ -217,5 +226,26 @@ grid-template-columns: auto;
       flex-direction: column; 
       padding:  5px ;
       height: auto;
+  }
+}
+//Ajout CSS map
+.map{
+  margin: auto;
+  border-radius: 50px;
+  border: 3px solid $success;
+}
+@media screen and (min-width : 650px) {
+  .map{
+      width: 600px;
+  }
+}
+@media screen and (min-width : 768px) {
+  .map{
+      width: 700px;
+  }
+}
+@media screen and (min-width : 960px) {
+  .map{
+      width: 900px;
   }
 }

@@ -44,6 +44,16 @@ Avis($pdo);
 require_once("lib/contact.php");
 Contact();
 ?>
+  <div class="p-2"></div>
+    <iframe class="map d-flex"
+      src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d92456.53572705481!2d1.3504421381672491!3d43.600987421638955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1stoulouse%20mairie!5e0!3m2!1sfr!2sfr!4v1690831922678!5m2!1sfr!2sfr"
+      width="500" height="300" allowfullscreen="auto" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Carte de toulouse"></iframe>
+
+    <div class="p-2 index_adresse">
+      <h3>1 Rue du garage fictif</br>
+        toulouse</h3>
+    </div>
 <?php
 require_once("./templates/footer.php");
 ?>
