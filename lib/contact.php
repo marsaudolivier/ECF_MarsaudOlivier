@@ -1,39 +1,78 @@
-<?php
+<?php 
+Class Contact{
+    public string $nom;
+    public string $prenom;
+    public string $mail;
+    public string $telephone;
+    public string $message;
+    public int $Id_Motifs;
 
-function Contact(){
-   ?> <div class="p-2">
-      <div class="justify-content-center index_text p-2">
-        <h2>NOUS CONTACTER</h2>
-        <div>
-          <div class="FormulaireContact">
-            <label for="name" class="text-primary">Nom:</label>
-            <input type="text" id="name" name="name" />
-            <label for="name" class="text-primary">Prenom:</label>
-            <input type="text" id="nom" name="name" />
-          </div>
-          <div class="FormulaireContact">
-            <label for="email" class="text-primary">Email:</label>
-            <input type="text" id="email" name="email" />
-            <label for="phone" class="text-primary">Telephone:</label>
-            <input type="text" id="phone" name="phone" />
-          </div>
-          <div class="FormulaireContact">
-            <label for="subject" class="text-primary">Votre demande:</label>
-            <select id="subject" name="subject" class="text-primary">
-              <option value="achat">Achat</option>
-              <option value="vente">Vente</option>
-              <option value="location">Location</option>
-              <option value="autre">Autre</option>
-            </select>
-          </div>
-          <div class="p-2 FormulaireContact2">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
-          </div>
-          <button type="button" id="Sudmit" class="ventes_bouton btn btn-primary"> VALIDER</button>
+    public function GetNom(){
+        return $this->nom;
+    }
+    public function GetPrenom(){
+        return $this->prenom;
+    }
+    public function GetMail(){
+        return $this->mail;
+    }
+    public function GetTelephone(){
+        return $this->telephone;
+    }
+    public function GetMessage(){
+        return $this->message;
+    }
+    public function GetId_Motifs(){
+        return $this->Id_Motifs;
+    }
+    public function SetNom($nom){
+        $this->nom = $nom;
+    }
+    public function SetPrenom($prenom){
+        $this->prenom = $prenom;
+    }
+    public function SetMail($mail){
+        $this->mail = $mail;
+    }
+    public function SetTelephone($telephone){
+        $this->telephone = $telephone;
+    }
+    public function SetMessage($message){
+        $this->message = $message;
+    }
+    public function SetId_Motifs($Id_Motifs){
+        $this->Id_Motifs = $Id_Motifs;
+    }
+    public function __construct($nom, $prenom, $mail, $telephone, $message, $Id_Motifs){
+        $this->SetNom($nom);
+        $this->SetPrenom($prenom);
+        $this->SetMail($mail);
+        $this->SetTelephone($telephone);
+        $this->SetMessage($message);
+        $this->SetId_Motifs($Id_Motifs);
+    }
 
-        </div>
-      </div>
-    </div>
-    <?php
+
+    public function insertContact($contact){
+        require_once('pdo.php'); 
+        global $pdo;
+        $sql = "INSERT INTO Formulaires (nom, prenom, mail, telephone, message, Id_Motifs) VALUES (:nom, :prenom, :mail, :telephone, :message, :Id_Motifs)";
+        
+        $stmt = $pdo->prepare($sql);
+    
+        // Liage des valeurs
+        $stmt->bindParam(':nom', $contact->GetNom());
+        $stmt->bindParam(':prenom', $contact->GetPrenom());
+        $stmt->bindParam(':mail', $contact->GetMail());
+        $stmt->bindParam(':telephone', $contact->GetTelephone());
+        $stmt->bindParam(':message', $contact->GetMessage());
+        $stmt->bindParam(':Id_Motifs', $contact->GetId_Motifs());
+    
+        try {
+            $stmt->execute();
+            echo "Votre message a bien été enregistré";
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+    }
 }

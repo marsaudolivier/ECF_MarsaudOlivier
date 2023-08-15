@@ -41,8 +41,8 @@ require_once("lib/Services.php");
 Services($pdo);
 require_once("lib/avis.php");
 Avis($pdo);
-require_once("lib/contact.php");
-Contact();
+require_once("lib/contacts.php");
+Contacts();
 ?>
   <div class="p-2"></div>
     <iframe class="map d-flex"
