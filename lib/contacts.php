@@ -43,6 +43,7 @@ function Contacts(){
       </div>
     </div>
     <?php
+    require('./lib/pdo.php');
     if(isset($_POST['Contact'])){
       $nom = $_POST['nom'];
       $prenom = $_POST['prenom'];
@@ -51,7 +52,7 @@ function Contacts(){
       $Id_Motifs = $_POST['Id_Motifs'];
       $message = $_POST['message'];
       $contact = new Contact($nom,$prenom,$mail,$telephone,$message,$Id_Motifs);
-      $contact->insertContact($contact);
+      $contact->insertContact($contact, $pdo);
     
     }
 

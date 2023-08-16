@@ -53,11 +53,8 @@ Class Contact{
     }
 
 
-    public function insertContact($contact){
-        require_once('pdo.php'); 
-        global $pdo;
+    public function insertContact($contact, $pdo){ 
         $sql = "INSERT INTO Formulaires (nom, prenom, mail, telephone, message, Id_Motifs) VALUES (:nom, :prenom, :mail, :telephone, :message, :Id_Motifs)";
-        
         $stmt = $pdo->prepare($sql);
     
         // Liage des valeurs
