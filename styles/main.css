@@ -12203,8 +12203,14 @@ h4, .h4 {
   margin: auto;
   border-radius: 50px;
   border: 3px solid #FF8778;
+  width: 300px;
 }
 
+@media screen and (min-width: 550px) {
+  .map {
+    width: 500px;
+  }
+}
 @media screen and (min-width: 650px) {
   .map {
     width: 600px;

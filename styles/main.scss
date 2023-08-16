@@ -236,6 +236,12 @@ grid-template-columns: auto;
   margin: auto;
   border-radius: 50px;
   border: 3px solid $success;
+  width: 300px;
+}
+@media screen and (min-width : 550px) {
+  .map{
+      width: 500px;
+  }
 }
 @media screen and (min-width : 650px) {
   .map{
