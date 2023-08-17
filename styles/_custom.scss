@@ -9,6 +9,8 @@
 //Changement style navbar
 $navbar-dark-color: #5CB8FF;
 $breadcrumb-bg: #5CB8FF;
+$table-color: $danger;
+$table-bg: $info;
 
 //Import Scss bootstrap
 @import "../vendor/twbs/bootstrap/scss/bootstrap";
