@@ -42,7 +42,7 @@ Services($pdo);
 require_once("./templates/page_avis.php");
 Avis($pdo);
 test($pdo);
-require_once("lib/contacts.php");
+require_once("./templates/contacts.php");
 Contacts();
 ?>
   <div class="p-2"></div>

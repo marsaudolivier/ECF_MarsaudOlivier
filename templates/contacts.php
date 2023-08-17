@@ -1,6 +1,6 @@
 <?php
-require_once('contact.php');
-require_once('pdo.php');
+require_once('./lib/contact.php');
+require_once('./lib/pdo.php');
 
 function Contacts(){
    ?> <div class="p-2">
