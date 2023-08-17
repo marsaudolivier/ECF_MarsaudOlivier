@@ -1,5 +1,6 @@
 <?php
 require ("./lib/pdo.php");
+require ("./lib/config.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,15 +24,15 @@ require ("./lib/pdo.php");
     <h1 class="d-flex align-items-center text-center p-2">Garage
       V. Parrot</h1>
     <nav class="navbar navbar-expand-lg navbar-info text-info" data-bs-theme="dark">
-      <a class="navbar-brand" href="#"></a>
+      <a class="navbar-brand" href="../index.php"></a>
       <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse text-primary navigation_link" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="navigation_link navbar-text" href="./Index.php">Acceuil</a>
-          <a class="navigation_link navbar-text" href="ventes.php">Ventes</a>
-          <a class="navigation_link navbar-text" href="">Admin</a>
+        <?php foreach ($mainMenu as $key => $value) { ?>
+          <a class="navigation_link navbar-text" href="<?= $key ?>"><?= $value ?></a>
+        <?php } ?>
         </div>
       </div>
     </nav>
