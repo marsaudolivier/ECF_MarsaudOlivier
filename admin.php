@@ -10,11 +10,11 @@ ini_set('display_errors', 1);
 <!--Ajout titre de la page-->
 <h2>Bonjour MR</h2>
 <!--Ajout panel admin-->
-<div class="p-4">
+<div class="p-4 ">
     <h2>Espace administration</h2>
-    <div class="p-2">
-        <h4>Gestion des utilisateurs</h4>
-        <div class="p-2">
+    <div class="p-2 ">
+        <h3>Gestion des utilisateurs</h3>
+        <div class="p-2 admin_conteneur">
             <h5>Liste des utilisateurs</h5>
             <table class="table">
                 <thead>
@@ -57,7 +57,10 @@ ini_set('display_errors', 1);
                 </tbody>
             </table>
         </div>
-        <div class="p-2">
+                    <div class="p-2">
+
+                    </div>
+        <div class="p-2 admin_conteneur">
             <h5>Ajouter un utilisateur</h5>
             <form action="admin.php" method="post">
                 <div class="mb-3">
