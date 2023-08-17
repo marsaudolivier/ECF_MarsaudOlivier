@@ -37,7 +37,7 @@ Nous savons que la concurrence est rude dans l'industrie automobile, et c'est po
   <h2 class="p-4">Nos services</h2>
 </div>
 <?php
-require_once("lib/Services.php");
+require_once("templates/Services.php");
 Services($pdo);
 require_once("./templates/page_avis.php");
 Avis($pdo);
