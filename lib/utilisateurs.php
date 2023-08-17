@@ -78,16 +78,4 @@ Class utilisateurs{
         // Execution de la requête
         $stmt->execute();
     }
-     public static function UpdateUser($pdo, $user) {
-        $sql = "UPDATE Utilisateurs SET nom = :nom, prenom = :prenom, mail = :mail, mdp = :mdp, Id_Roles = :Id_Roles WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id', $user->GetId());
-        $stmt->bindValue(':nom', $user->GetNom());
-        $stmt->bindValue(':prenom', $user->GetPrenom());
-        $stmt->bindValue(':mail', $user->GetMail());
-        $stmt->bindValue(':mdp', $user->GetMdp());
-        $stmt->bindValue(':Id_Roles', $user->GetId_Roles());
-        $stmt->execute();
-    }
-
 }
