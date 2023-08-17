@@ -41,7 +41,7 @@ require_once("templates/Services.php");
 Services($pdo);
 require_once("./templates/page_avis.php");
 Avis($pdo);
-test($pdo);
+AvisContact($pdo);
 require_once("./templates/contacts.php");
 Contacts();
 ?>

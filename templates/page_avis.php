@@ -39,7 +39,7 @@ function Avis($pdo)
 <?php
 }
 
-function test()
+function AvisContact()
 { ?><div class="p-2">
   <div class="justify-content-center index_text p-2">
     <h2>Votre avis nous intéresse</h2>
