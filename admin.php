@@ -4,6 +4,8 @@ require_once("./lib/utilisateurs.php");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
+<script src="./scripts/admin.js"></script>
+
 <!--Intégration de la Fil ariane-->
 <a href="index.php" class="text-success p-2">Acceuil</a>
 <a href="admin.php" class="text-success p-2">Espace Administration'</a>
@@ -12,8 +14,8 @@ ini_set('display_errors', 1);
 <!--Ajout panel admin-->
 <div class="p-4 ">
     <h2>Espace administration</h2>
-    <div class="p-2 ">
-        <h3>Gestion des utilisateurs</h3>
+    <button class="btn btn-danger" onclick="toggle_visibility('Utilisateur');"><h4>Gestion des utilisateurs</h4></button>
+    <div class="p-2" id="Utilisateur">
         <div class="p-2 admin_conteneur">
             <h5>Liste des utilisateurs</h5>
             <table class="table">
@@ -105,6 +107,11 @@ ini_set('display_errors', 1);
             }
             ?>
 </div>
+</div>
+
+<?php
+require_once("./templates/footer.php");
+?>
 
 
 
