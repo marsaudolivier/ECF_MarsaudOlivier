@@ -39,8 +39,11 @@ ini_set('display_errors', 1);
                         echo "<td>" . ($user['Id_Roles'] === 1 ? "Administrateur" : "Utilisateur") . "</td>";
                         echo "<td>";
                         echo "<form method='post' action='admin.php'>";
-                        echo "<input type='hidden' name='deleteUserId' value='" . $user['Id_Utilisateurs'] . "'>";
-                        echo "<button type='submit' name='deleteUserButton'>Supprimer</button>";
+                        if ($user['Id_Roles']===2){
+                            echo "<input type='hidden' name='deleteUserId' value='" . $user['Id_Utilisateurs'] . "'>";
+                            echo "<button type='submit' name='deleteUserButton' disabled>Supprimer</button>";
+                        }
+
                         echo "</form>";
                         echo "</td>";
                         echo "</tr>";
