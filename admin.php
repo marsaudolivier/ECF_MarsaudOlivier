@@ -83,7 +83,6 @@ ini_set('display_errors', 1);
                     <label for="Id_Roles" class="form-label">Rôle</label>
                     <select class="form-select" aria-label="Default select example" name="Id_Roles">
                         <option selected>Choisissez un rôle</option>
-                        <option value="1">Administrateur</option>
                         <option value="2">Utilisateur</option>
                     </select>
                 </div>
