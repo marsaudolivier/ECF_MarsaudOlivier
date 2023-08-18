@@ -43,9 +43,8 @@ ini_set('display_errors', 1);
                         echo "<form method='post' action='admin.php'>";
                         if ($user['Id_Roles']===2){
                             echo "<input type='hidden' name='deleteUserId' value='" . $user['Id_Utilisateurs'] . "'>";
-                            echo "<button type='submit' name='deleteUserButton' disabled>Supprimer</button>";
+                            echo "<button type='submit' name='deleteUserButton' >Supprimer</button>";
                         }
-
                         echo "</form>";
                         echo "</td>";
                         echo "</tr>";
