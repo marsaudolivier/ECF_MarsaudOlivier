@@ -7,11 +7,9 @@ require_once("./templates/Service.php");
 <a href="index.php" class="text-success p-2">Acceuil</a>
 <a href="admin.php" class="text-success p-2">Espace Administration</a>
 <a href="adminServices.php" class="text-success p-2">Gestion des Services</a>
-<div class="p-2 admin_conteneur" id="Services">
-    <div class="p-2">
+    <div class="p-4">
         <h2>Modifier les services</h2>
     </div>
-</div>
 
         <?php
         
