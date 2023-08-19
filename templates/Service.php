@@ -42,22 +42,72 @@ function Service($pdo)
 };
 ?>
 <?php
-function ServicesAdmin($pdo){
-    if (isset($_POST["updateServicesButton"])) {
-        Services::UpdateService($pdo);
-        header("Location: adminServices.php");
-        exit; 
-    }
-    $Services = Services::GetAll($pdo);
-    foreach ($Services as $Service) {
-        ?>
-        <p class="text-info lib_horaires"><?=$Service['titre']?> : <?=$Service['description']?></p>
-        <form action="adminServices.php" method="post">
-            <input type="hidden" name="Id_Services" value="<?=$Service['Id_Services']?>">
-            <input type="text" name="titre" value="<?=$Service['titre']?>">
-            <input type="text" name="description" value="<?=$Service['description']?>">
-            <button type="submit" name="updateServicesButton" class="btn btn-success">Modifier</button>
-        </form>
-        <?php
-    }
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+function ServicesAdmin($pdo) {
+  if (isset($_POST["updateServicesButton"])) {
+      Services::UpdateService($pdo);
+      header("Location: adminServices.php");
+      exit; 
+  }
+  
+  if (isset($_POST["deleteServicesButton"])) {
+      $Id_ServicesToDelete = $_POST["deleteServicesButton"];
+      Services::DeleteService($pdo, $Id_ServicesToDelete);
+      header("Location: adminServices.php");
+      exit;
+  }
+
+  if (isset($_POST["NewServicesButton"])) {
+    // Récupérer les données du formulaire
+    $titre = $_POST['titre'];
+    $Description = $_POST['Description'];
+    $Id_Utilisateurs = 1;
+
+    
+    $newService = new Services($titre, $Description, $Id_Utilisateurs);
+  
+    
+    // Insérer le nouveau service
+    Services::InsertService($pdo, $newService);
+    
+    header("Location: adminServices.php");
+    exit; 
 }
+  // Affichage des services dans la page Admin
+  $Services = Services::GetAll($pdo);
+  foreach ($Services as $Service) {
+      ?>
+      <div class="lib_horaires">
+          <form action="adminServices.php" method="post">
+              <input type="hidden" name="Id_Services" value="<?=$Service['Id_Services']?>">
+              <input type="text" name="titre" value="<?=$Service['titre']?>">
+              <textarea name="description" rows="10" cols="200"><?=$Service['description']?></textarea>
+              <button type="submit" name="updateServicesButton" class="btn btn-success">Modifier</button>
+          </form>
+          <form action="adminServices.php" method="post">
+              <input type="hidden" name="deleteServicesButton" value="<?=$Service['Id_Services']?>">
+              <button type="submit" class="btn btn-danger">Supprimer</button>
+          </form>
+      </div>
+      <?php
+  }
+  ?>
+<div class="lib_horaires">
+    <form action="adminServices.php" method="post">
+        <input type="text" name="titre" placeholder="Titre">
+        <textarea name="Description" rows="10" cols="200" placeholder="Description"></textarea>
+        <button type="submit" name="NewServicesButton" class="btn btn-success">Ajouter</button>
+    </form>
+</div>
+
+      <?php
+  }
+?>
+
+
+
+
+
+

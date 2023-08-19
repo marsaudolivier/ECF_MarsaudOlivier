@@ -1,5 +1,6 @@
 <?php
 require_once("./templates/header.php");
+require_once("./lib/horaires.php");
 ?>
 <!--Intégration de la Fil ariane-->
 <a href="index.php" class="text-success p-2">Acceuil</a>
@@ -9,7 +10,6 @@ require_once("./templates/header.php");
             <div class="p-2">
                 <h2>Modifier horaire par rapport au jours</h2>
                 <?php
-                require_once("./lib/horaires.php");
                 HorairesAdmin($pdo);
                 ?>
             </div>

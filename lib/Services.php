@@ -29,8 +29,7 @@ Class Services{
     public function SetId_Utilisateurs($Id_Utilisateurs){
         $this->Id_Utilisateurs = $Id_Utilisateurs;
         }
-    public function __construct($Id_Services, $titre, $description, $Id_Utilisateurs){
-        $this->SetId_Services($Id_Services);
+    public function __construct($titre, $description, $Id_Utilisateurs){
         $this->SetTitre($titre);
         $this->SetDescription($description);
         $this->SetId_Utilisateurs($Id_Utilisateurs);
