@@ -15,6 +15,7 @@ require_once("./lib/utilisateurs.php");
 <Div class="admin_conteneur">
     <a href="adminUtilisateurs.php" class="text-success p-2"><h3>Administration du personnel</h3></a>
     <a href="adminHoraires.php" class="text-success p-2"><h3>Administration des horaires</h3></a>
+    <a href="adminServices.php" class="text-success p-2"><h3>Administration des Services</h3></a>
 
 </Div>
  

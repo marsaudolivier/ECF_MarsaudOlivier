@@ -1,10 +1,8 @@
 <?php
+require_once("./lib/Services.php");
 function Services($pdo)
 {
-    $sql = 'SELECT * FROM Services';
-    $query = $pdo->prepare($sql);
-    $query->execute();
-    $Services = $query->fetchAll(PDO::FETCH_ASSOC);
+  $Services = Services::GetAll($pdo);
 ?>
     <ul class="service p-4 m-3">
         
