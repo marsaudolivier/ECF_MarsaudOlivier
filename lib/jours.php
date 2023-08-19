@@ -42,4 +42,14 @@ Class Jours{
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
         }
+    public static function UpdateHoraire($pdo){
+        $sql = "UPDATE Jours SET jour = :jour, heure_matin = :heure_matin, heure_soir = :heure_soir WHERE Id_Jours = :Id_Jours";
+        $query = $pdo->prepare($sql);
+        $query->execute(array(
+            ':Id_Jours' => $_POST['Id_Jours'],
+            ':jour' => $_POST['jour'],
+            ':heure_matin' => $_POST['heure_matin'],
+            ':heure_soir' => $_POST['heure_soir']
+        ));
+    }
     }
