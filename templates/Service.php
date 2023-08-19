@@ -101,7 +101,6 @@ function ServicesAdmin($pdo) {
         <button type="submit" name="NewServicesButton" class="btn btn-success">Ajouter</button>
     </form>
 </div>
-
       <?php
   }
 ?>
