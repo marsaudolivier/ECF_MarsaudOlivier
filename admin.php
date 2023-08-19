@@ -1,8 +1,7 @@
 <?php
 require_once("./templates/header.php");
 require_once("./lib/utilisateurs.php");
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 ?>
 <script src="./scripts/admin.js"></script>
 
@@ -14,7 +13,9 @@ ini_set('display_errors', 1);
 <!--Ajout panel admin-->
 <div class="p-4 ">
     <h2>Espace administration</h2>
-    <button class="btn btn-danger" onclick="toggle_visibility('Utilisateur');"><h4>Gestion des utilisateurs</h4></button>
+    <button class="btn btn-danger" onclick="toggle_visibility('Utilisateur');">
+        <h4>Gestion des utilisateurs</h4>
+    </button>
     <div class="p-2" id="Utilisateur">
         <div class="p-2 admin_conteneur">
             <h5>Liste des utilisateurs</h5>
@@ -41,10 +42,11 @@ ini_set('display_errors', 1);
                         echo "<td>" . ($user['Id_Roles'] === 1 ? "Administrateur" : "Utilisateur") . "</td>";
                         echo "<td>";
                         echo "<form method='post' action='admin.php'>";
-                        if ($user['Id_Roles']===2){
+                        if ($user['Id_Roles'] === 2) {
                             echo "<input type='hidden' name='deleteUserId' value='" . $user['Id_Utilisateurs'] . "'>";
                             echo "<button type='submit' name='deleteUserButton' >Supprimer</button>";
                         }
+
                         echo "</form>";
                         echo "</td>";
                         echo "</tr>";
@@ -57,13 +59,14 @@ ini_set('display_errors', 1);
                             exit();
                         }
                     }
+
                     ?>
                 </tbody>
             </table>
         </div>
-                    <div class="p-2">
+        <div class="p-2">
 
-                    </div>
+        </div>
         <div class="p-2 admin_conteneur">
             <h5>Ajouter un utilisateur</h5>
             <form action="admin.php" method="post">
@@ -105,18 +108,47 @@ ini_set('display_errors', 1);
                 exit();
             }
             ?>
-</div>
-</div>
+        </div>
+    </div>
+    <h5>Gestion des jours et heures ouverture </h5>
+    <div class="p-2 admin_conteneur">
+        <h5>Liste des jours et heures d'ouverture</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Jour</th>
+                    <th scope="col">Ouverture</th>
+                    <th scope="col">Fermeture</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $sql = 'SELECT * FROM Jours INNER JOIN durer d on Jours.Id_Jours = d.Id_Jours INNER JOIN Heures H on d.Id_Heures = H.Id_Heures ORDER BY Jours.Id_Jours';
+                $query = $pdo->prepare($sql);
+                $query->execute();
+                $jours = $query->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($jours as $jour) {
+                    echo "<tr>";
+                    echo "<td>" . $jour['jour'] . "</td>";
+                    echo "<td>" . $jour['Ouverture'] . "</td>";
+                    echo "<td>" . $jour['Fermeture'] . "</td>";
+                    echo "</td>";
+                    echo "</tr>";
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 
-<?php
-require_once("./templates/footer.php");
-?>
+       
 
 
 
 
+        
 
 
 
-
-
+        <?php
+        require_once("./templates/footer.php");
+        ?>
