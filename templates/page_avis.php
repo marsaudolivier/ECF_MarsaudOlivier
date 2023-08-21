@@ -99,7 +99,6 @@ function AvisAdmin($pdo)
     exit;
   }
   if (isset($_POST["deleteAvisButton"])) {
-    $Aviss['Id_Avis']= $Id_AvisToDelete;
     Avis::DeleteAvis($pdo, $Id_AvisToDelete);
     header("Location: adminAvis.php");
     exit;
@@ -131,16 +130,14 @@ function AvisAdmin($pdo)
           <h3>Validations:</h3>
         </label>
         <select name="Id_Validations">
-          <option value="<?= $Aviss['Id_Validations'] ?>"><?php
-          if ($Aviss['Id_Validations']=== 2){
-            echo 'oui';?>
-            <option value="1">non</option
-           <?php ;}
-          else{
-            echo 'non';?>
-            <option value="2">oui</option>
-            <?php };?></option>
-          </select>
+  <?php if ($Aviss['Id_Validations'] === 2): ?>
+    <option value="2">oui</option>
+    <option value="1">non</option>
+  <?php else: ?>
+    <option value="1">non</option>
+    <option value="2">oui</option>
+  <?php endif; ?>
+</select>
           <!-- Boutons -->
         </select>        <button type="submit" name="updateAvisButton" class="btn btn-primary">Modifier</button>
       </form>
