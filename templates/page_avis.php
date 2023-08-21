@@ -99,6 +99,7 @@ function AvisAdmin($pdo)
     exit;
   }
   if (isset($_POST["deleteAvisButton"])) {
+    $Id_AvisToDelete = $_POST['Id_AvisToDelete']; 
     Avis::DeleteAvis($pdo, $Id_AvisToDelete);
     header("Location: adminAvis.php");
     exit;
@@ -142,7 +143,7 @@ function AvisAdmin($pdo)
         </select>        <button type="submit" name="updateAvisButton" class="btn btn-primary">Modifier</button>
       </form>
       <form action="adminAvis.php" method="post">
-        <input type="hidden" name="Id_Avis" value="<?= $Aviss['Id_Avis'] ?>">
+      <input type="hidden" name="Id_AvisToDelete" value="<?= $Aviss['Id_Avis'] ?>"> ">
         <button type="submit" name="deleteAvisButton" class="btn btn-danger">Supprimer</button>
       </form>
     </div>
