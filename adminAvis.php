@@ -8,6 +8,12 @@ require_once("./templates/header.php");
 <div class="p-4">
     <h2>Valider les Avis</h2>
 </div>
+<?php
+require_once("./lib/pdo.php");
+require_once("./lib/avis.php");
+require_once("./templates/page_avis.php");
+AvisAdmin($pdo);
+?>
 
 
 <?php

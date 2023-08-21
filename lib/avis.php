@@ -62,7 +62,31 @@ class Avis{
             echo "Avis non ajouté";
         }
     }
+    public static function GetAll($pdo) {
+        $sql = "SELECT * FROM Avis";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $Avis = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $Avis;
 
     }
+    public static function DeleteAvis($pdo, $Id_AvisToDelete) {
+        $sql = "DELETE FROM Avis WHERE Id_Avis = :Id_Avis";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':Id_Avis', $Id_AvisToDelete);
+        $stmt->execute();
+    }
+    public static function UpdateAvis($pdo) {
+        $sql = "UPDATE Avis SET nom = :nom, prenom = :prenom, commentaire = :commentaire, note = :note, Id_Validations = :Id_Validations WHERE Id_Avis = :Id_Avis";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':Id_Avis', $_POST['Id_Avis']);
+        $stmt->bindParam(':nom', $_POST['nom']);
+        $stmt->bindParam(':prenom', $_POST['prenom']);
+        $stmt->bindParam(':commentaire', $_POST['commentaire']);
+        $stmt->bindParam(':note', $_POST['note']);
+        $stmt->bindParam(':Id_Validations', $_POST['Id_Validations']);
+        $stmt->execute();
+    }
+}
 
         
