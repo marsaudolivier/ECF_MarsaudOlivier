@@ -57,3 +57,33 @@ function Contacts(){
     }
 
 }
+function VoirContact($pdo){
+  if (isset($_POST["deleteContactButton"])) {
+    $Id_Contact = $_POST['Id_ContactToDelete']; 
+    Contact::deleteContact($pdo, $Id_Contact);
+    header("Location: adminContacts.php");
+    exit;
+  }
+  $contacts = Contact::GetAll($pdo);
+  foreach ($contacts as $contact) { ?>
+  <div class="index_text p-1">
+    <div class="index_text">
+      <h3 class="p-4">contact: <?= $contact['Id_Formulaires'] ?></h3>
+      <h3>Motif de contact!  <?= $contact['motif'] ?></h3>
+    </div>
+    <div class="p-2">
+      MR ou MME <?= $contact['nom'] ?>  <?= $contact['prenom'] ?>
+      </p>
+      <p>Adresse Mail:  <?= $contact['mail'] ?></p>
+      <p>Numéro de téléphone:   <?= $contact['telephone'] ?></p>
+      <p>Demande: <?= $contact['message'] ?></p>
+    </div>
+      <p>
+      <form action="adminContacts.php" method="post">
+      <input type="hidden" name="Id_ContactToDelete" value="<?= $contact['Id_Formulaires'] ?>">
+        <button type="submit" name="deleteContactButton" class="btn btn-danger">Supprimer</button>
+      </form>
+    </div>
+  <?php
+   }
+}

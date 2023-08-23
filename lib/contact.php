@@ -56,15 +56,12 @@ Class Contact{
     public function insertContact($contact, $pdo){ 
         $sql = "INSERT INTO Formulaires (nom, prenom, mail, telephone, message, Id_Motifs) VALUES (:nom, :prenom, :mail, :telephone, :message, :Id_Motifs)";
         $stmt = $pdo->prepare($sql);
-    
-        // Liage des valeurs
         $stmt->bindParam(':nom', $contact->GetNom());
         $stmt->bindParam(':prenom', $contact->GetPrenom());
         $stmt->bindParam(':mail', $contact->GetMail());
         $stmt->bindParam(':telephone', $contact->GetTelephone());
         $stmt->bindParam(':message', $contact->GetMessage());
         $stmt->bindParam(':Id_Motifs', $contact->GetId_Motifs());
-    
         try {
             $stmt->execute();
             echo "Votre message a bien été enregistré";
@@ -72,4 +69,24 @@ Class Contact{
             echo "Erreur : " . $e->getMessage();
         }
     }
-}
+    public static function GetAll($pdo){
+        $sql = "SELECT * FROM Formulaires  
+        INNER JOIN Motifs m on Formulaires.Id_Motifs = m.Id_Motifs
+        ORDER BY Formulaires.Id_Formulaires DESC";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $contacts;
+    }
+    public static function deleteContact($pdo, $Id_Contact){
+        $sql = "DELETE FROM Formulaires WHERE Id_Formulaires = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':id', $Id_Contact);
+        try {
+            $stmt->execute();
+            echo "Le message a bien été supprimé";
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+    }
+    }
