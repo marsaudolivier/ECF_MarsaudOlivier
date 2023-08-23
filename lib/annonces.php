@@ -252,3 +252,24 @@ class Options extends avoir{
         $this->SetId_Options($Id_Options);
     }
 }
+class publier extends Annonces{
+    private int $Id_Annonces;
+    private int $Id_Utilisateurs;
+
+    private function GetId_Annonces(){
+        return $this->Id_Annonces;
+    }
+    private function GetId_Utilisateurs(){
+        return $this->Id_Utilisateurs;
+    }
+    private function SetId_Annonces($Id_Annonces){
+        $this->Id_Annonces = $Id_Annonces;
+    }
+    private function SetId_Utilisateurs($Id_Utilisateurs){
+        $this->Id_Utilisateurs = $Id_Utilisateurs;
+    }
+    public function __construct($Id_Annonces,$Id_Utilisateurs){
+        $this->SetId_Annonces($Id_Annonces);
+        $this->SetId_Utilisateurs($Id_Utilisateurs);
+    }
+}
