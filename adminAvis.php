@@ -9,6 +9,9 @@ require_once("./templates/header.php");
     <h2>Valider les Avis</h2>
 </div>
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require_once("./lib/pdo.php");
 require_once("./lib/avis.php");
 require_once("./templates/page_avis.php");

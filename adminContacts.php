@@ -11,7 +11,6 @@ require_once("./templates/contacts.php");
     </div>
         <?php
     VoirContact($pdo)
-
         ?>
 <?php
 require_once("./templates/footer.php");
