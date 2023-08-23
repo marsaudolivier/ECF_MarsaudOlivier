@@ -119,7 +119,6 @@ function AvisAdmin($pdo)
     exit;
     }
   }
-  // Affichage des avis dans la page Admin
   $Avise = Avis::GetAll($pdo);
   foreach ($Avise as $Aviss) {
 ?>
