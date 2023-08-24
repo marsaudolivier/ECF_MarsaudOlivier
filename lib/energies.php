@@ -1,22 +1,22 @@
 <?php
 class Energies
 {
-    protected string $energie;
-    protected int $Id_Energies;
+    private string $energie;
+    private int $Id_Energies;
 
-    protected function GetEnergie()
+    private function GetEnergie()
     {
         return $this->energie;
     }
-    protected function GetId_Energies()
+    private function GetId_Energies()
     {
         return $this->Id_Energies;
     }
-    protected function SetEnergie($energie)
+    private function SetEnergie($energie)
     {
         $this->energie = $energie;
     }
-    protected function SetId_Energies($Id_Energies)
+    private function SetId_Energies($Id_Energies)
     {
         $this->Id_Energies = $Id_Energies;
     }
