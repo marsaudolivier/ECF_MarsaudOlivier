@@ -45,6 +45,14 @@ class Annonces
         $this->SetId_Annonces($Id_Annonces);
         $this->SetId_Voitures($Id_Voitures);
     }
+    public static function GetAnnonces($pdo) {
+        $sql = "SELECT * FROM Annonces 
+        INNER JOIN Voitures v on Annonces.Id_Voitures = v.Id_Voitures";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $Annonces = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $Annonces;
+    }
 }
 class Voitures extends Annonces
 {
