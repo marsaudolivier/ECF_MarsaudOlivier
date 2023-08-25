@@ -18,7 +18,7 @@ require_once("./lib/utilisateurs.php");
     <a href="adminServices.php" class="text-success p-2"><h3>Administration des Services</h3></a>
     <a href="adminAvis.php" class="text-success p-2"><h3>Administration des Avis</h3></a>
     <a href="adminContacts.php" class="text-success p-2"><h3>Voir Formulaire Contacts</h3></a>
-
+    <a href="adminVoitures.php" class="text-success p-2"><h3>Administration des ventes vehicules</h3></a>
 </Div>
  
             </div>
