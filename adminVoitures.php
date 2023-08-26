@@ -8,21 +8,13 @@ require_once("./templates/card_vehicule.php");
 <a href="admin.php" class="text-success p-2">Espace Administration</a>
 <a href="adminVoitures.php" class="text-success p-2">Gestion des ventes vehicules</a>
 
-<!-- Intégration du tableau
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Titre</th>
-            <th scope="col">Date de publication</th>
-            <th scope="col">Kilométrage</th>
-            <th scope="col">Année de mise en circulation</th>
-            <th scope="col">Prix</th>
-            <th scope="col">Photo</th>
-            <th scope="col">Supprimer</th>
-        </tr>
-    </thead>
-    <tbody> -->
 <?php
+  if (isset($_POST["deleteAnnonceButton"])) {
+    $Id_Annonces = $_POST['Id_Annonces']; 
+    Annonces::DeleteAnnonce($pdo, $Id_Annonces);
+    header("Location: adminVoitures.php");
+    exit;
+  }
 // On récupère toutes les annonces
 $Annonces = Annonces::GetAnnonces($pdo); ?>
 <!-- On affiche les annonces -->
@@ -32,7 +24,8 @@ $Annonces = Annonces::GetAnnonces($pdo); ?>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <?php
             foreach ($Annonces as $voiture) {
-                Card($voiture);}
+                Card($voiture);
+            }
 ?>
 </div>
 </div>
