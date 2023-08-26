@@ -53,6 +53,12 @@ class Annonces
         $Annonces = $query->fetchAll(PDO::FETCH_ASSOC);
         return $Annonces;
     }
+    public static function DeleteAnnonce($pdo, $Id_Annonces) {
+        $sql = "DELETE FROM Annonces WHERE Id_Annonces = :Id_Annonces";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':Id_Annonces', $Id_Annonces, PDO::PARAM_INT);
+        $query->execute();
+    }
 }
 class Voitures extends Annonces
 {
