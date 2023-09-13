@@ -17,10 +17,27 @@ ini_set('display_errors', 1);
 if (isset($_POST["deleteAnnonceButton"])) {
     $Id_Annonces = $_POST['Id_Annonces'];
     $Id_Voitures = $_POST['Id_Voitures'];
+
+    // Récupérer les informations de la voiture, y compris le chemin de la photo principale
+    $voiture = Voitures::GetVoiture($pdo, $Id_Voitures);
+
+    // Extraire le chemin de la photo principale du tableau
+    $chemin_photo_principal = $voiture['photo_principal'];
+
+    // Supprimer toutes les relations avec l'annonce et la voiture
     avoir::DeleteAllForCar($pdo, $Id_Voitures);
     consommer::DeleteAllForCar($pdo, $Id_Voitures);
+    
+    // Supprimer l'annonce
     Annonces::DeleteAnnonce($pdo, $Id_Annonces);
+
+    // Supprimer la voiture
     Voitures::DeleteVoiture($pdo, $Id_Voitures);
+
+    // Supprimer le fichier photo principal s'il existe
+    if (!empty($chemin_photo_principal) && file_exists($chemin_photo_principal)) {
+        unlink($chemin_photo_principal); // Supprimer le fichier
+    }
 }
 if (isset($_POST["modifieAnnonceButton"])) {
     $Id_Annonces = $_POST['Id_Annoncess'];
