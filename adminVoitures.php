@@ -4,6 +4,7 @@ require_once("./lib/annonces.php");
 require_once("./templates/card_vehicule.php");
 require_once("./lib/options.php");
 require_once("./lib/energies.php");
+require_once("./lib/tools.php");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
@@ -27,11 +28,23 @@ if (isset($_POST["modifieAnnonceButton"])) {
     CardEdit($voiture, $pdo);
     }
 if (isset($_POST['ajouterVoiture'])){
-var_dump($_POST);
     $annee = $_POST['annee'];
     $kilometrage = $_POST['kilometrage'];
     $prix = $_POST['prix'];
-    $photo_principal = 'test';
+    $photo_principale = $_FILES['photo_principal'];
+    if ($photo_principale['error'] === 0) {
+        $nom_fichier = $photo_principale['name'];
+        $nom_fichier_unique = uniqid() . '-' . slugify($nom_fichier);
+        $dossier_cible = './uploads/voitures/';
+        $chemin_cible = $dossier_cible . $nom_fichier_unique;
+        if (move_uploaded_file($photo_principale['tmp_name'], $chemin_cible)) {
+        } else {
+            echo "Erreur lors du téléchargement du fichier.";
+        }
+    } else {
+        echo "Erreur lors du téléchargement du fichier.";
+    }
+    $photo_principal =$chemin_cible;
     $Id_Modeles = $_POST['modele'];
     $Id_Marques = $_POST['marque'];
     Voitures::CreateVoiture($pdo, $kilometrage, $annee, $prix, $photo_principal, $Id_Marques, $Id_Modeles);
