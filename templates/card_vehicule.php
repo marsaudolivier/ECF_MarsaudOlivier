@@ -42,8 +42,7 @@ function CardEdit($voiture, $pdo)
             <form action="adminVoitures.php" method="post">
                 <div class="row">
                     <div class="col">
-                        <img src="./uploads/voitures/twingo.jpg" class="" width="40%">
-                        <input type="file" name="photo_principal" id="photo_principal" value="<?= $voiture['photo_principal'] ?>">
+                        <img src="<?= $voiture['photo_principal'] ?>" class="" width="40%">
                     </div>
                     <div class="col p-5 admin_conteneur">
                         <input type="hidden" name="Id_Voitures" value="<?= $voiture['Id_Voitures'] ?>">

@@ -311,10 +311,10 @@ class Photos extends Voitures
         $query = $pdo->prepare($sql);
         $query->execute(['Id_Photos' => $Id_Photos]);
     }
-    public static function GetPhotos($pdo){
-        $sql = "SELECT * FROM Photos";
+    public static function GetPhotosByVoitures($pdo, $Id_Voitures){
+        $sql = "SELECT * FROM Photos WHERE Id_Voitures = :Id_Voitures";
         $query = $pdo->prepare($sql);
-        $query->execute();
+        $query->execute(['Id_Voitures' => $Id_Voitures]);
         $photos = $query->fetchAll(PDO::FETCH_ASSOC);
         return $photos;
     }
