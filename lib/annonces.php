@@ -47,7 +47,10 @@ class Annonces
     }
     public static function GetAnnonces($pdo) {
         $sql = "SELECT * FROM Annonces 
-        INNER JOIN Voitures v on Annonces.Id_Voitures = v.Id_Voitures";
+        INNER JOIN Voitures v on Annonces.Id_Voitures = v.Id_Voitures
+        left JOIN Marques m on v.Id_Marques = m.Id_Marques
+        left JOIN Modeles mo on v.Id_Modeles = mo.Id_Modeles
+";
         $query = $pdo->prepare($sql);
         $query->execute();
         $Annonces = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -56,18 +59,13 @@ class Annonces
     public static function GetAnnonce($pdo, $Id_Annonces) {
         $sql = "SELECT * FROM Annonces 
         INNER JOIN Voitures v on Annonces.Id_Voitures = v.Id_Voitures
-        INNER JOIN Marques m on v.Id_Marques = m.Id_Marques
-        INNER JOIN Modeles mo on m.Id_Marques = mo.Id_Marques
-        INNER JOIN Photos p on v.Id_Voitures = p.Id_Voitures
-        INNER JOIN consommer c on mo.Id_Modeles = c.Id_Modeles
-        INNER JOIN Energies e on c.Id_Energies = e.Id_Energies
-        INNER JOIN avoir a on mo.Id_Modeles = a.Id_Modeles
+        left JOIN Marques m on v.Id_Marques = m.Id_Marques
+        left JOIN Modeles mo on v.Id_Modeles = mo.Id_Modeles
         WHERE Id_Annonces = :Id_Annonces";
         $query = $pdo->prepare($sql);
         $query->bindValue(':Id_Annonces', $Id_Annonces, PDO::PARAM_INT);
         $query->execute();
         $Annonces = $query->fetch(PDO::FETCH_ASSOC);
-        $options = $query->fetchAll(PDO::FETCH_COLUMN);
         return $Annonces;
     }
     public static function DeleteAnnonce($pdo, $Id_Annonces) {
@@ -104,6 +102,7 @@ class Voitures extends Annonces
     public string $photo_principal;
     public int $Id_Voitures;
     public int $Id_Marques;
+    public int $Id_Modeles;
 
     public function GetKilometrage()
     {
@@ -129,6 +128,10 @@ class Voitures extends Annonces
     {
         return $this->Id_Marques;
     }
+    public function GetId_Modeles()
+    {
+        return $this->Id_Modeles;
+    }
     public function SetKilometrage($kilometrage)
     {
         $this->kilometrage = $kilometrage;
@@ -153,7 +156,11 @@ class Voitures extends Annonces
     {
         $this->Id_Marques = $Id_Marques;
     }
-    public function __construct($kilometrage, $annee, $prix, $photo_principal, $Id_Voitures, $Id_Marques)
+    public function SetId_Modeles($Id_Modeles)
+    {
+        $this->Id_Modeles = $Id_Modeles;
+    }
+    public function __construct($kilometrage, $annee, $prix, $photo_principal, $Id_Voitures, $Id_Marques, $Id_Modeles)
     {
         $this->SetKilometrage($kilometrage);
         $this->SetAnnee($annee);
@@ -161,10 +168,47 @@ class Voitures extends Annonces
         $this->SetPhoto_Principal($photo_principal);
         $this->SetId_Voitures($Id_Voitures);
         $this->SetId_Marques($Id_Marques);
+        $this->SetId_Modeles($Id_Modeles);
     }
-    public static function UpdateVehicule($pdo, $kilometrage, $annee, $prix,  $photo_principal, $Id_Voitures, $Id_Marques)
+    public static function GetVoitures($pdo)
     {
-        $sql = "UPDATE Voitures SET kilometrage = :kilometrage, annee = :annee, prix = :prix, photo_principal = :photo_principal, Id_Voitures = :Id_Voitures, Id_Marques = :Id_Marques WHERE Id_Voitures = :Id_Voitures";
+        $sql = "SELECT * FROM Voitures";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $voitures = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $voitures;
+    }
+    public static function GetVoiture($pdo, $Id_Voitures)
+    {
+        $sql = "SELECT * FROM Voitures WHERE Id_Voitures = :Id_Voitures";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':Id_Voitures', $Id_Voitures, PDO::PARAM_INT);
+        $query->execute();
+        $voiture = $query->fetch(PDO::FETCH_ASSOC);
+        return $voiture;
+    }
+    public static function DeleteVoiture($pdo, $Id_Voitures)
+    {
+        $sql = "DELETE FROM Voitures WHERE Id_Voitures = :Id_Voitures";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':Id_Voitures', $Id_Voitures, PDO::PARAM_INT);
+        $query->execute();
+    }
+    public static function CreateVoiture($pdo, $kilometrage, $annee, $prix, $photo_principal, $Id_Marques, $Id_Modeles)
+    {
+        $sql = "INSERT INTO Voitures (kilometrage, annee, prix, photo_principal, Id_Marques, Id_Modeles) VALUES (:kilometrage, :annee, :prix, :photo_principal, :Id_Marques, :Id_Modeles)";
+        $query = $pdo->prepare($sql);
+        $query->bindValue(':kilometrage', $kilometrage, PDO::PARAM_INT);
+        $query->bindValue(':annee', $annee, PDO::PARAM_STR);
+        $query->bindValue(':prix', $prix, PDO::PARAM_INT);
+        $query->bindValue(':photo_principal', $photo_principal, PDO::PARAM_STR);
+        $query->bindValue(':Id_Marques', $Id_Marques, PDO::PARAM_INT);
+        $query->bindValue(':Id_Modeles', $Id_Modeles, PDO::PARAM_INT);
+        $query->execute();
+    }
+    public static function UpdateVoiture($pdo, $kilometrage, $annee, $prix, $photo_principal, $Id_Voitures, $Id_Marques, $Id_Modeles)
+    {
+        $sql = "UPDATE Voitures SET kilometrage = :kilometrage, annee = :annee, prix = :prix, photo_principal = :photo_principal, Id_Marques = :Id_Marques, Id_Modeles = :Id_Modeles WHERE Id_Voitures = :Id_Voitures";
         $query = $pdo->prepare($sql);
         $query->bindValue(':kilometrage', $kilometrage, PDO::PARAM_INT);
         $query->bindValue(':annee', $annee, PDO::PARAM_STR);
@@ -172,8 +216,10 @@ class Voitures extends Annonces
         $query->bindValue(':photo_principal', $photo_principal, PDO::PARAM_STR);
         $query->bindValue(':Id_Voitures', $Id_Voitures, PDO::PARAM_INT);
         $query->bindValue(':Id_Marques', $Id_Marques, PDO::PARAM_INT);
+        $query->bindValue(':Id_Modeles', $Id_Modeles, PDO::PARAM_INT);
         $query->execute();
     }
+
 }
 class Marques extends Voitures
 {
@@ -326,42 +372,60 @@ class Modeles extends Marques
         $modeles = $query->fetchAll(PDO::FETCH_ASSOC);
         return $modeles;
     }
-}
-class avoir extends Modeles{
-    public int $Id_Modeles;
-    public int $Id_Options;
-
-    public function GetId_Modeles()
-    {
-        return $this->Id_Modeles;
+    public static function GetModelesByMarques($pdo, $Id_Marques){
+        $sql = "SELECT * FROM Modeles WHERE Id_Marques = :Id_Marques";
+        $query = $pdo->prepare($sql);
+        $query->execute(['Id_Marques' => $Id_Marques]);
+        $modeles = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $modeles;
     }
+    public static function UpdateModele($pdo, $Id_modeles, $Id_Marques){
+        $sql = "UPDATE Modeles SET Id_Marques = :Id_Marques WHERE Id_Modeles = :Id_Modeles";
+        $query = $pdo->prepare($sql);
+        $query->execute(['Id_Marques' => $Id_Marques, 'Id_Modeles' => $Id_modeles]);
+    }
+}
+class avoir extends Voitures{
+    public int $Id_Options;
+    public int $Id_Voitures;
+
     public function GetId_Options()
     {
         return $this->Id_Options;
     }
-    public function SetId_Modeles($Id_Modeles)
+    public function GetId_Voitures()
     {
-        $this->Id_Modeles = $Id_Modeles;
+        return $this->Id_Voitures;
     }
+
     public function SetId_Options($Id_Options)
     {
         $this->Id_Options = $Id_Options;
     }
-    public function __construct($Id_Modeles, $Id_Options)
+    public function SetId_Voitures($Id_Voitures)
     {
-        $this->SetId_Modeles($Id_Modeles);
+        $this->Id_Voitures = $Id_Voitures;
+    }
+    public function __construct($Id_Options, $Id_Voitures)
+    {
         $this->SetId_Options($Id_Options);
+        $this->SetId_Voitures($Id_Voitures);
     }
-    //Add option par rapport annonces
-    public static function AddOption($pdo, $Id_Modeles, $Id_Options){
-        $sql = "INSERT INTO avoir (Id_Modeles, Id_Options) VALUES (:Id_Modeles, :Id_Options)";
+    public static function AddOption($pdo, $Id_Options, $Id_Voitures){
+        $sql = "INSERT INTO avoir (Id_Options, Id_Voitures) VALUES (:Id_Options, :Id_Voitures)";
         $query = $pdo->prepare($sql);
-        $query->execute(['Id_Modeles' => $Id_Modeles, 'Id_Options' => $Id_Options]);
+        $query->execute(['Id_Options' => $Id_Options, 'Id_Voitures' => $Id_Voitures]);
     }
-    //Delete option par rapport annonces
-    public static function DeleteOption($pdo, $Id_Modeles, $Id_Options){
-        $sql = "DELETE FROM avoir WHERE Id_Modeles = :Id_Modeles AND Id_Options = :Id_Options";
+    public static function GetOptions($pdo){
+        $sql = "SELECT * FROM avoir";
         $query = $pdo->prepare($sql);
-        $query->execute(['Id_Modeles' => $Id_Modeles, 'Id_Options' => $Id_Options]);
+        $query->execute();
+        $options = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $options;
+    }
+    public static function DeleteAllForCar($pdo, $Id_Voitures){
+        $sql = "DELETE FROM avoir WHERE Id_Voitures = :Id_Voitures";
+        $query = $pdo->prepare($sql);
+        $query->execute(['Id_Voitures' => $Id_Voitures]);
     }
 }

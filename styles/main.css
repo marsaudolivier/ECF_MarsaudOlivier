@@ -12266,4 +12266,14 @@ h4, .h4 {
   font-size: 19px;
   width: 85%;
   margin: auto;
+}
+
+.admin_conteneurTwo {
+  background-color: #FF8778;
+  color: #2F2569;
+  border: 3px solid #9C122B;
+  border-radius: 50px;
+  font-size: 19px;
+  width: 100%;
+  margin: auto;
 }/*# sourceMappingURL=main.css.map */

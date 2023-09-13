@@ -21,7 +21,7 @@ Class Options{
     }
     public static function GetOptionById($pdo, $Id_Voitures){
         $sql = "SELECT * FROM Options WHERE Id_Options IN 
-        (SELECT a.Id_Options FROM avoir a WHERE a.Id_Modeles = :Id_Voitures)";
+        (SELECT a.Id_Options FROM avoir a WHERE a.Id_Voitures = :Id_Voitures)";
     $query = $pdo->prepare($sql);
     $query->execute(['Id_Voitures' => $Id_Voitures]);
     $options = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -29,10 +29,17 @@ Class Options{
     }
     public static function GetOptionById2($pdo, $Id_Voitures){
         $sql = "SELECT * FROM Options WHERE Id_Options NOT IN 
-        (SELECT a.Id_Options FROM avoir a WHERE a.Id_Modeles = :Id_Voitures)";
+        (SELECT a.Id_Options FROM avoir a WHERE a.Id_Voitures = :Id_Voitures)";
     $query = $pdo->prepare($sql);
     $query->execute(['Id_Voitures' => $Id_Voitures]);
     $uncheckedOptions = $query->fetchAll(PDO::FETCH_ASSOC);
     return $uncheckedOptions;
+    }
+    public static function GetOptions($pdo){
+        $sql = "SELECT * FROM Options";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        $options = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $options;
     }
 }

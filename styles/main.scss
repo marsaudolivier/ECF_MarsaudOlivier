@@ -299,3 +299,12 @@ grid-template-columns: auto;
   width: 85%;
   margin: auto;
 }
+.admin_conteneurTwo{
+  background-color: $success;
+  color: $primary;
+  border: 3px solid $danger;
+  border-radius: 50px;
+  font-size: 19px;
+  width: 100%;
+  margin: auto;
+}
