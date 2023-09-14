@@ -301,15 +301,15 @@ class Photos extends Voitures
         $this->SetId_Photos($Id_Photos);
         $this->SetId_Voitures($Id_Voitures);
     }
-    public static function AddPhoto($pdo, $photo_secondaire, $Id_Voitures){
+    public static function CreatePhoto($pdo, $photo_secondaire, $Id_Voitures){
         $sql = "INSERT INTO Photos (photo_secondaire, Id_Voitures) VALUES (:photo_secondaire, :Id_Voitures)";
         $query = $pdo->prepare($sql);
         $query->execute(['photo_secondaire' => $photo_secondaire, 'Id_Voitures' => $Id_Voitures]);
     }
-    public static function DeletePhoto($pdo, $Id_Photos){
-        $sql = "DELETE FROM Photos WHERE Id_Photos = :Id_Photos";
+    public static function DeletePhotoByVoiture($pdo, $Id_Voitures){
+        $sql = "DELETE FROM Photos WHERE Id_Voitures = :Id_Voitures";
         $query = $pdo->prepare($sql);
-        $query->execute(['Id_Photos' => $Id_Photos]);
+        $query->execute(['Id_Voitures' => $Id_Voitures]);
     }
     public static function GetPhotosByVoitures($pdo, $Id_Voitures){
         $sql = "SELECT * FROM Photos WHERE Id_Voitures = :Id_Voitures";

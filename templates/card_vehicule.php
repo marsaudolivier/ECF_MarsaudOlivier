@@ -166,10 +166,8 @@ function Newcard($pdo)
                         ?>
                     </fieldset>
                     <label for="photo_secondaire">Choisissez des photos secondaires :</label>
-                    <input type="file" name="photo_secondaire" id="photo_secondaire" accept="image/*" multiple>
-                    <div id="image_previews"></div>
-
-
+                    <input type="file" name="photo_secondaire[]" id="photo_secondaire" accept="image/*" multiple>                   
+                     <div id="image_previews"></div>
                     <button type="submit" name="ajouterVoiture" class="btn btn-outline-dark ">Ajouter Voiture</button>
                 </div>
             </div>
