@@ -116,7 +116,7 @@ function Newcard($pdo)
 ?>
     <div class="card shadow-sm admin_conteneur">
         <h3>Création de vehicule</h3>
-        <form action="adminVoitures.php" method="post" enctype="multipart/form-data">
+        <form action="adminVoitures.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
             <div class="row admin_conteneur">
                 <div class="col p-2">
                     <p class="card-text">Titre: <input type="text" name="titre" value=""></br>Année :<input type="number" name="annee" value="">

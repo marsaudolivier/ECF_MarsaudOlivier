@@ -242,31 +242,31 @@ function refreshModelesList() {
 }
 
 // Sélectionnez l'élément d'entrée de fichier et l'élément d'image de prévisualisation.
-let fileInput = document.getElementById('photo_principal');
-let imagePreview = document.getElementById('image_preview');
+let fileInput = document.getElementById("photo_principal");
+let imagePreview = document.getElementById("image_preview");
 
 // Ajoutez un écouteur d'événements pour détecter le changement de fichier.
-fileInput.addEventListener('change', function() {
+fileInput.addEventListener("change", function () {
   let file = fileInput.files[0];
   if (file) {
     // Créez un objet URL à partir du fichier sélectionné.
     let imageURL = URL.createObjectURL(file);
     // Mettez à jour l'élément d'image de prévisualisation.
     imagePreview.src = imageURL;
-    imagePreview.style.display = 'block';
+    imagePreview.style.display = "block";
   } else {
     // Cachez l'image de prévisualisation si aucun fichier n'est sélectionné.
-    imagePreview.style.display = 'none';
+    imagePreview.style.display = "none";
   }
 });
 // Sélectionnez l'élément d'entrée de fichier et l'élément contenant les aperçus d'image.
-let fileInputs = document.getElementById('photo_secondaire');
-let imagePreviews = document.getElementById('image_previews');
+let fileInputs = document.getElementById("photo_secondaire");
+let imagePreviews = document.getElementById("image_previews");
 
 // Ajoutez un écouteur d'événements pour détecter le changement de fichier.
-fileInputs.addEventListener('change', function() {
+fileInputs.addEventListener("change", function () {
   // Supprimez tous les aperçus d'image existants.
-  imagePreviews.innerHTML = '';
+  imagePreviews.innerHTML = "";
 
   let files = fileInputs.files;
   for (let i = 0; i < files.length; i++) {
@@ -274,18 +274,82 @@ fileInputs.addEventListener('change', function() {
     // Créez un objet URL à partir du fichier sélectionné.
     let imageURL = URL.createObjectURL(file);
     // Créez un élément d'image pour l'aperçu.
-    let image = document.createElement('img');
+    let image = document.createElement("img");
     image.src = imageURL;
-    image.style.maxWidth = '100px';
-    image.style.maxHeight = '100px';
+    image.style.maxWidth = "100px";
+    image.style.maxHeight = "100px";
 
     // Ajoutez l'élément d'image à la liste des aperçus d'image.
     imagePreviews.appendChild(image);
   }
   // Cachez l'élément de prévisualisation s'il n'y a aucun fichier sélectionné.
   if (files.length === 0) {
-    imagePreviews.style.display = 'none';
+    imagePreviews.style.display = "none";
   } else {
-    imagePreviews.style.display = 'block';
+    imagePreviews.style.display = "block";
   }
 });
+
+function validateForm() {
+  var energieCheckbox = document.getElementsByName("energie[]");
+  var optionCheckbox = document.getElementsByName("options[]");
+
+  var energieChecked = false;
+  var optionChecked = false;
+
+  for (var i = 0; i < energieCheckbox.length; i++) {
+    if (energieCheckbox[i].checked) {
+      energieChecked = true;
+      break; // Au moins une énergie sélectionnée
+    }
+  }
+
+  for (var i = 0; i < optionCheckbox.length; i++) {
+    if (optionCheckbox[i].checked) {
+      optionChecked = true;
+      break; // Au moins une option sélectionnée
+    }
+  }
+
+  // Validation du titre
+  var titre = document.getElementsByName("titre")[0].value;
+  if (titre.trim() === "") {
+    alert("Le champ 'Titre' est obligatoire.");
+    return false;
+  }
+
+  // Validation de l'année (4 chiffres max)
+  var annee = document.getElementsByName("annee")[0].value;
+  if (isNaN(annee) || annee.length !== 4) {
+    alert("L'année doit contenir exactement 4 chiffres positif.");
+    return false;
+  }
+
+  // Validation du prix (chiffres positifs)
+  var prix = document.getElementsByName("prix")[0].value;
+  if (isNaN(prix) || prix <= 0) {
+    alert("Le champ 'Prix' doit contenir un nombre positif.");
+    return false;
+  }
+
+  // Validation du kilométrage (chiffres positifs)
+  var kilometrage = document.getElementsByName("kilometrage")[0].value;
+  if (isNaN(kilometrage) || kilometrage <= 0) {
+    alert("Le champ 'Kilométrage' doit contenir un nombre positif.");
+    return false;
+  }
+
+  if (!energieChecked || !optionChecked) {
+    alert("Veuillez sélectionner au moins une énergie et une option.");
+    return false; // Empêche la soumission du formulaire
+  }
+
+  // Validation de la présence d'une photo principale
+  var photoPrincipale = document.getElementById("photo_principal");
+  if (photoPrincipale.files.length === 0) {
+    alert("Veuillez sélectionner une photo principale.");
+    return false;
+  }
+
+  return true; // Le formulaire sera soumis si tout est correct
+}
