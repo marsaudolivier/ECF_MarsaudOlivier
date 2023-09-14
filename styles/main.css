@@ -11972,6 +11972,36 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.ventes_slider_conteneur {
+  display: grid;
+  align-self: center;
+  width: 95%;
+  background-color: #5CB8FF;
+  border-radius: 50px;
+  border: 3px solid #FF8778;
+  margin: auto;
+}
+
+.ventes_slider_text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  color: #2F2569;
+  font-size: 15px;
+}
+
+.noUi-connect {
+  background-color: #2F2569;
+}
+
+.noUi-handle {
+  background-color: #2F2569;
+  border-radius: 100%;
+  border: 1px solid #FF8778;
+}
+
 body {
   background-color: #686869;
   font-family: "Aref Ruqaa Ink", serif;
@@ -12276,4 +12306,45 @@ h4, .h4 {
   font-size: 19px;
   width: 100%;
   margin: auto;
+}
+
+.ventes_bouton {
+  align-items: center;
+  margin: auto;
+  width: 125px;
+  height: 25px;
+  font-size: 10px;
+}
+
+.filtre {
+  display: grid;
+  margin: auto;
+  background-color: #5CB8FF;
+  border-radius: 5%;
+  border: 3px solid #FF8778;
+  width: 95%;
+}
+
+.ventes_bouton_recherche {
+  display: grid;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  background: linear-gradient(to bottom right, #2F2569 0%, #9C122B 50%) bottom right/50% 50% no-repeat, linear-gradient(to bottom left, #2F2569 0%, #9C122B 50%) bottom left/50% 50% no-repeat, linear-gradient(to top left, #2F2569 0%, #9C122B 50%) top left/50% 50% no-repeat, linear-gradient(to top right, #2F2569 0%, #9C122B 50%) top right/50% 50% no-repeat;
+  color: #FF8778;
+}
+
+@media screen and (min-width: 600px) {
+  .filtre {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 95%;
+    gap: 35px;
+    margin: auto;
+    background-color: #5CB8FF;
+    border-radius: 5%;
+    border: 3px solid #FF8778;
+  }
 }/*# sourceMappingURL=main.css.map */

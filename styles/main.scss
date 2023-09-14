@@ -308,3 +308,41 @@ grid-template-columns: auto;
   width: 100%;
   margin: auto;
 }
+.ventes_bouton{
+  align-items: center;
+  margin: auto;
+  width: 125px;
+  height: 25px;
+  font-size: 10px;
+}
+.filtre{
+  display: grid;
+  margin: auto;
+  background-color: $info;
+  border-radius: 5%;
+  border: 3px solid $success;
+  width: 95%;
+}
+.ventes_bouton_recherche{
+  display: grid;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  background: linear-gradient(to bottom right, #2F2569 0%, #9C122B 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #2F2569 0%, #9C122B 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #2F2569 0%, #9C122B 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #2F2569 0%, #9C122B 50%) top right / 50% 50% no-repeat;
+  color: $success;
+}
+@media screen and (min-width : 600px) {
+  .filtre{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;  
+      width: 95%;
+      gap: 35px;
+
+      margin: auto;
+      background-color: $info;
+      border-radius: 5%;
+      border: 3px solid $success; 
+  }
+  }

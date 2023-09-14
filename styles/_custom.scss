@@ -15,5 +15,34 @@ $table-bg: $info;
 //Import Scss bootstrap
 @import "../vendor/twbs/bootstrap/scss/bootstrap";
 
+
+.ventes_slider_conteneur{
+    display: grid;
+    align-self: center;
+    width: 95%;
+    background-color: $info;
+    border-radius: 50px;
+    border: 3px solid $success;
+    margin: auto;
+}
+.ventes_slider_text{
+   display: flex;
+   flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    color: $primary;
+    font-size: 15px;    
+}
+
+.noUi-connect{
+    background-color: $primary;
+}
+.noUi-handle{
+    background-color: $primary;
+    border-radius: 100%;
+    border: 1px solid $success;
+}
+
 //Import css nouislider
 @import "nouislider.min.css"
