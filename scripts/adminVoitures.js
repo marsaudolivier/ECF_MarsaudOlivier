@@ -291,20 +291,20 @@ fileInputs.addEventListener("change", function () {
 });
 
 function validateForm() {
-  var energieCheckbox = document.getElementsByName("energie[]");
-  var optionCheckbox = document.getElementsByName("options[]");
+  let energieCheckbox = document.getElementsByName("energie[]");
+  let optionCheckbox = document.getElementsByName("options[]");
 
-  var energieChecked = false;
-  var optionChecked = false;
+  let energieChecked = false;
+  let optionChecked = false;
 
-  for (var i = 0; i < energieCheckbox.length; i++) {
+  for (let i = 0; i < energieCheckbox.length; i++) {
     if (energieCheckbox[i].checked) {
       energieChecked = true;
       break; // Au moins une énergie sélectionnée
     }
   }
 
-  for (var i = 0; i < optionCheckbox.length; i++) {
+  for (let i = 0; i < optionCheckbox.length; i++) {
     if (optionCheckbox[i].checked) {
       optionChecked = true;
       break; // Au moins une option sélectionnée
@@ -312,28 +312,28 @@ function validateForm() {
   }
 
   // Validation du titre
-  var titre = document.getElementsByName("titre")[0].value;
+  let titre = document.getElementsByName("titre")[0].value;
   if (titre.trim() === "") {
     alert("Le champ 'Titre' est obligatoire.");
     return false;
   }
 
   // Validation de l'année (4 chiffres max)
-  var annee = document.getElementsByName("annee")[0].value;
+  let annee = document.getElementsByName("annee")[0].value;
   if (isNaN(annee) || annee.length !== 4) {
     alert("L'année doit contenir exactement 4 chiffres positif.");
     return false;
   }
 
   // Validation du prix (chiffres positifs)
-  var prix = document.getElementsByName("prix")[0].value;
+  let prix = document.getElementsByName("prix")[0].value;
   if (isNaN(prix) || prix <= 0) {
     alert("Le champ 'Prix' doit contenir un nombre positif.");
     return false;
   }
 
   // Validation du kilométrage (chiffres positifs)
-  var kilometrage = document.getElementsByName("kilometrage")[0].value;
+  let kilometrage = document.getElementsByName("kilometrage")[0].value;
   if (isNaN(kilometrage) || kilometrage <= 0) {
     alert("Le champ 'Kilométrage' doit contenir un nombre positif.");
     return false;
@@ -345,7 +345,7 @@ function validateForm() {
   }
 
   // Validation de la présence d'une photo principale
-  var photoPrincipale = document.getElementById("photo_principal");
+  let photoPrincipale = document.getElementById("photo_principal");
   if (photoPrincipale.files.length === 0) {
     alert("Veuillez sélectionner une photo principale.");
     return false;

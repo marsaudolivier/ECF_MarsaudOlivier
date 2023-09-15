@@ -1,6 +1,6 @@
 <?php
   $mainMenu = [
     'index.php' => 'Accueil', 
-    'Ventes.php' => 'Ventes',
+    'ventes.php' => 'Ventes',
     'Admin.php' => 'Admin'
   ];

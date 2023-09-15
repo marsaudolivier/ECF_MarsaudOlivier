@@ -2,7 +2,7 @@
 function Card($voiture)
 { ?>
     <div class="col">
-        <div class="card shadow-sm admin_conteneur">
+        <div class="card shadow-sm admin_conteneur" >
             <img src="<?= $voiture['photo_principal'] ?>" alt="" class="index_text">
             <h3><?= $voiture['titre'] ?></h3>
             <p class="card-text">Année :<?= $voiture['annee'] ?></br>
@@ -14,7 +14,7 @@ function Card($voiture)
             <?php
             if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminVoitures.php") { ?>
                 <form action="adminVoitures.php" method="post">
-                <input type="hidden" name="Id_Voitures" value="<?= $voiture['Id_Voitures'] ?>">
+                    <input type="hidden" name="Id_Voitures" value="<?= $voiture['Id_Voitures'] ?>">
 
                     <input type="hidden" name="Id_Annonces" value="<?= $voiture['Id_Annonces'] ?>">
                     <button type="submit" name="deleteAnnonceButton" class="btn btn-sm btn-danger">Supprimer</button>
@@ -23,8 +23,9 @@ function Card($voiture)
                     <input type="hidden" name="Id_Annoncess" value="<?= $voiture['Id_Annonces'] ?>">
                     <button type="submit" name="modifieAnnonceButton" class="btn btn-sm btn-warning">Modifier</button>
                 <?php }
-            if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/Ventes.php") { ?>
-                    <form action="Ventes.php" method="post">                        <input type="hidden" name="Id_Annoncess" value="<?= $voiture['Id_Annonces'] ?>">
+            if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/ventes.php") { ?>
+                    <form action="ventes.php" method="post">
+                        <input type="hidden" name="Id_Annoncess" value="<?= $voiture['Id_Annonces'] ?>">
                         <button type="submit" name="detailAnnonceButton" class="btn btn-sm btn-warning">Détail</button>
                     <?php }  ?>
         </div>
@@ -166,8 +167,8 @@ function Newcard($pdo)
                         ?>
                     </fieldset>
                     <label for="photo_secondaire">Choisissez des photos secondaires :</label>
-                    <input type="file" name="photo_secondaire[]" id="photo_secondaire" accept="image/*" multiple>                   
-                     <div id="image_previews"></div>
+                    <input type="file" name="photo_secondaire[]" id="photo_secondaire" accept="image/*" multiple>
+                    <div id="image_previews"></div>
                     <button type="submit" name="ajouterVoiture" class="btn btn-outline-dark ">Ajouter Voiture</button>
                 </div>
             </div>
@@ -211,14 +212,17 @@ function recupAnonce($pdo)
     // On récupère toutes les annonces
     $Annonces = Annonces::GetAnnonces($pdo); ?>
     <!-- On affiche les annonces -->
-    <h2>Liste des véhicules</h2>
     <form action="adminVoitures.php" method="post">
-        <button type="submit" name="CreateVehicule" class="btn btn-sm btn-success">création d'un nouveau vehicule</button>
+        <?php
+        if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminVoitures.php") { ?>
+                <h2>Liste des véhicules</h2>
+            <button type="submit" name="CreateVehicule" class="btn btn-sm btn-success">création d'un nouveau vehicule</button>
+        <?php } ?>
 
     </form>
     <div class="album py-5">
-        <div class="container ">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="container" >
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
                 <?php
                 foreach ($Annonces as $voiture) {
                     Card($voiture);

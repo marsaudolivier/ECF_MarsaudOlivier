@@ -41,7 +41,6 @@ if (isset($_POST["deleteAnnonceButton"])) {
     if (!empty($chemin_photo_principal) && file_exists($chemin_photo_principal)) {
         unlink($chemin_photo_principal); // Supprimer le fichier
     }
-   
 }
 if (isset($_POST["modifieAnnonceButton"])) {
     $Id_Annonces = $_POST['Id_Annoncess'];
@@ -84,30 +83,29 @@ if (isset($_POST['ajouterVoiture'])) {
         avoir::AddOption($pdo, $Id_Options, $Id_Voitures);
     }
     $photo_secondaire = $_FILES['photo_secondaire'];
-$photos_secondaires_uploadées = array(); // Tableau pour stocker les chemins des photos secondaires
+    $photos_secondaires_uploadées = array(); // Tableau pour stocker les chemins des photos secondaires
 
-if (!empty($photo_secondaire['name'][0])) { // Vérifiez si des fichiers ont été téléchargés
-    foreach ($photo_secondaire['name'] as $key => $nom_fichier) {
-        if ($photo_secondaire['error'][$key] === 0) {
-            $dossier_cibles = './uploads/voitures/';
-            $nom_fichier_unique = uniqid() . '-' . slugify($nom_fichier);
-            $chemin_cibles = $dossier_cibles . $nom_fichier_unique;
-            if (move_uploaded_file($photo_secondaire['tmp_name'][$key], $chemin_cibles)) {
-                $photos_secondaires_uploadées[] = $chemin_cibles;
+    if (!empty($photo_secondaire['name'][0])) { // Vérifiez si des fichiers ont été téléchargés
+        foreach ($photo_secondaire['name'] as $key => $nom_fichier) {
+            if ($photo_secondaire['error'][$key] === 0) {
+                $dossier_cibles = './uploads/voitures/';
+                $nom_fichier_unique = uniqid() . '-' . slugify($nom_fichier);
+                $chemin_cibles = $dossier_cibles . $nom_fichier_unique;
+                if (move_uploaded_file($photo_secondaire['tmp_name'][$key], $chemin_cibles)) {
+                    $photos_secondaires_uploadées[] = $chemin_cibles;
+                } else {
+                    echo "Erreur lors du téléchargement du fichier $nom_fichier.";
+                }
             } else {
                 echo "Erreur lors du téléchargement du fichier $nom_fichier.";
             }
-        } else {
-            echo "Erreur lors du téléchargement du fichier $nom_fichier.";
         }
     }
-}
 
-//nsére toutes les photos secondaires dans la base de données
-foreach ($photos_secondaires_uploadées as $photo_secondaire) {
-    Photos::CreatePhoto($pdo, $photo_secondaire, $Id_Voitures);
-}
-
+    //nsére toutes les photos secondaires dans la base de données
+    foreach ($photos_secondaires_uploadées as $photo_secondaire) {
+        Photos::CreatePhoto($pdo, $photo_secondaire, $Id_Voitures);
+    }
 };
 if (isset($_POST["modifierVoiture"])) {
     var_dump($_POST);
