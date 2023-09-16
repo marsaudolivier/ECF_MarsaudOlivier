@@ -6,7 +6,6 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "SELECT * FROM Photos
             WHERE Id_Voitures = :Id_Voitures";
-
     $query = $pdo->prepare($sql);
     $query->bindParam(':Id_Voitures', $Id_Voitures, PDO::PARAM_INT);
     $query->execute();

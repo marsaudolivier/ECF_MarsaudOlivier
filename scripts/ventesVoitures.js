@@ -241,9 +241,6 @@ function fetchDetailAnnonce(annonceId) {
                   <div class="">
                       <div id="carouselExampleControls" class="carousel slide imageCardVentes" data-ride="carousel">
                           <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                  <img class="d-block  imageCardVentes" src="${premiereAnnonce.photo_principal}" alt="First slide">
-                              </div>
                               <div id="carousel_conteneur" >
                               <div class="carousel-item " >
                               </div>
@@ -281,7 +278,7 @@ function fetchDetailAnnonce(annonceId) {
         annoncesDetailContainer.appendChild(card);
         fetchOptions(premiereAnnonce.Id_Voitures);
         fetchEnergie(premiereAnnonce.Id_Voitures);
-        fetchPhoto(premiereAnnonce.Id_Voitures);
+        fetchPhoto(premiereAnnonce.Id_Voitures, premiereAnnonce.photo_principal);
       } else {
         console.log("Aucune annonce trouvée.");
       }
@@ -353,27 +350,28 @@ function fetchEnergie(idVoitures) {
       );
     });
 }
-function fetchPhoto(idVoitures) {
+function fetchPhoto(idVoitures, photoPrincipal) {
   const optionsUrl = "./api/api_obtenirPhoto.php";
-
   const formDataOptions = new FormData();
   formDataOptions.append("Id_Voitures", idVoitures);
-
   const optionsOptions = {
     method: "POST",
     body: formDataOptions,
   };
-
   fetch(optionsUrl, optionsOptions)
     .then((response) => response.json())
     .then((optionsData) => {
       const optionsContainer = document.getElementById("carousel_conteneur");
       optionsContainer.innerHTML = ""; 
-
+      // Ajouter la photo principale à la première diapositive du carousel
+      const premiereDiapositive = document.createElement("div");
+      premiereDiapositive.className = "carousel-item active";
+      premiereDiapositive.innerHTML = `<img class="d-block imageCardVentes" src="${photoPrincipal}" alt="${photoPrincipal}">`;
+      optionsContainer.appendChild(premiereDiapositive);
+      // Ajouter les autres photos secondaires
       optionsData.Photos.forEach((Photos, index) => {
         const optionElement = document.createElement("div");
-          optionElement.className = "carousel-item ";
-        
+        optionElement.className = "carousel-item";
         optionElement.innerHTML = `<img class="d-block imageCardVentes" src="${Photos.photo_secondaire}" alt="${Photos.photo_secondaire}">`;
         optionsContainer.appendChild(optionElement);
       });
