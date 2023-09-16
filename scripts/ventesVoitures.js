@@ -1,20 +1,31 @@
 let snapSlider = document.getElementById("slider-snap");
 
 noUiSlider.create(snapSlider, {
-  start: [0, 22500],
+  start: [0, 25000],
   snap: true,
   connect: true,
   range: {
     min: 0,
+    "5%": 1250,
     "10%": 2500,
+    "15%": 3750,
     "20%": 5000,
+    "25%": 6250,
     "30%": 7500,
+    "35%": 8750,
     "40%": 10000,
+    "45%": 11250,
     "50%": 12500,
+    "55%": 13750,
     "60%": 15000,
-    "80%": 17500,
-    "90%": 20000,
-    max: 22500,
+    "65%": 16250,
+    "70%": 17500,
+    "75%": 18750,
+    "80%": 20000,
+    "85%": 21250,
+    "90%": 22500,
+    "95%": 23750,
+    max: 25000,
   },
 });
 
@@ -30,20 +41,33 @@ snapSlider.noUiSlider.on("update", function (values, handle) {
 let snapSliderTwo = document.getElementById("slider-snapTwo");
 
 noUiSlider.create(snapSliderTwo, {
-  start: [0, 225000],
+  start: [0, 250000],
   snap: true,
   connect: true,
   range: {
     min: 0,
+    "5%": 12500,
     "10%": 25000,
+    "15%": 37500,
     "20%": 50000,
+    "25%": 62500,
     "30%": 75000,
+    "35%": 87500,
     "40%": 100000,
+    "45%": 112500,
     "50%": 125000,
+    "55%": 137500,
     "60%": 150000,
-    "80%": 175000,
-    "90%": 200000,
-    max: 225000,
+    "65%": 162500,
+    "70%": 175000,
+    "75%": 187500,
+    "80%": 200000,
+    "85%": 212500,
+    "90%": 225000,
+    "95%": 237500,
+
+
+    max: 250000,
   },
 });
 
@@ -64,7 +88,9 @@ noUiSlider.create(snapSliderTrois, {
   step: 1,
   range: {
     min: 1950,
+    "5%": 1960,
     "10%": 1970,
+    "15%": 1980,
     "20%": 1990,
     "30%": 2000,
     "40%": 2005,
@@ -212,7 +238,7 @@ document.addEventListener("click", function (event) {
 
 // Créez une fonction pour récupérer les détails de l'annonce
 function fetchDetailAnnonce(annonceId) {
-  const url = "./api/api_detailAnnonce.php"; // Remplacez par l'URL appropriée pour obtenir les détails de l'annonce
+  const url = "./api/api_detailAnnonce.php"; 
 
   const formData = new FormData();
   formData.append("Id_Annonces", annonceId);
