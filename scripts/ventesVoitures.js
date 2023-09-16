@@ -226,16 +226,10 @@ function fetchDetailAnnonce(annonceId) {
                       <div id="carouselExampleControls" class="carousel slide imageCardVentes" data-ride="carousel">
                           <div class="carousel-inner">
                               <div class="carousel-item active">
-                                  <img class="d-block  imageCardVentes" src="./uploads/voitures/6503525401dca-twingo-jpg" alt="First slide">
+                                  <img class="d-block  imageCardVentes" src="${premiereAnnonce.photo_principal}" alt="First slide">
                               </div>
                               <div class="carousel-item">
-                                  <img class="d-block imageCardVentes" src="./uploads/voitures/6503525414d6e-test-jpg" alt="Second slide">
-                              </div>
-                              <div class="carousel-item">
-                                  <img class="d-block imageCardVentes" src="./uploads/voitures/6503525414d6e-test-jpg" alt="Third slide">
-                              </div>
-                              <div class="carousel-item">
-                                  <img class="d-block imageCardVentes" src="./uploads/voitures" alt="Four slide">
+                                  <img class="d-block imageCardVentes" src="" alt="Second slide">
                               </div>
                           </div>
                           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
