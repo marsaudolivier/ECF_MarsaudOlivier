@@ -269,6 +269,7 @@ function fetchDetailAnnonce(annonceId) {
               `;
           annoncesDetailContainer.appendChild(card);
           fetchOptions(premiereAnnonce.Id_Voitures);
+          fetchEnergie(premiereAnnonce.Id_Voitures);
         } else {
           console.log("Aucune annonce trouvée.");
         }
@@ -305,5 +306,31 @@ function fetchOptions(idVoitures) {
       console.error("Une erreur s'est produite lors de la récupération des options : ", error);
     });
 }
+function fetchEnergie(idVoitures) {
+  const optionsUrl = './api/api_energieVente.php'; 
 
+  const formDataOptions = new FormData();
+  formDataOptions.append('Id_Voitures', idVoitures);
+
+  const optionsOptions = {
+    method: 'POST',
+    body: formDataOptions
+  };
+
+  fetch(optionsUrl, optionsOptions)
+    .then((response) => response.json())
+    .then((optionsData) => {
+      const optionsContainer = document.getElementById('ennergieContainer');
+      optionsContainer.innerHTML = '<h5>Energies:</h5>';
+
+      optionsData.energies.forEach((energies) => {
+        const optionElement = document.createElement('div');
+        optionElement.innerText = `${energies.energie}`;
+        optionsContainer.appendChild(optionElement);
+      });
+    })
+    .catch((error) => {
+      console.error("Une erreur s'est produite lors de la récupération des options : ", error);
+    });
+}
   
