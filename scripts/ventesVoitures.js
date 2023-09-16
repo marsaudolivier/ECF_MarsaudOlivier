@@ -66,7 +66,6 @@ noUiSlider.create(snapSliderTwo, {
     "90%": 225000,
     "95%": 237500,
 
-
     max: 250000,
   },
 });
@@ -238,7 +237,7 @@ document.addEventListener("click", function (event) {
 
 // Créez une fonction pour récupérer les détails de l'annonce
 function fetchDetailAnnonce(annonceId) {
-  const url = "./api/api_detailAnnonce.php"; 
+  const url = "./api/api_detailAnnonce.php";
 
   const formData = new FormData();
   formData.append("Id_Annonces", annonceId);
@@ -300,11 +299,42 @@ function fetchDetailAnnonce(annonceId) {
                   </div>
               </div>
               <p class="p-3 card_text admin_conteneur">Ce modèle vous intéresse hésité pas à nous contacter avec le formulaire suivant:</p>
+              ?>
+<div class="p-2">
+    <div class="justify-content-center index_text p-2">
+        <h2>NOUS CONTACTER</h2>
+        <div>
+            <form action="/api/api_contact.php" enctype="multipart/form-data" method="POST"  id="formulaireee">
+                <div class="FormulaireContact">
+                    <label for="nom" class="text-primary">Nom:</label>
+                    <input type="text" id="nom" name="nom" />
+                    <label for="prenom" class="text-primary">Prenom:</label>
+                    <input type="text" id="prenom" name="prenom" />
+                </div>
+                <div class="FormulaireContact">
+                    <label for="mail" class="text-primary">Email:</label>
+                    <input type="text" id="mail" name="mail" />
+                    <label for="telephone" class="text-primary">Telephone:</label>
+                    <input type="text" id="telephone" name="telephone" />
+                    <input type="hidden" id="Annonce" name="Annonce" value="${premiereAnnonce.titre} | Marque: ${premiereAnnonce.marque} | Modèle: ${premiereAnnonce.modele} | Année: ${premiereAnnonce.annee} | Kilométrage: ${premiereAnnonce.kilometrage}" />
+                </div>
+                <div class="p-2 FormulaireContact2">
+                    <label for="message">message:</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit"  name="Contact" class="ventes_bouton btn btn-primary"> VALIDER</button>
+        </div>
+        </form>
+    </div>
+</div>
               `;
         annoncesDetailContainer.appendChild(card);
         fetchOptions(premiereAnnonce.Id_Voitures);
         fetchEnergie(premiereAnnonce.Id_Voitures);
-        fetchPhoto(premiereAnnonce.Id_Voitures, premiereAnnonce.photo_principal);
+        fetchPhoto(
+          premiereAnnonce.Id_Voitures,
+          premiereAnnonce.photo_principal
+        );
       } else {
         console.log("Aucune annonce trouvée.");
       }
@@ -388,7 +418,7 @@ function fetchPhoto(idVoitures, photoPrincipal) {
     .then((response) => response.json())
     .then((optionsData) => {
       const optionsContainer = document.getElementById("carousel_conteneur");
-      optionsContainer.innerHTML = ""; 
+      optionsContainer.innerHTML = "";
       // Ajouter la photo principale à la première diapositive du carousel
       const premiereDiapositive = document.createElement("div");
       premiereDiapositive.className = "carousel-item active";
@@ -409,3 +439,4 @@ function fetchPhoto(idVoitures, photoPrincipal) {
       );
     });
 }
+

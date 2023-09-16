@@ -4,6 +4,9 @@ require_once("./templates/slider.php");
 require_once("./lib/annonces.php");
 require_once("./templates/card_vehicule.php");
 require_once("./templates/contacts.php");
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    echo '<script>alert("Formulaire transmis avec succès.");</script>';
+}
 ?>
 <!--Intégration de la Fil ariane-->
 <a href="index.php" class="text-success p-2">Acceuil</a>
