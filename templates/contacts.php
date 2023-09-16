@@ -20,7 +20,9 @@ function Contacts(){
             <label for="telephone" class="text-primary">Telephone:</label>
             <input type="text" id="telephone" name="telephone" />
           </div>
-          <div class="FormulaireContact">
+          <?php
+          if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/index.php") { ?>
+ <div class="FormulaireContact">
             <label for="Id_Motifs" class="text-primary">Votre demande:</label>
             <select id="Id_Motifs" name="Id_Motifs" class="text-primary">
               <option value="1">Mécanique auto</option>
@@ -31,6 +33,9 @@ function Contacts(){
               <option value="6">Autre</option>
             </select>
           </div>
+          </div>
+<?php } 
+?>
           <div class="p-2 FormulaireContact2">
             <label for="message">message:</label>
             <textarea id="message" name="message"></textarea>
@@ -49,7 +54,11 @@ function Contacts(){
       $prenom = $_POST['prenom'];
       $mail = $_POST['mail'];
       $telephone = $_POST['telephone'];
+      if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/index.php") { 
       $Id_Motifs = $_POST['Id_Motifs'];
+      }else{
+        $Id_Motifs = "4";
+      }
       $message = $_POST['message'];
       $contact = new Contact($nom,$prenom,$mail,$telephone,$message,$Id_Motifs);
       $contact->insertContact($contact, $pdo);

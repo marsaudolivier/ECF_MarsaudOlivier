@@ -12347,4 +12347,45 @@ h4, .h4 {
     border-radius: 5%;
     border: 3px solid #FF8778;
   }
+}
+.imageCardVentes {
+  width: 500px;
+  height: 300px;
+}
+
+.annoncesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .annoncesContainer {
+    display: inline-block;
+  }
+  .annoncesDetail {
+    display: inline;
+  }
+}
+@media screen and (max-width: 600px) {
+  .imageCardVentes {
+    width: 450px;
+    height: 250px;
+  }
+}
+.card_text {
+  font-size: 35px;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom right, #2f2569 0%, #9c122b 50%) bottom right/50% 50% no-repeat, linear-gradient(to bottom left, #2f2569 0%, #9c122b 50%) bottom left/50% 50% no-repeat, linear-gradient(to top left, #2f2569 0%, #9c122b 50%) top left/50% 50% no-repeat, linear-gradient(to top right, #2f2569 0%, #9c122b 50%) top right/50% 50% no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 50px;
+}
+
+.card_option {
+  margin: 15px;
+  width: auto;
+  padding: 10px;
 }/*# sourceMappingURL=main.css.map */

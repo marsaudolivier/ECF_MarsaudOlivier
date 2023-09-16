@@ -164,7 +164,10 @@ function updateResults() {
               Prix : ${annonce.prix} €<br>
               Marque : ${annonce.marque}<br>
               Modèle : ${annonce.modele}
-            </p>
+              </p>
+              <div class="p-2">
+              <button data-id="${annonce.Id_Annonces}" class="btn btn-sm btn-warning detailButton">Détail</button>
+          </div>
           </div>
         `;
   
@@ -186,5 +189,121 @@ function updateResults() {
     });
   });
 
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('detailButton')) {
+      const annonceId = event.target.getAttribute('data-id');
+      fetchDetailAnnonce(annonceId);
+  }
+});
+
+// Créez une fonction pour récupérer les détails de l'annonce
+function fetchDetailAnnonce(annonceId) {
+  const url = './api/api_detailAnnonce.php'; // Remplacez par l'URL appropriée pour obtenir les détails de l'annonce
+
+  const formData = new FormData();
+  formData.append('Id_Annonces', annonceId);
+
+  const options = {
+    method: 'POST',
+    body: formData
+  };
+
+  fetch(url, options)
+      .then((response) => response.json())
+      .then((data) => {
+        const annoncesDetailContainer = document.getElementById("annoncesDetailContainer");
+        annoncesDetailContainer.innerHTML = '';
+        // Parcourir les données JSON et créer une carte pour chaque annonce
+        if (data.Annonces.length > 0) {
+          const premiereAnnonce = data.Annonces[0];
+          const card = document.createElement("div");
+          card.classList.add("col");
+          card.innerHTML = `
+          <div class=" admin_conteneur p-2">
+          <h3 class="p-5">${premiereAnnonce.titre}</h3>
+              <div class="annoncesContainer" id="annoncesContainer">
+                  <div class="">
+                      <div id="carouselExampleControls" class="carousel slide imageCardVentes" data-ride="carousel">
+                          <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                  <img class="d-block  imageCardVentes" src="./uploads/voitures/6503525401dca-twingo-jpg" alt="First slide">
+                              </div>
+                              <div class="carousel-item">
+                                  <img class="d-block imageCardVentes" src="./uploads/voitures/6503525414d6e-test-jpg" alt="Second slide">
+                              </div>
+                              <div class="carousel-item">
+                                  <img class="d-block imageCardVentes" src="./uploads/voitures/6503525414d6e-test-jpg" alt="Third slide">
+                              </div>
+                              <div class="carousel-item">
+                                  <img class="d-block imageCardVentes" src="./uploads/voitures" alt="Four slide">
+                              </div>
+                          </div>
+                          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="sr-only"></span>
+                          </a>
+                          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="sr-only"></span>
+                          </a>
+                      </div>
+                  </div>
+                  <div class="annoncesDetail p-2">
+                      <div class="admin_conteneur  p-4">
+                          <p class="card-text">Année : ${premiereAnnonce.annee}<br>
+                              Kilométrage : ${premiereAnnonce.kilometrage} Km<br>
+                              Prix : ${premiereAnnonce.prix} €<br>
+                              Marque : ${premiereAnnonce.marque}<br>
+                              Modèle : ${premiereAnnonce.modele}<br>
+                          </p>
+                      </div>
+                  </div>
+                  <div class="p-2">
+                      <div class="annoncesDetail">
+                          <div id="optionsContainer" class="admin_conteneur card_option"></div>
+                          <div id="ennergieContainer" class="admin_conteneur card_option"></div>
+                      </div>
+                  </div>
+              </div>
+              <p class="p-3 card_text admin_conteneur">Ce modèle vous intéresse hésité pas à nous contacter avec le formulaire suivant:</p>
+              `;
+          annoncesDetailContainer.appendChild(card);
+          fetchOptions(premiereAnnonce.Id_Voitures);
+        } else {
+          console.log("Aucune annonce trouvée.");
+        }
+      })
+      .catch((error) => {
+        console.error("Une erreur s'est produite lors de la récupération des données : ", error);
+      });
+    
+}
+function fetchOptions(idVoitures) {
+  const optionsUrl = './api/api_optionVente.php'; 
+
+  const formDataOptions = new FormData();
+  formDataOptions.append('Id_Voitures', idVoitures);
+
+  const optionsOptions = {
+    method: 'POST',
+    body: formDataOptions
+  };
+
+  fetch(optionsUrl, optionsOptions)
+    .then((response) => response.json())
+    .then((optionsData) => {
+      const optionsContainer = document.getElementById('optionsContainer');
+      optionsContainer.innerHTML = '<h5>OPTIONS:</h5>';
+
+      optionsData.options.forEach((option) => {
+        const optionElement = document.createElement('div');
+        optionElement.innerText = `${option.optionn}`;
+        optionsContainer.appendChild(optionElement);
+      });
+    })
+    .catch((error) => {
+      console.error("Une erreur s'est produite lors de la récupération des options : ", error);
+    });
+}
 
   
