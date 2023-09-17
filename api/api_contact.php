@@ -11,7 +11,8 @@ try {
     $message = $_POST['message'];
     $Annonce = $_POST['Annonce'];
     $Id_Motifs = "4";
-    $sql = "INSERT INTO Formulaires (nom, prenom, mail, telephone, message, Id_Motifs, Annonce) VALUES (:nom, :prenom, :mail, :telephone, :message, :Id_Motifs, :Annonce)";
+    $Id_FormulairesOk = "1";
+    $sql = "INSERT INTO Formulaires (nom, prenom, mail, telephone, message, Id_Motifs, Annonce, Id_FormulairesOk) VALUES (:nom, :prenom, :mail, :telephone, :message, :Id_Motifs, :Annonce, :Id_FormulairesOk)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':nom', $nom);
     $stmt->bindParam(':prenom', $prenom);
@@ -20,6 +21,7 @@ try {
     $stmt->bindParam(':message', $message);
     $stmt->bindParam(':Id_Motifs', $Id_Motifs);
     $stmt->bindParam(':Annonce', $Annonce);
+    $stmt->bindParam(':Id_FormulairesOk', $Id_FormulairesOk);
     $stmt->execute();
 
     // Récupérez toutes les lignes en tant qu'objets JSON

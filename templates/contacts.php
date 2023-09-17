@@ -81,8 +81,8 @@ function VoirContact($pdo)
         <h3 class="p-4">contact: <?= $contact['Id_Formulaires'] ?></h3>
         <p class="p-4">Formulaire traité: <?= $contact['etat'] ?></p>
         <?php
-        if ($contact['Annonce'] !== null) {
-          echo '<h3 class="annonce_formulaire">Annonce concerné: ' . $contact['Annonce'] . '</h3>';
+        if ($contact['annonce'] !== null) {
+          echo '<h3 class="annonce_formulaire">Annonce concerné: ' . $contact['annonce'] . '</h3>';
         }
         ?>
         <h4>Motif de contact! <?= $contact['motif'] ?></h4>
