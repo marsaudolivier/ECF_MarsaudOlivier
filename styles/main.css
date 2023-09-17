@@ -12388,4 +12388,11 @@ h4, .h4 {
   margin: 15px;
   width: auto;
   padding: 10px;
+}
+
+.annonce_formulaire {
+  border-radius: 50px;
+  border: 3px solid #FF8778;
+  font-size: 32px;
+  padding: 10px;
 }/*# sourceMappingURL=main.css.map */
