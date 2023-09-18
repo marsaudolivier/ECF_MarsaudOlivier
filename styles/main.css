@@ -12395,4 +12395,8 @@ h4, .h4 {
   border: 3px solid #FF8778;
   font-size: 32px;
   padding: 10px;
+}
+
+.card-text {
+  font-size: 28px;
 }/*# sourceMappingURL=main.css.map */
