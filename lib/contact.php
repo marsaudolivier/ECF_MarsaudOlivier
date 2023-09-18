@@ -106,4 +106,11 @@ Class Contact{
         $statement->bindParam(':contactId', $contactId, PDO::PARAM_INT);
         $statement->execute();
     }
+    public static function CountNonTraitedForms($pdo) {
+        $sql = "SELECT COUNT(*) AS count FROM Formulaires WHERE Id_FormulairesOk = '1'";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['count'];
+    }
  }
