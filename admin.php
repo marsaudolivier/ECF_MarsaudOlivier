@@ -21,9 +21,16 @@ $countNonTraitedForms = Contact::CountNonTraitedForms($pdo);
     <a href="adminHoraires.php" class="text-success p-2">
         <h3>Administration des horaires</h3>
     </a>
+    <?php
+    if($countNonTraitedForms !== 0){?>
     <a href="adminContacts.php" class="text-success p-2">
     <h3>Administratrion Contact <span class="badge badge-secondary">Nouveau message: <?= $countNonTraitedForms ?></span></h3>
 </a>
+<?php }else{?>
+        <a href="adminContacts.php" class="text-success p-2">
+        <h3>Administratrion Contact</h3>
+    </a>
+    <?php } ?>
     </a>
     <a href="adminAvis.php" class="text-success p-2">
         <h3>Administration des Avis</h3>
