@@ -7,21 +7,18 @@ try {
     $kmMin = $_POST['kmMin'];
     $kmMax = $_POST['kmMax'];
     $anneeMin = $_POST['anneeMin'];
-    $anneeMax = $_POST['anneeMax']; 
-    // Debug : Afficher les valeurs reçues
-    // Utilisez une requête SQL pour obtenir la liste des annonces avec les filtres
+    $anneeMax = $_POST['anneeMax'];
     $sql = "SELECT * FROM Annonces 
-INNER JOIN Voitures v on Annonces.Id_Voitures = v.Id_Voitures
-INNER JOIN Marques m on v.Id_Marques = m.Id_Marques
-INNER JOIN Modeles mo on v.Id_Modeles = mo.Id_Modeles
-WHERE v.prix >= :prixMin
-AND v.prix <= :prixMax
-AND v.kilometrage >= :kmMin
-AND v.kilometrage <= :kmMax
-AND v.annee >= :anneeMin
-AND v.annee <= :anneeMax
-"
-;
+    INNER JOIN Voitures v on Annonces.Id_Voitures = v.Id_Voitures
+    INNER JOIN Marques m on v.Id_Marques = m.Id_Marques
+    INNER JOIN Modeles mo on v.Id_Modeles = mo.Id_Modeles
+    WHERE v.prix >= :prixMin
+    AND v.prix <= :prixMax
+    AND v.kilometrage >= :kmMin
+    AND v.kilometrage <= :kmMax
+    AND v.annee >= :anneeMin
+    AND v.annee <= :anneeMax
+";
 
     $stmt = $pdo->prepare($sql);
 
@@ -45,4 +42,3 @@ AND v.annee <= :anneeMax
     header('Content-Type: application/json');
     echo json_encode(["error" => $e->getMessage()]);
 }
-?>

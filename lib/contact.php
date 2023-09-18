@@ -99,4 +99,11 @@ Class Contact{
             echo "Erreur : " . $e->getMessage();
         }
     }
+    public static function UpdateState($pdo, $contactId, $newState) {
+        $query = "UPDATE Formulaires SET Id_FormulairesOk = :Id_FormulairesOk WHERE Id_Formulaires = :contactId";
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(':Id_FormulairesOk', $newState, PDO::PARAM_STR);
+        $statement->bindParam(':contactId', $contactId, PDO::PARAM_INT);
+        $statement->execute();
+    }
  }

@@ -74,12 +74,33 @@ function VoirContact($pdo)
     exit;
   }
   $contacts = Contact::GetAll($pdo);
-  foreach ($contacts as $contact) { ?>
+  foreach ($contacts as $contact) {
+    if (isset($_POST['changeStateButton'])) {
+      $contactId = $_POST['Id_ContactToChange'];
+      $newState = $_POST['newState'];
+      Contact::UpdateState($pdo, $contactId, $newState);
+      header("Location: adminContacts.php");
+      exit();
+  }
+  ?>
+     ?>
 
     <div class="index_text p-1">
       <div class="index_text">
         <h3 class="p-4">contact: <?= $contact['Id_Formulaires'] ?></h3>
-        <p class="p-4">Formulaire traité: <?= $contact['etat'] ?></p>
+        <form action="adminContacts.php" method="post">
+<div>
+<h2 class="p-4">Formulaire traité: <?= $contact['etat'] ?></h2>
+       <input type="hidden" name="Id_ContactToChange" value="<?= $contact['Id_Formulaires'] ?>">
+            <label for="newState">Changer l'état :</label>
+            <select name="newState" id="newState">
+                <option value="1">Non Traité</option>
+                <option value="2">En Cours</option>
+                <option value="3">Traité</option>
+            </select>
+            <button type="submit" name="changeStateButton" class="btn btn-primary">Changer l'état</button>
+</div>
+        </form>
         <?php
         if ($contact['annonce'] != null) {
           echo '<h3 class="annonce_formulaire">Annonce concerné: ' . $contact['annonce'] . '</h3>';
