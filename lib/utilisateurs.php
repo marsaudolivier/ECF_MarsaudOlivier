@@ -45,6 +45,7 @@ Class utilisateurs{
         $this->Id_Roles = $Id_Roles;
     }
     public function __construct($nom, $prenom, $mail, $mdp, $Id_Roles){
+        $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $this->SetNom($nom);
         $this->SetPrenom($prenom);
         $this->SetMail($mail);
@@ -67,7 +68,6 @@ Class utilisateurs{
     public function insertUser($user, $pdo){ 
         $sql = "INSERT INTO Utilisateurs (nom, prenom, mail, mdp, Id_Roles) VALUES (:nom, :prenom, :mail, :mdp, :Id_Roles)";
         $stmt = $pdo->prepare($sql);
-    
         // Liage des valeurs
         $stmt->bindValue(':nom', $user->GetNom());
         $stmt->bindValue(':prenom', $user->GetPrenom());
