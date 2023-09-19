@@ -27,5 +27,5 @@ if (!empty($_COOKIE)) {
 <?php };
 ?>
 <?php
-require_once("./templates/footer.php");
+require_once("./templates/Footer.php");
 ?>

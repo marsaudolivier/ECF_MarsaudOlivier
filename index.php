@@ -53,5 +53,5 @@ Contacts();
     toulouse</h3>
 </div>
 <?php
-require_once("./templates/footer.php");
+require_once("./templates/Footer.php");
 ?>

@@ -32,5 +32,5 @@ Slider();
 
 
 
-require_once("./templates/footer.php");
+require_once("./templates/Footer.php");
 ?>
