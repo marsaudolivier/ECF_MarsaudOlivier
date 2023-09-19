@@ -404,3 +404,10 @@ grid-template-columns: auto;
   .logTexte{
     font-size: 28px;
   }
+  .card_photo{
+    width: auto;
+    background-color: $info;
+    border-radius: 50px;
+    border: 3px solid $success;
+    font-size: 19px;
+  }

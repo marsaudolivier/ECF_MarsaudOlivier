@@ -3,7 +3,7 @@ function Card($voiture)
 { ?>
     <div class="col">
         <div class="card shadow-sm admin_conteneur" >
-            <img src="<?= $voiture['photo_principal'] ?>" alt="" class="index_text">
+            <img src="<?= $voiture['photo_principal'] ?>" class="card_photo">
             <h3><?= $voiture['titre'] ?></h3>
             <p class="card-text">Année :<?= $voiture['annee'] ?></br>
                 Kilométrage : <?= $voiture['kilometrage'] ?> Km</br>

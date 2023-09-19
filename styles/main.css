@@ -12403,4 +12403,12 @@ h4, .h4 {
 
 .logTexte {
   font-size: 28px;
+}
+
+.card_photo {
+  width: auto;
+  background-color: #5CB8FF;
+  border-radius: 50px;
+  border: 3px solid #FF8778;
+  font-size: 19px;
 }/*# sourceMappingURL=main.css.map */

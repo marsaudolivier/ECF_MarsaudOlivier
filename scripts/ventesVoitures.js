@@ -194,7 +194,7 @@ function updateResults() {
         card.classList.add("col");
         card.innerHTML = `
           <div class="card shadow-sm admin_conteneur">
-            <img src="${annonce.photo_principal}" alt="" class="index_text">
+            <img src="${annonce.photo_principal}" alt="" class="index_text card_photo">
             <h3>${annonce.titre}</h3>
             <p class="card-text">Année : ${annonce.annee}<br>
               Kilométrage : ${annonce.kilometrage} Km<br>
