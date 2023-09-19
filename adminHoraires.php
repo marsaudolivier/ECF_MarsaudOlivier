@@ -1,6 +1,11 @@
 <?php
 require_once("./templates/header.php");
 require_once("./lib/horaires.php");
+require_once("./lib/utilisateurs.php");
+if(!empty($_COOKIE)){
+    $mail = $_COOKIE['mail'];
+    $token = $_COOKIE['token'];
+    $user = utilisateurs::UtilisateurVerificationToken($pdo, $mail, $token);
 ?>
 <!--Intégration de la Fil ariane-->
 <a href="index.php" class="text-success p-2">Acceuil</a>
@@ -14,10 +19,10 @@ require_once("./lib/horaires.php");
         ?>
     </div>
 </div>
-<!--Fin Intégration de la fil Arianne -->
-</body>
-
-</html>
-<?php
+<?php }else { ?>
+    <div class="p-4">
+        <h2>Vous n'avez pas accès à cette page</h2>
+    </div>
+<?php };
 require_once("./templates/footer.php");
 ?>

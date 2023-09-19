@@ -7,6 +7,7 @@ Class utilisateurs{
     public string $mdp;
     public int $Id_Roles;
 
+
     public function GetId(){
         return $this->id;
     }
@@ -45,6 +46,7 @@ Class utilisateurs{
         $this->Id_Roles = $Id_Roles;
     }
     public function __construct($nom, $prenom, $mail, $mdp, $Id_Roles){
+        //ajout hash pass sur le constructeur
         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
         $this->SetNom($nom);
         $this->SetPrenom($prenom);
@@ -66,7 +68,7 @@ Class utilisateurs{
         $stmt->execute();
     }
     public function insertUser($user, $pdo){ 
-        $sql = "INSERT INTO Utilisateurs (nom, prenom, mail, mdp, Id_Roles) VALUES (:nom, :prenom, :mail, :mdp, :Id_Roles)";
+        $sql = "INSERT INTO Utilisateurs (nom, prenom, mail, mdp, Id_Roles, token) VALUES (:nom, :prenom, :mail, :mdp, :Id_Roles, '')";
         $stmt = $pdo->prepare($sql);
         // Liage des valeurs
         $stmt->bindValue(':nom', $user->GetNom());
@@ -78,4 +80,40 @@ Class utilisateurs{
         // Execution de la requête
         $stmt->execute();
     }
+    public function verifyPassword($password) {
+        return password_verify($password, $this->GetMdp());
+    }
+    public static function loginUser($pdo, $mail, $password) {
+        $sql = "SELECT * FROM Utilisateurs WHERE mail = :mail";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':mail', $mail);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && $user['mail'] === $mail && $user['mdp'] && password_verify($password, $user['mdp'])) {
+            return $user; 
+        }
+
+        return null;  // L'authentification a échoué
+    }
+    public static function tokenAdd($pdo, $token, $password, $mail){
+        $sql="UPDATE Utilisateurs SET token = '$token' WHERE '$mail' = mail";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        }
+        public static function UtilisateurVerificationToken($pdo, $mail, $token) {
+            $sql = "SELECT * FROM Utilisateurs WHERE mail = :mail AND token = :token";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':mail', $mail);
+            $stmt->bindValue(':token', $token);
+            $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+            if ($user && $user['mail'] === $mail && $user['token'] === $token) {
+                return $user; 
+            }
+        
+            return null;  // L'authentification a échoué
+        }
+
 }
