@@ -161,6 +161,8 @@ function AvisAdmin($pdo)
         <button type="submit" name="deleteAvisButton" class="btn btn-danger">Supprimer</button>
       </form>
     </div>
+  <?php
+  } ?>
     <div class="p-2">
     <div class="justify-content-center index_text p-2">
       <h2>Ajouté un avis</h2>
@@ -192,6 +194,4 @@ function AvisAdmin($pdo)
     </div>
   </div>
 <?php
-  } 
-
 }
