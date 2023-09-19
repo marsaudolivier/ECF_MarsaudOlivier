@@ -87,7 +87,6 @@ function VoirContact($pdo)
 
     <div class="index_text p-1">
       <div class="index_text">
-        <h3 class="p-4">contact: <?= $contact['Id_Formulaires'] ?></h3>
         <form action="adminContacts.php" method="post">
 <div>
 <h2 class="p-4">Formulaire traité: <?= $contact['etat'] ?></h2>
