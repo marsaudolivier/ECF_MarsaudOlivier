@@ -87,12 +87,13 @@ if (!empty($_COOKIE)) {
                 <button type="submit" class="btn btn-primary">Ajouter</button>
             </form>
             <?php
+            //Ajout sécurité faille XSS
             if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['mdp']) && isset($_POST['Id_Roles'])) {
-                $nom = $_POST['nom'];
-                $prenom = $_POST['prenom'];
-                $mail = $_POST['mail'];
-                $mdp = $_POST['mdp'];
-                $Id_Roles = $_POST['Id_Roles'];
+                $nom = htmlspecialchars($_POST['nom']);
+                $prenom = htmlspecialchars($_POST['prenom']);
+                $mail = htmlspecialchars($_POST['mail']);
+                $mdp = htmlspecialchars($_POST['mdp']);
+                $Id_Roles = htmlspecialchars($_POST['Id_Roles']);
                 $user = new Utilisateurs($nom, $prenom, $mail, $mdp, $Id_Roles);
                 $user->insertUser($user, $pdo);
                 header("Location: adminUtilisateurs.php");
