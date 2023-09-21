@@ -42,9 +42,6 @@ function Service($pdo)
 };
 ?>
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 function ServicesAdmin($pdo) {
   if (isset($_POST["updateServicesButton"])) {
       Services::UpdateService($pdo);
@@ -79,26 +76,32 @@ function ServicesAdmin($pdo) {
   $Services = Services::GetAll($pdo);
   foreach ($Services as $Service) {
       ?>
-      <div class="lib_horaires">
+      <div class="lib_horaires admin_conteneur p-2">
           <form action="adminServices.php" method="post">
               <input type="hidden" name="Id_Services" value="<?=$Service['Id_Services']?>">
+              <label for="titre"><h3>Titre du Service:</h3></label>
               <input type="text" name="titre" value="<?=$Service['titre']?>">
-              <textarea name="description" rows="10" cols="200"><?=$Service['description']?></textarea>
-              <button type="submit" name="updateServicesButton" class="btn btn-success">Modifier</button>
+              <textarea name="description" rows="10"style="width: 100%"><?=$Service['description']?></textarea>
+              <button type="submit" name="updateServicesButton" class="btn btn-primary">Modifier</button>
           </form>
           <form action="adminServices.php" method="post">
+            <div>
+              <h3>Supprimer le service</h3>
+              <p>Êtes-vous sûr de vouloir supprimer le service <?=$Service['titre']?> ?</p>
+            </div>
               <input type="hidden" name="deleteServicesButton" value="<?=$Service['Id_Services']?>">
-              <button type="submit" class="btn btn-danger">Supprimer</button>
+              <button type="submit" class="btn btn-danger ">Supprimer</button>
           </form>
       </div>
       <?php
   }
   ?>
-<div class="lib_horaires">
+  <H2 class="p-4">Nouveau Service</H2>
+<div class="lib_horaires admin_conteneur p-3">
     <form action="adminServices.php" method="post">
         <input type="text" name="titre" placeholder="Titre">
         <textarea name="Description" rows="10" cols="200" placeholder="Description"></textarea>
-        <button type="submit" name="NewServicesButton" class="btn btn-success">Ajouter</button>
+        <button type="submit" name="NewServicesButton" class="btn btn-success"><h3>Ajouter</h3></button>
     </form>
 </div>
       <?php

@@ -289,3 +289,125 @@ grid-template-columns: auto;
   text-align: center;
   font-size: 19px;
 }
+.Card-admin{
+  background-color: $info;
+  color: $danger;
+  border-radius: 50px;
+  border: 3px solid $success;
+  text-align: center;
+  font-size: 19px;
+  width: 85%;
+  margin: auto;
+}
+.admin_conteneurTwo{
+  background-color: $success;
+  color: $primary;
+  border: 3px solid $danger;
+  border-radius: 50px;
+  font-size: 19px;
+  width: 100%;
+  margin: auto;
+}
+.ventes_bouton{
+  align-items: center;
+  margin: auto;
+  width: 125px;
+  height: 25px;
+  font-size: 10px;
+}
+.filtre{
+  display: grid;
+  margin: auto;
+  background-color: $info;
+  border-radius: 5%;
+  border: 3px solid $success;
+  width: 95%;
+}
+.ventes_bouton_recherche{
+  display: grid;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  background: linear-gradient(to bottom right, #2F2569 0%, #9C122B 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #2F2569 0%, #9C122B 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #2F2569 0%, #9C122B 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #2F2569 0%, #9C122B 50%) top right / 50% 50% no-repeat;
+  color: $success;
+}
+@media screen and (min-width : 600px) {
+  .filtre{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;  
+      width: 95%;
+      gap: 35px;
+      margin: auto;
+      background-color: $info;
+      border-radius: 5%;
+      border: 3px solid $success; 
+  }
+  }
+  .imageCardVentes{
+    width: 500px;
+    height: 300px;
+  }
+  .annoncesContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  } 
+  @media screen and (max-width : 1200px) {
+    .annoncesContainer{
+        display: inline-block;
+    }
+    .annoncesDetail{
+      display: inline;
+    }
+  }
+  @media screen and (max-width : 600px) {
+    .imageCardVentes{
+        width: 450px;
+        height: 250px;
+   
+    }
+  }
+  .card_text{
+    font-size: 35px;
+    text-transform: uppercase;
+  background: linear-gradient(to bottom right, #2f2569 0%, #9c122b 50%) bottom
+      right / 50% 50% no-repeat,
+    linear-gradient(to bottom left, #2f2569 0%, #9c122b 50%) bottom left / 50%
+      50% no-repeat,
+    linear-gradient(to top left, #2f2569 0%, #9c122b 50%) top left / 50% 50%
+      no-repeat,
+    linear-gradient(to top right, #2f2569 0%, #9c122b 50%) top right / 50% 50%
+      no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 50px;
+  }
+  .card_option{
+    margin: 15px;
+    width: auto;
+    padding: 10px;
+  }
+  .annonce_formulaire{
+    border-radius: 50px;
+    border: 3px solid $success;
+    font-size: 32px;
+    padding: 10px;
+  }
+  .card-text{
+    font-size: 28px;
+  }
+
+  .logTexte{
+    font-size: 28px;
+  }
+  .card_photo{
+    width: auto;
+    background-color: $info;
+    border-radius: 50px;
+    border: 3px solid $success;
+    font-size: 19px;
+  }

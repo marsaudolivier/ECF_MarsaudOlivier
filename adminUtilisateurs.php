@@ -1,12 +1,16 @@
 <?php
 require_once("./templates/header.php");
 require_once("./lib/utilisateurs.php");
+if (!empty($_COOKIE)) {
+    $mail = $_COOKIE['mail'];
+    $token = $_COOKIE['token'];
+    $user = utilisateurs::UtilisateurVerificationToken($pdo, $mail, $token);
 ?>
-<!--Intégration de la Fil ariane-->
-<a href="index.php" class="text-success p-2">Acceuil</a>
-<a href="admin.php" class="text-success p-2">Espace Administration</a>
-<a href="adminUtilisateurs.php" class="text-success p-2">Gestion Utilisateurs</a>
-<div class="p-2" id="Utilisateur">
+    <!--Intégration de la Fil ariane-->
+    <a href="index.php" class="text-success p-2">Acceuil</a>
+    <a href="admin.php" class="text-success p-2">Espace Administration</a>
+    <a href="adminUtilisateurs.php" class="text-success p-2">Gestion Utilisateurs</a>
+    <div class="p-2" id="Utilisateur">
         <div class="p-2 admin_conteneur">
             <h5>Liste des utilisateurs</h5>
             <table class="table">
@@ -15,7 +19,7 @@ require_once("./lib/utilisateurs.php");
                         <th scope="col">Nom</th>
                         <th scope="col">Prénom</th>
                         <th scope="col">Mail</th>
-                        <th scope="col">Mot de passe</th>
+                        <th scope="col">Mot de passe cripté (60 caractère)</th>
                         <th scope="col">Rôle</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -99,6 +103,10 @@ require_once("./lib/utilisateurs.php");
             ?>
         </div>
     </div>
-<?php
-require_once("./templates/footer.php");
+<?php } else { ?>
+    <div class="p-4">
+        <h2>Vous n'avez pas accès à cette page</h2>
+    </div>
+<?php };
+require_once("./templates/Footer.php");
 ?>
