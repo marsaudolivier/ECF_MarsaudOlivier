@@ -19,7 +19,6 @@ if (!empty($_COOKIE)) {
                         <th scope="col">Nom</th>
                         <th scope="col">Prénom</th>
                         <th scope="col">Mail</th>
-                        <th scope="col">Mot de passe cripté (60 caractère)</th>
                         <th scope="col">Rôle</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -32,7 +31,6 @@ if (!empty($_COOKIE)) {
                         echo "<td>" . $user['nom'] . "</td>";
                         echo "<td>" . $user['prenom'] . "</td>";
                         echo "<td>" . $user['mail'] . "</td>";
-                        echo "<td>" . $user['mdp'] . "</td>";
                         echo "<td>" . ($user['Id_Roles'] === 1 ? "Administrateur" : "Utilisateur") . "</td>";
                         echo "<td>";
                         echo "<form method='post' action='adminUtilisateurs.php'>";
