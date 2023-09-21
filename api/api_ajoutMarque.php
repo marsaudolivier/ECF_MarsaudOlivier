@@ -2,10 +2,9 @@
 require_once('../lib/pdo.php');
 try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     if (isset($_POST['nouvelleMarque'])) {
         $nouvelleMarque = $_POST['nouvelleMarque'];
-        // Utilisez une requête préparée pour insérer la nouvelle marque
+        //requête préparée pour insérer la nouvelle marque
         $sql = "INSERT INTO Marques(marque) VALUES (:nouvelleMarque)";
         $query = $pdo->prepare($sql);
         $query->bindParam(':nouvelleMarque', $nouvelleMarque, PDO::PARAM_STR); // Utilisez PDO::PARAM_STR pour une chaîne de caractères
