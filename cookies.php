@@ -17,3 +17,6 @@ require_once('./templates/header.php');
         qu'employé. Si vous souhaitez en savoir plus sur notre utilisation des cookies, veuillez consulter notre Politique des Cookies.</p>
     <p>Merci de votre compréhension et de votre collaboration. </p>
 </section>
+<?php
+require_once('./templates/Footer.php');
+?>
