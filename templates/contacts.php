@@ -50,10 +50,10 @@ function Contacts()
   <?php
   require('./lib/pdo.php');
   if (isset($_POST['Contact'])) {
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $mail = $_POST['mail'];
-    $telephone = $_POST['telephone'];
+    $nom = htmlspecialchars($_POST['nom']);
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $mail = htmlspecialchars($_POST['mail']);
+    $telephone = htmlspecialchars($_POST['telephone']);
     $Id_FormulairesOk = "1";
     if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/index.php") {
       $Id_Motifs = $_POST['Id_Motifs'];
