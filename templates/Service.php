@@ -58,8 +58,8 @@ function ServicesAdmin($pdo) {
 
   if (isset($_POST["NewServicesButton"])) {
     // Récupérer les données du formulaire
-    $titre = $_POST['titre'];
-    $Description = $_POST['Description'];
+    $titre = htmlspecialchars($_POST['titre']);
+    $Description = htmlspecialchars($_POST['Description']);
     $Id_Utilisateurs = 1;
 
     
