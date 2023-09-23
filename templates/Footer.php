@@ -30,7 +30,7 @@ require_once('./lib/horaires.php');
             </div>
         </div>
         <div class="col-12 text-success text-center p-1">
-            <a class="navigation_link navbar-text p-5" href="">politique des cookies</a>
+            <a class="navigation_link navbar-text p-5" href="cookies.php">politique des cookies</a>
             <a class="navigation_link navbar-text p-5" href="MentionsLegales.php">Mentions Légales</a>
         </div>
         <!-- Signature bas de page -->
