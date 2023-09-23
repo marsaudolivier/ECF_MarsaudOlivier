@@ -76,10 +76,10 @@ function AvisContact($pdo){
 <?php
   require('./lib/avis.php');
   if (isset($_POST['Avis'])) {
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $commentaire = $_POST['commentaire'];
-    $note = intval($_POST['note']);
+    $nom = htmlspecialchars($_POST['nom']);
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $commentaire = htmlspecialchars($_POST['commentaire']);
+    $note = htmlspecialchars(intval($_POST['note']));
     if (empty($nom) || empty($prenom) || empty($commentaire) || $note < 1 || $note > 5) {
       echo "Veuillez remplir tous les champs correctement.";
     } else {
@@ -105,10 +105,10 @@ function AvisAdmin($pdo)
     exit;
   }
   if (isset($_POST["addAvisButton"])) { 
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $commentaire = $_POST['commentaire'];
-    $note = intval($_POST['note']);
+    $nom = htmlspecialchars($_POST['nom']);
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $commentaire = htmlspecialchars($_POST['commentaire']);
+    $note = htmlspecialchars(intval($_POST['note']));
     $Id_Validations = 2;
     $avis = new Avis($nom, $prenom, $commentaire, $note, $Id_Validations);
     if (empty($nom) || empty($prenom) || empty($commentaire) || $note < 1 || $note > 5) {
