@@ -40,7 +40,7 @@ include_once('./templates/header.php');
     <p class="Mentions_legales_titre"><strong>Confidentialité:</strong></p>
     <p>Toutes les données et les contenus présents sur ce site sont destinés à l'évaluation dans le cadre de l'examen ECF de l'école Studi. Toute utilisation, reproduction
         ou diffusion en dehors de cette contexte est strictement interdite.</p>
-
-
-
-</section>
+</section><br>
+<?php
+include_once('./templates/Footer.php');
+?>
