@@ -29,17 +29,17 @@ include_once('./templates/header.php');
     <h2>À propos de ce site:</h2>
     <p>Ce site a été créé à des fins d'évaluation dans le cadre de l'examen ECF (Épreuve de Connaissance et de Fin de formation) pour l'école Studi.</p>
     <p class="Mentions_legales_titre"><strong>Objectif:</strong></p>
-    <p>L'objectif principal de ce site est de démontrer les compétences acquises dans le domaine du développement web dans le cadre de la formation dispensée par l'école Studi. 
+    <p>L'objectif principal de ce site est de démontrer les compétences acquises dans le domaine du développement web dans le cadre de la formation dispensée par l'école Studi.
         Il vise à présenter un échantillon représentatif des connaissances et des compétences acquises tout au long de la formation.</p>
     <p class="Mentions_legales_titre"><strong>Examen ECF:</strong></p>
-    <p>L'examen ECF est une étape cruciale dans notre parcours de formation. Il évalue nos compétences, nos connaissances et notre aptitude à appliquer les concepts enseignés 
+    <p>L'examen ECF est une étape cruciale dans notre parcours de formation. Il évalue nos compétences, nos connaissances et notre aptitude à appliquer les concepts enseignés
         dans des projets concrets.</p>
-        <p class="Mentions_legales_titre"><strong>Utilisation pédagogique:</strong></p>
-        <p>Ce site a été conçu dans le but de mettre en pratique les enseignements reçus et d'exposer notre savoir-faire en matière de développement web. Il est destiné à être
-             évalué dans le cadre de l'examen ECF de l'école Studi.</p>
-             <p class="Mentions_legales_titre"><strong>Confidentialité:</strong></p>
-             <p>Toutes les données et les contenus présents sur ce site sont destinés à l'évaluation dans le cadre de l'examen ECF de l'école Studi. Toute utilisation, reproduction
-                 ou diffusion en dehors de cette contexte est strictement interdite.</p>
+    <p class="Mentions_legales_titre"><strong>Utilisation pédagogique:</strong></p>
+    <p>Ce site a été conçu dans le but de mettre en pratique les enseignements reçus et d'exposer notre savoir-faire en matière de développement web. Il est destiné à être
+        évalué dans le cadre de l'examen ECF de l'école Studi.</p>
+    <p class="Mentions_legales_titre"><strong>Confidentialité:</strong></p>
+    <p>Toutes les données et les contenus présents sur ce site sont destinés à l'évaluation dans le cadre de l'examen ECF de l'école Studi. Toute utilisation, reproduction
+        ou diffusion en dehors de cette contexte est strictement interdite.</p>
 
 
 
