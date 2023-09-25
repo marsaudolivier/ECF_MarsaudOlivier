@@ -1,47 +1,59 @@
 <?php
-Class Services{
+class Services
+{
     private int $Id_Services;
     private string $titre;
     private string $description;
     private int $Id_Utilisateurs;
 
-    public function GetId_Services(){
+    public function GetId_Services()
+    {
         return $this->Id_Services;
-        }
-    public function GetTitre(){
+    }
+    public function GetTitre()
+    {
         return $this->titre;
-        }
-    public function GetDescription(){
+    }
+    public function GetDescription()
+    {
         return $this->description;
-        }
-    public function GetId_Utilisateurs(){
+    }
+    public function GetId_Utilisateurs()
+    {
         return $this->Id_Utilisateurs;
-        }
-    public function SetId_Services($Id_Services){
+    }
+    public function SetId_Services($Id_Services)
+    {
         $this->Id_Services = $Id_Services;
-        }
-    public function SetTitre($titre){
+    }
+    public function SetTitre($titre)
+    {
         $this->titre = $titre;
-        }
-    public function SetDescription($description){
+    }
+    public function SetDescription($description)
+    {
         $this->description = $description;
-        }
-    public function SetId_Utilisateurs($Id_Utilisateurs){
+    }
+    public function SetId_Utilisateurs($Id_Utilisateurs)
+    {
         $this->Id_Utilisateurs = $Id_Utilisateurs;
-        }
-    public function __construct($titre, $description, $Id_Utilisateurs){
+    }
+    public function __construct($titre, $description, $Id_Utilisateurs)
+    {
         $this->SetTitre($titre);
         $this->SetDescription($description);
         $this->SetId_Utilisateurs($Id_Utilisateurs);
-        }
-    public static function GetAll($pdo) {
+    }
+    public static function GetAll($pdo)
+    { // récupération de tout les services de mon garage
         $sql = "SELECT * FROM Services";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
-        }
-    public static function UpdateService($pdo){
+    }
+    public static function UpdateService($pdo)
+    { // mise a jour des services
         $sql = "UPDATE Services SET titre = :titre, description = :description WHERE Id_Services = :Id_Services";
         $query = $pdo->prepare($sql);
         $query->execute(array(
@@ -50,14 +62,16 @@ Class Services{
             ':description' => $_POST['description']
         ));
     }
-    public static function DeleteService($pdo, $Id_Services){
+    public static function DeleteService($pdo, $Id_Services)
+    { //delete service
         $sql = "DELETE FROM Services WHERE Id_Services = :Id_Services";
         $query = $pdo->prepare($sql);
         $query->execute(array(
             ':Id_Services' => $Id_Services
         ));
     }
-    public static function InsertService($pdo, $Service){
+    public static function InsertService($pdo, $Service)
+    { // Ajout de nouveau services
         $sql = "INSERT INTO Services (titre, description, Id_Utilisateurs) VALUES (:titre, :description, :Id_Utilisateurs)";
         $query = $pdo->prepare($sql);
         $query->execute(array(
