@@ -2,25 +2,25 @@
 require_once("./templates/header.php");
 require_once("./lib/utilisateurs.php");
 require_once("./lib/contact.php");
+// Vérification des cookie de connexion
 if (!empty($_COOKIE)) {
     $mail = $_COOKIE['mail'];
     $token = $_COOKIE['token'];
     $user = utilisateurs::UtilisateurVerificationToken($pdo, $mail, $token);
     $countNonTraitedForms = Contact::CountNonTraitedForms($pdo);
-    ?>
-<form method="post" action="admin.php">
-    <input type="submit" name="logoutButton" class="btn btn-danger position-absolute top-0 end-0" value="Déconnexion">
-</form>
-    <?php
-if (isset($_POST['logoutButton'])) {
-    // Supprimer les cookies
-    setcookie('token', '', time() - 3600);
-    setcookie('mail', '', time() - 3600);
-    header('Location: index.php');
-    exit();
-}
 ?>
-
+    <form method="post" action="admin.php">
+        <input type="submit" name="logoutButton" class="btn btn-danger position-absolute top-0 end-0" value="Déconnexion">
+    </form>
+    <?php
+    if (isset($_POST['logoutButton'])) {
+        // Supprimer les cookies si appui sur bouton déconnection
+        setcookie('token', '', time() - 3600);
+        setcookie('mail', '', time() - 3600);
+        header('Location: index.php');
+        exit();
+    }
+    ?>
     <!--Intégration de la Fil ariane-->
     <a href="index.php" class="text-success p-2">Acceuil</a>
     <a href="admin.php" class="text-success p-2">Espace Administration</a>

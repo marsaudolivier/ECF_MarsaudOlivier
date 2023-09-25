@@ -1,6 +1,7 @@
 <?php
 require_once("./templates/header.php");
 require_once("./lib/utilisateurs.php");
+// Vérification des cookie de connexion
 if (!empty($_COOKIE)) {
     $mail = $_COOKIE['mail'];
     $token = $_COOKIE['token'];
@@ -16,6 +17,7 @@ if (!empty($_COOKIE)) {
             <table class="table">
                 <thead>
                     <tr>
+                        <!--tableau récapitulatif employé-->
                         <th scope="col">Nom</th>
                         <th scope="col">Prénom</th>
                         <th scope="col">Mail</th>
@@ -41,7 +43,7 @@ if (!empty($_COOKIE)) {
                         echo "</form>";
                         echo "</td>";
                         echo "</tr>";
-                    }
+                    } // gestion du bouton supprimé contact
                     if (isset($_POST['deleteUserButton'])) {
                         if (isset($_POST['deleteUserId'])) {
                             $userIdToDelete = $_POST['deleteUserId'];
@@ -50,13 +52,11 @@ if (!empty($_COOKIE)) {
                             exit();
                         }
                     }
-
                     ?>
                 </tbody>
             </table>
         </div>
         <div class="p-2">
-
         </div>
         <div class="p-2 admin_conteneur">
             <h5>Ajouter un utilisateur</h5>

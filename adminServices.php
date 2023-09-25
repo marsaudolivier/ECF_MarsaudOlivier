@@ -2,6 +2,7 @@
 require_once("./templates/header.php");
 require_once("./templates/Service.php");
 require_once("./lib/utilisateurs.php");
+// Vérification des cookie de connexion
 if (!empty($_COOKIE)) {
     $mail = $_COOKIE['mail'];
     $token = $_COOKIE['token'];

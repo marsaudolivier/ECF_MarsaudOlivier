@@ -6,7 +6,7 @@ require_once("./lib/options.php");
 require_once("./lib/energies.php");
 require_once("./lib/tools.php");
 require_once("./lib/utilisateurs.php");
-
+// Vérification des cookie de connexion
 if (!empty($_COOKIE)) {
     $mail = $_COOKIE['mail'];
     $token = $_COOKIE['token'];
@@ -16,8 +16,7 @@ if (!empty($_COOKIE)) {
     <a href="index.php" class="text-success p-2">Acceuil</a>
     <a href="admin.php" class="text-success p-2">Espace Administration</a>
     <a href="adminVoitures.php" class="text-success p-2">Gestion des ventes vehicules</a>
-
-    <?php
+    <?php //gestion effacé la voiture
     if (isset($_POST["deleteAnnonceButton"])) {
         $Id_Annonces = htmlspecialchars($_POST['Id_Annonces']);
         $Id_Voitures = htmlspecialchars($_POST['Id_Voitures']);
@@ -45,12 +44,12 @@ if (!empty($_COOKIE)) {
         if (!empty($chemin_photo_principal) && file_exists($chemin_photo_principal)) {
             unlink($chemin_photo_principal); // Supprimer le fichier
         }
-    }
+    } // gestion modification
     if (isset($_POST["modifieAnnonceButton"])) {
         $Id_Annonces = htmlspecialchars($_POST['Id_Annoncess']);
         $voiture = Annonces::GetAnnonce($pdo, $Id_Annonces);
         CardEdit($voiture, $pdo);
-    }
+    } // gestion ajout voiture
     if (isset($_POST['ajouterVoiture'])) {
         $annee = htmlspecialchars($_POST['annee']);
         $kilometrage = htmlspecialchars($_POST['kilometrage']);
@@ -105,7 +104,6 @@ if (!empty($_COOKIE)) {
                 }
             }
         }
-
         //nsére toutes les photos secondaires dans la base de données
         foreach ($photos_secondaires_uploadées as $photo_secondaire) {
             Photos::CreatePhoto($pdo, $photo_secondaire, $Id_Voitures);
