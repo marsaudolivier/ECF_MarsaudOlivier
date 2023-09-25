@@ -2,9 +2,6 @@
 require_once("./templates/header.php");
 require_once("./lib/utilisateurs.php");
 require_once("./lib/contact.php");
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 if (!empty($_COOKIE)) {
     $mail = $_COOKIE['mail'];
     $token = $_COOKIE['token'];

@@ -41,7 +41,6 @@ function Contacts()
       <textarea id="message" name="message"></textarea>
     </div>
     <button type="submit" name="Contact" class="ventes_bouton btn btn-primary"> VALIDER</button>
-
     </div>
     </form>
 
@@ -50,10 +49,10 @@ function Contacts()
   <?php
   require('./lib/pdo.php');
   if (isset($_POST['Contact'])) {
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $mail = $_POST['mail'];
-    $telephone = $_POST['telephone'];
+    $nom = htmlspecialchars($_POST['nom']);
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $mail = htmlspecialchars($_POST['mail']);
+    $telephone = htmlspecialchars($_POST['telephone']);
     $Id_FormulairesOk = "1";
     if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/index.php") {
       $Id_Motifs = $_POST['Id_Motifs'];
@@ -81,31 +80,29 @@ function VoirContact($pdo)
       Contact::UpdateState($pdo, $contactId, $newState);
       header("Location: adminContacts.php");
       exit();
-  }
+    }
   ?>
-     ?>
-
     <div class="index_text p-1">
       <div class="index_text">
         <form action="adminContacts.php" method="post">
-<div>
-<h2 class="p-4">Formulaire traité: <?= $contact['etat'] ?></h2>
-       <input type="hidden" name="Id_ContactToChange" value="<?= $contact['Id_Formulaires'] ?>">
+          <div>
+            <h2 class="p-4">Formulaire traité: <?= $contact['etat'] ?></h2>
+            <input type="hidden" name="Id_ContactToChange" value="<?= $contact['Id_Formulaires'] ?>">
             <label for="newState">Changer l'état :</label>
             <select name="newState" id="newState">
-                <option value="1">Non Traité</option>
-                <option value="2">En Cours</option>
-                <option value="3">Traité</option>
+              <option value="1">Non Traité</option>
+              <option value="2">En Cours</option>
+              <option value="3">Traité</option>
             </select>
             <button type="submit" name="changeStateButton" class="btn btn-primary">Changer l'état</button>
-</div>
+          </div>
         </form>
         <?php
         if ($contact['annonce'] != null) {
           echo '<h3 class="annonce_formulaire">Annonce concerné: ' . $contact['annonce'] . '</h3>';
         }
         if ($contact['annonce'] == null) {
-          echo '<h4>Motif de contact! ' . $contact['motif'] .' </h4>';
+          echo '<h4>Motif de contact! ' . $contact['motif'] . ' </h4>';
         }
         ?>
       </div>

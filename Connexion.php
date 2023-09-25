@@ -20,19 +20,16 @@ if(!empty($_COOKIE)){
               <label for="password ">Mot de passe :</label><br>
         <input type="password" id="password" name="password"class="form-control border border-success" required><br><br>
         </div>
-      
         <input type="submit" value="Connexion" name="test">
     </form>
 </div>
 <div class="p-5"></div>
 
-
-
 <?php
-if (isset($_POST['test'])) {
-$mail = $_POST['email'];  
-$password = $_POST['password'];  
-
+//Ajout sécurité faille XSS
+if (isset($_POST['test'])) { 
+$mail = htmlspecialchars($_POST['email']);
+$password = htmlspecialchars($_POST['password']);
 require_once('./lib/utilisateurs.php');
 require_once('./lib/pdo.php');
 $user = utilisateurs::loginUser($pdo, $mail, $password);
@@ -49,7 +46,4 @@ if ($user) {
 }
 }
 }
-
-
 require_once("./templates/Footer.php");
-?>

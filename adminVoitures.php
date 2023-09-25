@@ -19,8 +19,8 @@ if (!empty($_COOKIE)) {
 
     <?php
     if (isset($_POST["deleteAnnonceButton"])) {
-        $Id_Annonces = $_POST['Id_Annonces'];
-        $Id_Voitures = $_POST['Id_Voitures'];
+        $Id_Annonces = htmlspecialchars($_POST['Id_Annonces']);
+        $Id_Voitures = htmlspecialchars($_POST['Id_Voitures']);
         // Récupérer les informations de la voiture, y compris le chemin de la photo principale
         $voiture = Voitures::GetVoiture($pdo, $Id_Voitures);
         // Extraire le chemin de la photo principale du tableau
@@ -47,14 +47,14 @@ if (!empty($_COOKIE)) {
         }
     }
     if (isset($_POST["modifieAnnonceButton"])) {
-        $Id_Annonces = $_POST['Id_Annoncess'];
+        $Id_Annonces = htmlspecialchars($_POST['Id_Annoncess']);
         $voiture = Annonces::GetAnnonce($pdo, $Id_Annonces);
         CardEdit($voiture, $pdo);
     }
     if (isset($_POST['ajouterVoiture'])) {
-        $annee = $_POST['annee'];
-        $kilometrage = $_POST['kilometrage'];
-        $prix = $_POST['prix'];
+        $annee = htmlspecialchars($_POST['annee']);
+        $kilometrage = htmlspecialchars($_POST['kilometrage']);
+        $prix = htmlspecialchars($_POST['prix']);
         $photo_principale = $_FILES['photo_principal'];
         $dossier_cible = './uploads/voitures/';
         if ($photo_principale['error'] === 0) {
@@ -69,11 +69,11 @@ if (!empty($_COOKIE)) {
             echo "Erreur lors du téléchargement du fichier.";
         }
         $photo_principal = $chemin_cible;
-        $Id_Modeles = $_POST['modele'];
-        $Id_Marques = $_POST['marque'];
+        $Id_Modeles = htmlspecialchars($_POST['modele']);
+        $Id_Marques = htmlspecialchars($_POST['marque']);
         Voitures::CreateVoiture($pdo, $kilometrage, $annee, $prix, $photo_principal, $Id_Marques, $Id_Modeles);
         $Id_Voitures = $pdo->lastInsertId();
-        $titre = $_POST['titre'];
+        $titre = htmlspecialchars($_POST['titre']);
         $date_publication = date('Y-m-d');
         Annonces::CreateAnnonce($pdo, $titre, $date_publication, $Id_Voitures);
         $selectedEnergies = $_POST['energie'];
@@ -112,17 +112,16 @@ if (!empty($_COOKIE)) {
         }
     };
     if (isset($_POST["modifierVoiture"])) {
-        var_dump($_POST);
-        $Id_Annonces = $_POST['Id_Annonces'];
-        $titre = $_POST['titre'];
-        $annee = $_POST['annee'];
-        $kilometrage = $_POST['kilometrage'];
-        $prix = $_POST['prix'];
+        $Id_Annonces = htmlspecialchars($_POST['Id_Annonces']);
+        $titre = htmlspecialchars($_POST['titre']);
+        $annee = htmlspecialchars($_POST['annee']);
+        $kilometrage = htmlspecialchars($_POST['kilometrage']);
+        $prix = htmlspecialchars($_POST['prix']);
         $photo_principal = $_POST['photo_principal'];
-        $Id_Voitures = $_POST['Id_Voitures'];
-        $Id_Marques = $_POST['Id_Marques'];
+        $Id_Voitures = htmlspecialchars($_POST['Id_Voitures']);
+        $Id_Marques =htmlspecialchars( $_POST['Id_Marques']);
         $date_publication = $_POST['date_publication'];
-        $modele = $_POST['modele'];
+        $modele = htmlspecialchars($_POST['modele']);
         Annonces::UpdateAnnonce($pdo, $titre, $date_publication, $Id_Annonces, $Id_Voitures);
         Voitures::UpdateVoiture($pdo, $kilometrage, $annee, $prix, $photo_principal, $Id_Voitures, $Id_Marques, $modele);
         $selectedOptions = $_POST['options'];

@@ -12411,4 +12411,22 @@ h4, .h4 {
   border-radius: 50px;
   border: 3px solid #FF8778;
   font-size: 19px;
+}
+
+.Mentions_legales {
+  background-color: #5CB8FF;
+  color: #2F2569;
+  border-radius: 50px;
+  border: 3px solid #FF8778;
+  font-size: 22px;
+  align-items: center;
+  margin: auto;
+  width: 95%;
+  padding: 10px;
+}
+
+.Mentions_legales_titre {
+  font-size: 30px;
+  text-transform: uppercase;
+  padding-left: 40px;
 }/*# sourceMappingURL=main.css.map */
