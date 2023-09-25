@@ -1,7 +1,7 @@
 <?php
 require_once('./lib/contact.php');
 require_once('./lib/pdo.php');
-
+//Formulaire contact page index
 function Contacts()
 {
 ?> <div class="p-2">
@@ -48,6 +48,7 @@ function Contacts()
   </div>
   <?php
   require('./lib/pdo.php');
+  //Si appuie sur bonton alors récupération des donné avec htmlspecialchars Sécurité XSS
   if (isset($_POST['Contact'])) {
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
@@ -64,8 +65,10 @@ function Contacts()
     $contact->insertContact($contact, $pdo);
   }
 }
+//Formulaire contact page contact panel admin
 function VoirContact($pdo)
 {
+  //Si appui sur bouton effacé alors récup id et fonction efface avec class contact
   if (isset($_POST["deleteContactButton"])) {
     $Id_Contact = $_POST['Id_ContactToDelete'];
     Contact::deleteContact($pdo, $Id_Contact);
@@ -90,6 +93,7 @@ function VoirContact($pdo)
             <input type="hidden" name="Id_ContactToChange" value="<?= $contact['Id_Formulaires'] ?>">
             <label for="newState">Changer l'état :</label>
             <select name="newState" id="newState">
+              <!---Gestion formulaire traité ou pas de facon a affiché panel admin nbres msg-->
               <option value="1">Non Traité</option>
               <option value="2">En Cours</option>
               <option value="3">Traité</option>
@@ -99,6 +103,7 @@ function VoirContact($pdo)
         </form>
         <?php
         if ($contact['annonce'] != null) {
+          //Si dans la table contact une annonce de véhicule concerné alors affichage de la ligne
           echo '<h3 class="annonce_formulaire">Annonce concerné: ' . $contact['annonce'] . '</h3>';
         }
         if ($contact['annonce'] == null) {
