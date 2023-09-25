@@ -1,10 +1,9 @@
 <?php
+//Fonction affichage slider 
 function Slider()
 { ?>
   <form action="ventes.php" method="post" enctype="multipart/form-data">
-
     <div class="filtre p-1" id="sliderChange">
-
       <div class="ventes_slider_conteneur p-1">
         <h4>Kilométrage</h4>
         <div id="slider-snapTwo" class="ventes_slider"></div>
@@ -27,7 +26,6 @@ function Slider()
         </div>
         <button type="button" id="reset_prix" class="ventes_bouton btn btn-primary"> Réinitialiser</button>
       </div>
-
       <div class="ventes_slider_conteneur p-1">
         <h4>Années</h4>
         <div id="slider-snapTrois" class="ventes_slider"></div>
