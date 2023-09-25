@@ -33,18 +33,18 @@ h2 {
   text-align: center;
   font-size: 50px;
 }
-h3{
+h3 {
   font-size: 28px;
   text-align: center;
 }
-h4{
+h4 {
   text-align: center;
   font-size: 20px;
   text-transform: uppercase;
 }
 //Style bouton
-.index_bouton{
-    margin: 0px 50px 20px;
+.index_bouton {
+  margin: 0px 50px 20px;
 }
 //Ajout Css Navbar
 .navigation_bandeau {
@@ -144,22 +144,22 @@ h4{
   font-size: 19px;
 }
 //Ajout média query
-@media screen and (min-width : 960px) {
-    ul{
-        display: grid;
-        grid-template-columns: auto auto ;
-    }
+@media screen and (min-width: 960px) {
+  ul {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 }
 //Ajout style modal
-.modal-dialog{
-    border-radius: 10px;
-    border: 3px solid $success;
+.modal-dialog {
+  border-radius: 10px;
+  border: 3px solid $success;
 }
-.test{
-    background-color: $info;
-} 
+.test {
+  background-color: $info;
+}
 //Ajout style Avis
-.index_avis{
+.index_avis {
   width: 300px;
   height: 250px;
   background-color: $info;
@@ -171,25 +171,25 @@ h4{
   align-items: center;
   margin: auto;
 }
-.avis{
-display: grid;
-grid-template-columns: auto;
+.avis {
+  display: grid;
+  grid-template-columns: auto;
 }
-.index_avis{
+.index_avis {
   display: grid;
 }
-.index_avis2{
+.index_avis2 {
   display: none;
 }
-@media screen and (min-width : 960px) {
-  .avis{
+@media screen and (min-width: 960px) {
+  .avis {
     display: grid;
     grid-template-columns: auto auto auto;
   }
-  .index_avis{
+  .index_avis {
     display: none;
   }
-  .index_avis2{
+  .index_avis2 {
     width: 300px;
     height: 250px;
     background-color: $info;
@@ -204,57 +204,57 @@ grid-template-columns: auto;
   }
 }
 //Ajout style page contact
-.FormulaireContact{
+.FormulaireContact {
   display: grid;
-  grid-template-columns: 150px auto 150px auto ;
+  grid-template-columns: 150px auto 150px auto;
   padding: 15px;
   width: 95%;
 }
-.FormulaireContact2{
+.FormulaireContact2 {
   display: grid;
-  grid-template-columns: 150px auto   ;
+  grid-template-columns: 150px auto;
   padding: 15px;
   width: 95%;
   height: 250px;
 }
-@media screen and (max-width : 768px) {
-  .FormulaireContact{
-      display: flex;
-      flex-direction: column; 
-      padding:  5px ;
+@media screen and (max-width: 768px) {
+  .FormulaireContact {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
   }
-  .FormulaireContact2{
-      display: flex;
-      flex-direction: column; 
-      padding:  5px ;
-      height: auto;
+  .FormulaireContact2 {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    height: auto;
   }
 }
 //Ajout CSS map
-.map{
+.map {
   margin: auto;
   border-radius: 50px;
   border: 3px solid $success;
   width: 300px;
 }
-@media screen and (min-width : 550px) {
-  .map{
-      width: 500px;
+@media screen and (min-width: 550px) {
+  .map {
+    width: 500px;
   }
 }
-@media screen and (min-width : 650px) {
-  .map{
-      width: 600px;
+@media screen and (min-width: 650px) {
+  .map {
+    width: 600px;
   }
 }
-@media screen and (min-width : 768px) {
-  .map{
-      width: 700px;
+@media screen and (min-width: 768px) {
+  .map {
+    width: 700px;
   }
 }
-@media screen and (min-width : 960px) {
-  .map{
-      width: 900px;
+@media screen and (min-width: 960px) {
+  .map {
+    width: 900px;
   }
 }
 //Ajout CSS Avis
@@ -265,22 +265,21 @@ grid-template-columns: auto;
   width: 40%;
   margin: auto;
 }
-  @media screen and (min-width : 750px) {
-    .FormulaireAvis {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      width: 100%;
-      }
-      .input-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      
-      }
+@media screen and (min-width: 750px) {
+  .FormulaireAvis {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
   }
-.admin_conteneur{
+  .input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.admin_conteneur {
   background-color: $info;
   color: $danger;
   border-radius: 50px;
@@ -288,7 +287,7 @@ grid-template-columns: auto;
   text-align: center;
   font-size: 19px;
 }
-.Card-admin{
+.Card-admin {
   background-color: $info;
   color: $danger;
   border-radius: 50px;
@@ -298,7 +297,7 @@ grid-template-columns: auto;
   width: 85%;
   margin: auto;
 }
-.admin_conteneurTwo{
+.admin_conteneurTwo {
   background-color: $success;
   color: $primary;
   border: 3px solid $danger;
@@ -307,14 +306,14 @@ grid-template-columns: auto;
   width: 100%;
   margin: auto;
 }
-.ventes_bouton{
+.ventes_bouton {
   align-items: center;
   margin: auto;
   width: 125px;
   height: 25px;
   font-size: 10px;
 }
-.filtre{
+.filtre {
   display: grid;
   margin: auto;
   background-color: $info;
@@ -322,56 +321,62 @@ grid-template-columns: auto;
   border: 3px solid $success;
   width: 95%;
 }
-.ventes_bouton_recherche{
+.ventes_bouton_recherche {
   display: grid;
   margin: auto;
   text-align: center;
   font-size: 20px;
-  background: linear-gradient(to bottom right, #2F2569 0%, #9C122B 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, #2F2569 0%, #9C122B 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, #2F2569 0%, #9C122B 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, #2F2569 0%, #9C122B 50%) top right / 50% 50% no-repeat;
+  background: linear-gradient(to bottom right, #2f2569 0%, #9c122b 50%) bottom
+      right / 50% 50% no-repeat,
+    linear-gradient(to bottom left, #2f2569 0%, #9c122b 50%) bottom left / 50%
+      50% no-repeat,
+    linear-gradient(to top left, #2f2569 0%, #9c122b 50%) top left / 50% 50%
+      no-repeat,
+    linear-gradient(to top right, #2f2569 0%, #9c122b 50%) top right / 50% 50%
+      no-repeat;
   color: $success;
 }
-@media screen and (min-width : 600px) {
-  .filtre{
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;  
-      width: 95%;
-      gap: 35px;
-      margin: auto;
-      background-color: $info;
-      border-radius: 5%;
-      border: 3px solid $success; 
-  }
-  }
-  .imageCardVentes{
-    width: 500px;
-    height: 300px;
-  }
-  .annoncesContainer{
+@media screen and (min-width: 600px) {
+  .filtre {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
-  } 
-  @media screen and (max-width : 1200px) {
-    .annoncesContainer{
-        display: inline-block;
-    }
-    .annoncesDetail{
-      display: inline;
-    }
+    justify-content: space-around;
+    width: 95%;
+    gap: 35px;
+    margin: auto;
+    background-color: $info;
+    border-radius: 5%;
+    border: 3px solid $success;
   }
-  @media screen and (max-width : 600px) {
-    .imageCardVentes{
-        width: 450px;
-        height: 250px;
-   
-    }
+}
+.imageCardVentes {
+  width: 500px;
+  height: 300px;
+}
+.annoncesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+@media screen and (max-width: 1200px) {
+  .annoncesContainer {
+    display: inline-block;
   }
-  .card_text{
-    font-size: 35px;
-    text-transform: uppercase;
+  .annoncesDetail {
+    display: inline;
+  }
+}
+@media screen and (max-width: 600px) {
+  .imageCardVentes {
+    width: 450px;
+    height: 250px;
+  }
+}
+.card_text {
+  font-size: 35px;
+  text-transform: uppercase;
   background: linear-gradient(to bottom right, #2f2569 0%, #9c122b 50%) bottom
       right / 50% 50% no-repeat,
     linear-gradient(to bottom left, #2f2569 0%, #9c122b 50%) bottom left / 50%
@@ -384,46 +389,45 @@ grid-template-columns: auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: 50px;
-  }
-  .card_option{
-    margin: 15px;
-    width: auto;
-    padding: 10px;
-  }
-  .annonce_formulaire{
-    border-radius: 50px;
-    border: 3px solid $success;
-    font-size: 32px;
-    padding: 10px;
-  }
-  .card-text{
-    font-size: 28px;
-  }
+}
+.card_option {
+  margin: 15px;
+  width: auto;
+  padding: 10px;
+}
+.annonce_formulaire {
+  border-radius: 50px;
+  border: 3px solid $success;
+  font-size: 32px;
+  padding: 10px;
+}
+.card-text {
+  font-size: 28px;
+}
 
-  .logTexte{
-    font-size: 28px;
-  }
-  .card_photo{
-    width: auto;
-    background-color: $info;
-    border-radius: 50px;
-    border: 3px solid $success;
-    font-size: 19px;
-  }
-  .Mentions_legales{
-    background-color: $info;
-    color: $primary;
-    border-radius: 50px;
-    border: 3px solid $success;
-    font-size: 22px;
-    align-items: center;
-    margin: auto;
-    width: 95%;
-    padding: 10px;
-  }
-  .Mentions_legales_titre{
-    font-size: 30px;
-    text-transform: uppercase;
-    padding-left: 40px;
-  }
-  
+.logTexte {
+  font-size: 28px;
+}
+.card_photo {
+  width: auto;
+  background-color: $info;
+  border-radius: 50px;
+  border: 3px solid $success;
+  font-size: 19px;
+}
+.Mentions_legales {
+  background-color: $info;
+  color: $primary;
+  border-radius: 50px;
+  border: 3px solid $success;
+  font-size: 22px;
+  align-items: center;
+  margin: auto;
+  width: 95%;
+  padding: 10px;
+}
+.Mentions_legales_titre {
+  font-size: 30px;
+  text-transform: uppercase;
+  padding-left: 40px;
+}

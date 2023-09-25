@@ -1,48 +1,48 @@
- // Ajout des couleurs Global pour la charte graphique
- $primary: #2F2569;
- $danger: #9C122B;
- $success: #FF8778;
- $secondary: #686869;
- $warning: #1E1E1E;
- $info: #5CB8FF;
+// Ajout des couleurs Global pour la charte graphique
+$primary: #2f2569;
+$danger: #9c122b;
+$success: #ff8778;
+$secondary: #686869;
+$warning: #1e1e1e;
+$info: #5cb8ff;
 
 //Changement style navbar
-$navbar-dark-color: #5CB8FF;
-$breadcrumb-bg: #5CB8FF;
+$navbar-dark-color: #5cb8ff;
+$breadcrumb-bg: #5cb8ff;
 $table-color: $danger;
 $table-bg: $info;
 
 //Import Scss bootstrap
 @import "../vendor/twbs/bootstrap/scss/bootstrap";
 
+//CSS Slider
+.ventes_slider_conteneur {
+  display: grid;
+  align-self: center;
+  width: 95%;
+  background-color: $info;
+  border-radius: 50px;
+  border: 3px solid $success;
+  margin: auto;
+}
+.ventes_slider_text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  color: $primary;
+  font-size: 15px;
+}
 
-.ventes_slider_conteneur{
-    display: grid;
-    align-self: center;
-    width: 95%;
-    background-color: $info;
-    border-radius: 50px;
-    border: 3px solid $success;
-    margin: auto;
+.noUi-connect {
+  background-color: $primary;
 }
-.ventes_slider_text{
-   display: flex;
-   flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    color: $primary;
-    font-size: 15px;    
-}
-
-.noUi-connect{
-    background-color: $primary;
-}
-.noUi-handle{
-    background-color: $primary;
-    border-radius: 100%;
-    border: 1px solid $success;
+.noUi-handle {
+  background-color: $primary;
+  border-radius: 100%;
+  border: 1px solid $success;
 }
 
 //Import css nouislider
-@import "nouislider.min.css"
+@import "nouislider.min.css";

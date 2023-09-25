@@ -1,8 +1,9 @@
 <?php
+//Récupératuin de chaque carte voiture utilisation $voitures
 function Card($voiture)
 { ?>
     <div class="col">
-        <div class="card shadow-sm admin_conteneur" >
+        <div class="card shadow-sm admin_conteneur">
             <img src="<?= $voiture['photo_principal'] ?>" class="card_photo">
             <h3><?= $voiture['titre'] ?></h3>
             <p class="card-text">Année :<?= $voiture['annee'] ?></br>
@@ -12,6 +13,7 @@ function Card($voiture)
                 Modèle :<?= $voiture['modele'] ?>
             </p>
             <?php
+            //Si admin Alors possibilité delette et modifier
             if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminVoitures.php") { ?>
                 <form action="adminVoitures.php" method="post">
                     <input type="hidden" name="Id_Voitures" value="<?= $voiture['Id_Voitures'] ?>">
@@ -23,6 +25,7 @@ function Card($voiture)
                     <input type="hidden" name="Id_Annoncess" value="<?= $voiture['Id_Annonces'] ?>">
                     <button type="submit" name="modifieAnnonceButton" class="btn btn-sm btn-warning">Modifier</button>
                 <?php }
+            //Si sur la page ventes alors possibilité avoir détail annonces
             if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/ventes.php") { ?>
                     <form action="ventes.php" method="post">
                         <input type="hidden" name="Id_Annoncess" value="<?= $voiture['Id_Annonces'] ?>">
@@ -34,16 +37,15 @@ function Card($voiture)
 }
 ?>
 <?php
+//Edition véhicules
 function CardEdit($voiture, $pdo)
-
-{
-?>
+{ ?>
     <div class="Card-admin p-2">
         <div class="card shadow-sm admin_conteneur">
             <form action="adminVoitures.php" method="post">
                 <div class="row">
                     <div class="col">
-                        <img src="<?= $voiture['photo_principal'] ?>" class="" width="40%">
+                        <img src="<?= $voiture['photo_principal'] ?>" width="40%">
                     </div>
                     <div class="col p-5 admin_conteneur">
                         <input type="hidden" name="Id_Voitures" value="<?= $voiture['Id_Voitures'] ?>">
@@ -66,6 +68,7 @@ function CardEdit($voiture, $pdo)
                                 <fieldset class="admin_conteneur p-2">
                                     <legend> Energie :</legend>
                                     <?php
+                                    //récupération des energie valide
                                     require_once('./lib/energies.php');
                                     $Id_Voitures = $voiture['Id_Voitures'];
                                     $energies = Energies::GetEnergieById($pdo, $Id_Voitures);
@@ -74,24 +77,23 @@ function CardEdit($voiture, $pdo)
                                     }
                                     ?>
                                     <?php
+                                    //récupération des energie non présentes
                                     $uncheckedEnergies = Energies::GetEnergieById2($pdo, $Id_Voitures);
                                     foreach ($uncheckedEnergies as $energie) {
                                         echo '<input class="test3" type="checkbox" name="options[]" value="' . $energie['Id_Energies'] . '">' . $energie['energie'];
                                     }
                                     ?>
-
                                 </fieldset>
-
                         </p>
                     </div>
                     <fieldset class="p-5 admin_conteneur">
                         <legend> Options : </legend>
-                        <?php
+                        <?php  //récupération des option valide
                         require_once('./lib/options.php');
                         $options = Options::GetOptionById($pdo, $Id_Voitures);
                         foreach ($options as $option) {
                             echo '<input class="test3" type="checkbox" name="optionss[]" value="' . $option['Id_Options'] . '" checked>' . $option['optionn'];
-                        }
+                        } //récupération des option non présentes
                         $uncheckedOptions = Options::GetOptionById2($pdo, $Id_Voitures);
                         foreach ($uncheckedOptions as $option) {
                             echo '<input class="test3" type="checkbox" name="optionss[]" value="' . $option['Id_Options'] . '">' . $option['optionn'];
@@ -107,14 +109,9 @@ function CardEdit($voiture, $pdo)
     </div>
 <?php
 }
-?>
-
-
-
-<?php
+// Ajout de véhicule pannel admin
 function Newcard($pdo)
-{
-?>
+{ ?>
     <div class="card shadow-sm admin_conteneur">
         <h3>Création de vehicule</h3>
         <form action="adminVoitures.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
@@ -125,7 +122,7 @@ function Newcard($pdo)
                         <?php
                         require_once('./lib/annonces.php');
                         $annonces = Marques::GetMarques($pdo);
-                        //select
+                        //select marque
                         echo '<label for="marque" class="text-primary">marque</label>';
                         echo '<select name="marque" id="marque">';
                         foreach ($annonces as $annonce) {
@@ -141,7 +138,6 @@ function Newcard($pdo)
                         <img id="image_preview" src="#" alt="Aperçu de l'image" style="display: none; width: 300px; height: 200px;">
                         <label for="photo_principal">Choisissez une photo principale :</label>
                         <input type="file" name="photo_principal" id="photo_principal" accept="image/*">
-
                     <fieldset class="p-2 admin_conteneur">
                         <legend> Energie :</legend>
                         <?php
@@ -154,7 +150,6 @@ function Newcard($pdo)
                     </fieldset>
                 </div><br />
                 <div class="col p-2 ">
-
                     <!--Choix d'option-->
                     <fieldset class="p-2 admin_conteneur" id="optionsFieldset">
                         <legend> Options : </legend>
@@ -206,23 +201,21 @@ function Newcard($pdo)
     </div>
 <?php
 }
-
-function recupAnonce($pdo)
-{
-    // On récupère toutes les annonces
+// récupération des annonces
+function recupAnonce($pdo){
     $Annonces = Annonces::GetAnnonces($pdo); ?>
     <!-- On affiche les annonces -->
     <form action="adminVoitures.php" method="post">
         <?php
         if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminVoitures.php") { ?>
-                <h2>Liste des véhicules</h2>
+            <h2>Liste des véhicules</h2>
             <button type="submit" name="CreateVehicule" class="btn btn-sm btn-success">création d'un nouveau vehicule</button>
         <?php } ?>
 
     </form>
     <div class="album py-5">
-        <div class="container" >
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <?php
                 foreach ($Annonces as $voiture) {
                     Card($voiture);
