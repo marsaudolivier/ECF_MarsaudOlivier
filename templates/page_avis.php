@@ -1,5 +1,5 @@
 <?php
-
+//récupération des avis
 function Avis($pdo)
 {
   $sql = 'SELECT * FROM Avis INNER JOIN Validations v 
@@ -13,6 +13,7 @@ function Avis($pdo)
     <div class="avis">
       <?php
       $i = 0;
+      //Fonction pour affiché que 1 avis en mobile et 3 en format grand écran
       foreach ($Validations as $Validationn) {
         if ($Validationn['valider'] === 'oui') {
           $i = $i + 1;
@@ -41,9 +42,10 @@ function Avis($pdo)
 
 <?php
 }
-
-function AvisContact($pdo){
-   ?><div class="p-2">
+//Formulaire de contact 
+function AvisContact($pdo)
+{
+?><div class="p-2">
     <div class="justify-content-center index_text p-2">
       <h2>Votre avis nous intéresse</h2>
       <div class="FormulaireAvis">
@@ -74,6 +76,7 @@ function AvisContact($pdo){
     </div>
   </div>
 <?php
+  //récupération des input avec protection XSS
   require('./lib/avis.php');
   if (isset($_POST['Avis'])) {
     $nom = htmlspecialchars($_POST['nom']);
@@ -90,21 +93,21 @@ function AvisContact($pdo){
   }
 }
 ?>
-<?php
+<?php // Affichage du formulaire sur page Admin
 function AvisAdmin($pdo)
-{
+{ // fonction de modification au click 
   if (isset($_POST["updateAvisButton"])) {
     Avis::UpdateAvis($pdo);
     header("Location: adminAvis.php");
     exit;
-  }
+  } //fonction de effacé au click
   if (isset($_POST["deleteAvisButton"])) {
-    $Id_AvisToDelete = $_POST['Id_AvisToDelete']; 
+    $Id_AvisToDelete = $_POST['Id_AvisToDelete'];
     Avis::DeleteAvis($pdo, $Id_AvisToDelete);
     header("Location: adminAvis.php");
     exit;
-  }
-  if (isset($_POST["addAvisButton"])) { 
+  } //Ajout sur le panel admin d'un avis avec protection XSS
+  if (isset($_POST["addAvisButton"])) {
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
     $commentaire = htmlspecialchars($_POST['commentaire']);
@@ -115,8 +118,8 @@ function AvisAdmin($pdo)
       echo "Veuillez remplir tous les champs correctement.";
     } else {
       $avis->insertAvis($avis, $pdo);
-    header("Location: adminAvis.php");
-    exit;
+      header("Location: adminAvis.php");
+      exit;
     }
   }
   $Avise = Avis::GetAll($pdo);
@@ -145,25 +148,25 @@ function AvisAdmin($pdo)
           <h3>Validations:</h3>
         </label>
         <select name="Id_Validations">
-  <?php if ($Aviss['Id_Validations'] === 2): ?>
-    <option value="2">oui</option>
-    <option value="1">non</option>
-  <?php else: ?>
-    <option value="1">non</option>
-    <option value="2">oui</option>
-  <?php endif; ?>
-</select>
-          <!-- Boutons -->
-        </select>        <button type="submit" name="updateAvisButton" class="btn btn-primary">Modifier</button>
+          <?php if ($Aviss['Id_Validations'] === 2) : ?>
+            <option value="2">oui</option>
+            <option value="1">non</option>
+          <?php else : ?>
+            <option value="1">non</option>
+            <option value="2">oui</option>
+          <?php endif; ?>
+        </select>
+        <!-- Boutons -->
+        </select> <button type="submit" name="updateAvisButton" class="btn btn-primary">Modifier</button>
       </form>
       <form action="adminAvis.php" method="post">
-      <input type="hidden" name="Id_AvisToDelete" value="<?= $Aviss['Id_Avis'] ?>">
+        <input type="hidden" name="Id_AvisToDelete" value="<?= $Aviss['Id_Avis'] ?>">
         <button type="submit" name="deleteAvisButton" class="btn btn-danger">Supprimer</button>
       </form>
     </div>
   <?php
   } ?>
-    <div class="p-2">
+  <div class="p-2">
     <div class="justify-content-center index_text p-2">
       <h2>Ajouté un avis</h2>
       <div class="FormulaireAvis">

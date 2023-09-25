@@ -1,9 +1,10 @@
 <?php
-require ("./lib/pdo.php");
-require ("./lib/config.php");
+require("./lib/pdo.php");
+require("./lib/config.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@ require ("./lib/config.php");
     Nous sommes votre partenaire de confiance pour l'entretien, la réparation et la maintenance de votre véhicule. Prenez soin de votre voiture avec notre équipe expérimentée. 
     Demandez un devis dès aujourd'hui">
   <title>Garage V. Parrot</title>
-  <!-- CSS + Font Aref Rugaa -->
+  <!-- CSS + Font Aref Rugaa usage de SAss pour compilation donc besoin que de main.css  -->
   <link rel="stylesheet" href="../styles/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
@@ -29,9 +30,9 @@ require ("./lib/config.php");
       </button>
       <div class="collapse navbar-collapse text-primary navigation_link" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-        <?php foreach ($mainMenu as $key => $value) { ?>
-          <a class="navigation_link navbar-text" href="<?= $key ?>"><?= $value ?></a>
-        <?php } ?>
+          <?php foreach ($mainMenu as $key => $value) { ?>
+            <a class="navigation_link navbar-text" href="<?= $key ?>"><?= $value ?></a>
+          <?php } ?>
         </div>
       </div>
     </nav>
