@@ -26,7 +26,7 @@ class Energies
         $this->SetId_Energies($Id_Energies);
     }
     public static function GetEnergieById($pdo, $Id_Voitures)
-    {
+    {//récupération énergie par ID
         $sql = "SELECT * FROM Energies WHERE Id_Energies
         IN (SELECT a.Id_Energies FROM consommer a WHERE a.Id_Voitures = :Id_Voitures)
         ";
@@ -36,7 +36,7 @@ class Energies
         return $energies;
     }
     public static function GetEnergieById2($pdo, $Id_Voitures)
-    {
+    { //récupération énergie par ID qui ne sont pas dans le véhicule
         $sql = "SELECT * FROM Energies WHERE Id_Energies NOT IN 
         (SELECT a.Id_Energies FROM consommer a WHERE a.Id_Voitures = :Id_Voitures)";
         $query = $pdo->prepare($sql);
@@ -45,15 +45,16 @@ class Energies
         return $uncheckedEnergies;
     }
     public static function GetEnergies($pdo)
-    {
+    { //récup toute les énergie
         $sql = "SELECT * FROM Energies";
         $query = $pdo->prepare($sql);
         $query->execute();
         $energies = $query->fetchAll(PDO::FETCH_ASSOC);
         return $energies;
     }
-}
-class consommer extends Energies{
+} // héritage consommer par rapport Energies
+class consommer extends Energies
+{
     private int $Id_Energies;
     private int $Id_Voitures;
 
@@ -79,18 +80,15 @@ class consommer extends Energies{
         $this->SetId_Voitures($Id_Voitures);
     }
     public static function CreateConsommer($pdo, $Id_Energies, $Id_Voitures)
-    {
+    { //insertion énergie
         $sql = "INSERT INTO consommer (Id_Energies, Id_Voitures) VALUES (:Id_Energies, :Id_Voitures)";
         $query = $pdo->prepare($sql);
         $query->execute(['Id_Energies' => $Id_Energies, 'Id_Voitures' => $Id_Voitures]);
-
     }
     public static function DeleteAllForCar($pdo, $Id_Voitures)
-    {
+    { // Effacé toute les donné par rapport ID
         $sql = "DELETE FROM consommer WHERE Id_Voitures = :Id_Voitures";
         $query = $pdo->prepare($sql);
         $query->execute(['Id_Voitures' => $Id_Voitures]);
     }
-
-
 }
