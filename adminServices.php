@@ -14,9 +14,7 @@ if (!empty($_COOKIE)) {
     <div class="p-4">
         <h2>Modifier les services</h2>
     </div>
-
     <?php
-
     ServicesAdmin($pdo)
     ?>
 <?php } else { ?>
