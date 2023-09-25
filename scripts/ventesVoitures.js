@@ -1,31 +1,31 @@
+//Slider prix
 let snapSlider = document.getElementById("slider-snap");
-
 noUiSlider.create(snapSlider, {
-  start: [0, 25000],
+  start: [0, 50000],
   snap: true,
   connect: true,
   range: {
     min: 0,
-    "5%": 1250,
-    "10%": 2500,
-    "15%": 3750,
-    "20%": 5000,
-    "25%": 6250,
-    "30%": 7500,
-    "35%": 8750,
-    "40%": 10000,
-    "45%": 11250,
-    "50%": 12500,
-    "55%": 13750,
-    "60%": 15000,
-    "65%": 16250,
-    "70%": 17500,
-    "75%": 18750,
-    "80%": 20000,
-    "85%": 21250,
-    "90%": 22500,
-    "95%": 23750,
-    max: 25000,
+    "5%": 2500,
+    "10%": 5000,
+    "15%": 7500,
+    "20%": 10000,
+    "25%": 12500,
+    "30%": 15000,
+    "35%": 17500,
+    "40%": 20000,
+    "45%": 22500,
+    "50%": 25000,
+    "55%": 27500,
+    "60%": 30000,
+    "65%": 32500,
+    "70%": 35000,
+    "75%": 37500,
+    "80%": 40000,
+    "85%": 42500,
+    "90%": 45000,
+    "95%": 47500,
+     max: 50000,
   },
 });
 
@@ -38,8 +38,8 @@ snapSlider.noUiSlider.on("update", function (values, handle) {
   snapValues[handle].innerHTML = values[handle] + "€";
 });
 
+//Slider Kilométrage
 let snapSliderTwo = document.getElementById("slider-snapTwo");
-
 noUiSlider.create(snapSliderTwo, {
   start: [0, 250000],
   snap: true,
@@ -65,7 +65,6 @@ noUiSlider.create(snapSliderTwo, {
     "85%": 212500,
     "90%": 225000,
     "95%": 237500,
-
     max: 250000,
   },
 });
@@ -78,8 +77,8 @@ snapSliderTwo.noUiSlider.on("update", function (values, handle) {
   snapValuesTwo[handle].innerHTML = values[handle] + "Km";
 });
 
+//Slider Années
 let snapSliderTrois = document.getElementById("slider-snapTrois");
-
 noUiSlider.create(snapSliderTrois, {
   start: [1950, 2024],
   snap: true,
@@ -146,7 +145,6 @@ snapSliderTrois.noUiSlider.on("update", function (values, handle) {
   document.getElementById("slider_annee_max").value = values[1];
 });
 
-// Requête AJAX pour récupérer les modèles d'une marque
 function updateResults() {
   const prixMin = parseInt(
     document.getElementById("slider_prix_min").value,
@@ -218,7 +216,6 @@ function updateResults() {
       );
     });
 }
-
 // Écouter les événements de changement des sliders
 document.addEventListener("DOMContentLoaded", function () {
   [snapSlider, snapSliderTwo, snapSliderTrois].forEach(function (slider) {
@@ -235,7 +232,7 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// Créez une fonction pour récupérer les détails de l'annonce
+// fonction pour récupérer les détails de l'annonce
 function fetchDetailAnnonce(annonceId) {
   const url = "./api/api_detailAnnonce.php";
 
@@ -418,12 +415,12 @@ function fetchPhoto(idVoitures, photoPrincipal) {
     .then((optionsData) => {
       const optionsContainer = document.getElementById("carousel_conteneur");
       optionsContainer.innerHTML = "";
-      // Ajouter la photo principale à la première diapositive du carousel
+      // Ajoute la photo principale à la première diapositive du carousel
       const premiereDiapositive = document.createElement("div");
       premiereDiapositive.className = "carousel-item active";
       premiereDiapositive.innerHTML = `<img class="d-block imageCardVentes" src="${photoPrincipal}" alt="${photoPrincipal}">`;
       optionsContainer.appendChild(premiereDiapositive);
-      // Ajouter les autres photos secondaires
+      // Ajoute les autres photos secondaires
       optionsData.Photos.forEach((Photos, index) => {
         const optionElement = document.createElement("div");
         optionElement.className = "carousel-item";
