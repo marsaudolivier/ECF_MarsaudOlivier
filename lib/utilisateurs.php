@@ -7,7 +7,6 @@ Class utilisateurs{
     public string $mdp;
     public int $Id_Roles;
 
-
     public function GetId(){
         return $this->id;
     }
@@ -26,7 +25,6 @@ Class utilisateurs{
     public function GetId_Roles(){
         return $this->Id_Roles;
     }
-    //SETTERS
     public function SetId($id){
         $this->id = $id;
     }
@@ -70,14 +68,11 @@ Class utilisateurs{
     public function insertUser($user, $pdo){ 
         $sql = "INSERT INTO Utilisateurs (nom, prenom, mail, mdp, Id_Roles, token) VALUES (:nom, :prenom, :mail, :mdp, :Id_Roles, '')";
         $stmt = $pdo->prepare($sql);
-        // Liage des valeurs
         $stmt->bindValue(':nom', $user->GetNom());
         $stmt->bindValue(':prenom', $user->GetPrenom());
         $stmt->bindValue(':mail', $user->GetMail());
         $stmt->bindValue(':mdp', $user->GetMdp());
         $stmt->bindValue(':Id_Roles', $user->GetId_Roles());
-    
-        // Execution de la requête
         $stmt->execute();
     }
     public function verifyPassword($password) {
@@ -93,7 +88,6 @@ Class utilisateurs{
         if ($user && $user['mail'] === $mail && $user['mdp'] && password_verify($password, $user['mdp'])) {
             return $user; 
         }
-
         return null;  // L'authentification a échoué
     }
     public static function tokenAdd($pdo, $token, $password, $mail){
@@ -112,7 +106,6 @@ Class utilisateurs{
             if ($user && $user['mail'] === $mail && $user['token'] === $token) {
                 return $user; 
             }
-        
             return null;  // L'authentification a échoué
         }
 

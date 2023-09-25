@@ -1,4 +1,6 @@
 <?php
+// Function slugify pour la gestion de nom unique de mes fichiez images (exemple si deux clio.jpg)
+// pas d'erreur
 function slugify($text, string $divider = '-')
 {
   // replace non letter or digits by divider
