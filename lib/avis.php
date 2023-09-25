@@ -1,5 +1,4 @@
 <?php
-
 class Avis
 {
     private string $nom;
@@ -59,17 +58,14 @@ class Avis
     }
     public function insertAvis($avis, $pdo)
     {
-
+        //Ajout avis client
         $sql = "INSERT INTO Avis (nom, prenom, commentaire, note, Id_Validations) VALUES (:nom, :prenom, :commentaire, :note, :Id_Validations)";
         $stmt = $pdo->prepare($sql);
-
-        // Liage des valeurs
         $stmt->bindParam(':nom', $avis->GetNom());
         $stmt->bindParam(':prenom', $avis->GetPrenom());
         $stmt->bindParam(':commentaire', $avis->GetCommentaire());
         $stmt->bindParam(':note', $avis->GetNote());
         $stmt->bindParam(':Id_Validations', $avis->GetId_Validations());
-
         if ($stmt->execute()) {
             echo "Avis ajouté";
         } else {
@@ -92,7 +88,7 @@ class Avis
         $stmt->execute();
     }
     public static function UpdateAvis($pdo)
-    {
+    { //fonction administrateur mise a jour avis 
         $sql = "UPDATE Avis SET nom = :nom, prenom = :prenom, commentaire = :commentaire, note = :note, Id_Validations = :Id_Validations WHERE Id_Avis = :Id_Avis";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':Id_Avis', $_POST['Id_Avis']);
