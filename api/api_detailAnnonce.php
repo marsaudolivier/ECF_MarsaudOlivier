@@ -1,7 +1,7 @@
 <?php
 require_once('../lib/pdo.php');
-
 try {
+    //Usage inerjoin pour récupéré table Marques modeles photo par rapport a la table voiture Id
     $Id_Annonces = $_POST['Id_Annonces'];
     $sql = "SELECT * FROM Annonces 
     INNER JOIN Voitures v on Annonces.Id_Voitures = v.Id_Voitures
@@ -15,7 +15,6 @@ try {
     $stmt->execute();
     // Récupérez toutes les lignes en tant qu'objets JSON
     $Annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     // Envoyez les données au format JSON en réponse
     header('Content-Type: application/json');
     echo json_encode(["Annonces" => $Annonces]);

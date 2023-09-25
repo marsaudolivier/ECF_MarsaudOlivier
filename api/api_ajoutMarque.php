@@ -9,7 +9,6 @@ try {
         $query = $pdo->prepare($sql);
         $query->bindParam(':nouvelleMarque', $nouvelleMarque, PDO::PARAM_STR); // Utilisez PDO::PARAM_STR pour une chaîne de caractères
         $query->execute();
-
         // Envoyez une réponse JSON pour indiquer que l'ajout a réussi
         header('Content-Type: application/json');
         echo json_encode(["success" => true]);

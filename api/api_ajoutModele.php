@@ -2,7 +2,6 @@
 require_once('../lib/pdo.php');
 try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     if (isset($_POST['nouvelleModele'])) {
         $nouvelleMarque = $_POST['nouvelleModele'];
         $marque = $_POST['marqueAddModele'];
@@ -12,7 +11,6 @@ try {
         $stmt->bindValue(':nouvelleMarque', $nouvelleMarque);
         $stmt->bindValue(':marque', $marque);
         $stmt->execute();
- 
         // Envoyez une réponse JSON pour indiquer que l'ajout a réussi
         header('Content-Type: application/json');
         echo json_encode(["success" => true]);

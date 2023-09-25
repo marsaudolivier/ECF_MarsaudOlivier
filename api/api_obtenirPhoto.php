@@ -1,7 +1,7 @@
 <?php
 require_once('../lib/pdo.php');
-
 try {
+    //récupération de toutes les photo secondaires
     $Id_Voitures = $_POST['Id_Voitures'];
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "SELECT * FROM Photos
@@ -16,4 +16,3 @@ try {
     header('Content-Type: application/json');
     echo json_encode(["error" => $e->getMessage()]);
 }
-?>

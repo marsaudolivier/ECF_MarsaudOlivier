@@ -2,7 +2,6 @@
 require_once('../lib/pdo.php');
 try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     if (isset($_POST['nouvelleOption'])) {
         $nouvelleOption = $_POST['nouvelleOption'];
         // Utilisez une requête préparée pour insérer la nouvelle option
@@ -21,4 +20,3 @@ try {
     header('Content-Type: application/json');
     echo json_encode(["error" => $e->getMessage()]);
 }
-?>

@@ -1,16 +1,11 @@
 <?php
 require_once('../lib/pdo.php');
-
 try {
+    //récupération de toute la tables Marques
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Utilisez une requête SQL pour obtenir la liste des marques
     $sql = "SELECT * FROM Marques";
     $query = $pdo->query($sql);
-    
-    // Récupérez toutes les lignes en tant qu'objets JSON
     $marques = $query->fetchAll(PDO::FETCH_ASSOC);
-
     // Envoyez les données au format JSON en réponse
     header('Content-Type: application/json');
     echo json_encode(["marques" => $marques]);
@@ -19,4 +14,3 @@ try {
     header('Content-Type: application/json');
     echo json_encode(["error" => $e->getMessage()]);
 }
-?>

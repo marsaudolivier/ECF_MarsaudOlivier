@@ -20,7 +20,6 @@ try {
     $stmt->bindParam(':Annonce', $Annonce);
     $stmt->bindParam(':Id_FormulairesOk', $Id_FormulairesOk);
     $stmt->execute();
-
     // Récupérez toutes les lignes en tant qu'objets JSON
     $Formulaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
     header('Location: ../ventes.php?success=1');
@@ -30,4 +29,3 @@ try {
     header('Content-Type: application/json');
     echo json_encode(["error" => $e->getMessage()]);
 }
-?>
