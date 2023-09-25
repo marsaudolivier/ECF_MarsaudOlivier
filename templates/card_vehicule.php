@@ -211,7 +211,6 @@ function recupAnonce($pdo){
             <h2>Liste des véhicules</h2>
             <button type="submit" name="CreateVehicule" class="btn btn-sm btn-success">création d'un nouveau vehicule</button>
         <?php } ?>
-
     </form>
     <div class="album py-5">
         <div class="container">
