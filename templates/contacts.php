@@ -8,7 +8,7 @@ function Contacts()
     <div class="justify-content-center index_text p-2">
       <h2>NOUS CONTACTER</h2>
       <div>
-      <form enctype="multipart/form-data" method="POST" onsubmit="return validateForm()">
+        <form enctype="multipart/form-data" method="POST" onsubmit="return validateForm()">
           <div class="FormulaireContact">
             <label for="nom" class="text-primary">Nom:</label>
             <input type="text" id="nomContact" name="nom" />
