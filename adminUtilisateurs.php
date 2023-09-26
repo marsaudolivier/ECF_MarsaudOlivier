@@ -60,7 +60,7 @@ if (!empty($_COOKIE)) {
         </div>
         <div class="p-2 admin_conteneur">
             <h5>Ajouter un utilisateur</h5>
-            <form action="adminUtilisateurs.php" method="post">
+            <form action="adminUtilisateurs.php" method="post" onsubmit="return validateFormUser()">
                 <div class="mb-3">
                     <label for="nom" class="form-label">Nom</label>
                     <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
@@ -75,12 +75,12 @@ if (!empty($_COOKIE)) {
                 </div>
                 <div class="mb-3">
                     <label for="mdp" class="form-label">Mot de passe</label>
-                    <input type="text" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe">
+                    <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe">
+                    <input type="checkbox" onclick="showPassword()"> Afficher le mot de passe
                 </div>
                 <div class="mb-3">
                     <label for="Id_Roles" class="form-label">Rôle</label>
                     <select class="form-select" aria-label="Default select example" name="Id_Roles">
-                        <option selected>Choisissez un rôle</option>
                         <option value="2">Utilisateur</option>
                     </select>
                 </div>
