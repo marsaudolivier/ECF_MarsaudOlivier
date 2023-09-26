@@ -49,25 +49,25 @@ function AvisContact($pdo)
     <div class="justify-content-center index_text p-2">
       <h2>Votre avis nous intéresse</h2>
       <div class="FormulaireAvis">
-        <form enctype="multipart/form-data" method="POST">
+      <form enctype="multipart/form-data" method="POST" onsubmit="return validateAvis()">
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="nom" class="text-primary">Nom:</label>
-              <input type="text" id="nom" name="nom" />
+              <input type="text" id="nomAvis" name="nom" />
             </div>
             <div class="p-1 avis_input">
               <label for="prenom" class="text-primary">Prenom:</label>
-              <input type="text" id="prenom" name="prenom" />
+              <input type="text" id="prenomAvis" name="prenom" />
             </div>
           </div>
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="note" class="text-primary note">Note:</label>
-              <input type="number" id="note" name="note" min="1" max="5" />
+              <input type="number" id="noteAvis" name="note" min="1" max="5" />
             </div>
             <div class="p-1 avis_input">
               <label for="commentaire">Commentaire:</label>
-              <textarea id="commentaire" name="commentaire"></textarea>
+              <textarea id="commentaireAvis" name="commentaire"></textarea>
             </div>
           </div>
           <button type="submit" name="Avis" class="ventes_bouton btn btn-primary">VALIDER</button>

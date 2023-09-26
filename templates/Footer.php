@@ -46,6 +46,10 @@ if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminVoitures
     <script src="../scripts/adminVoitures.js"></script>
 <?php } ?>
 <?php
+if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/index.php") { ?>
+    <script src="../scripts/formulaires.js"></script>
+<?php } ?>
+<?php
 if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/ventes.php") { ?>
     <script src="../scripts/nouislider.min.js"></script>
     <script src="../scripts/ventesVoitures.js"></script>
