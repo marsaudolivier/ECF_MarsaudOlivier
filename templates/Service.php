@@ -97,9 +97,9 @@ function ServicesAdmin($pdo)
   ?>
   <H2 class="p-4">Nouveau Service</H2>
   <div class="lib_horaires admin_conteneur p-3">
-    <form action="adminServices.php" method="post">
-      <input type="text" name="titre" placeholder="Titre">
-      <textarea name="Description" rows="10" cols="200" placeholder="Description"></textarea>
+    <form action="adminServices.php" method="post" onsubmit="return validateFormServ()">
+      <input type="text" name="titre" placeholder="Titre" required id="titreNewServices">
+      <textarea name="Description" rows="10" cols="200" placeholder="Description" required id="descriptionNewServices"></textarea>
       <button type="submit" name="NewServicesButton" class="btn btn-success">
         <h3>Ajouter</h3>
       </button>
