@@ -76,7 +76,7 @@ if (!empty($_COOKIE)) {
                 <div class="mb-3">
                     <label for="mdp" class="form-label">Mot de passe</label>
                     <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe"required 
-                    data-toggle="tooltip" title="Le mot de passe doit contenir au moins 12 caractères et inclure au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial.">>
+                    data-toggle="tooltip" title="Le mot de passe doit contenir au moins 12 caractères et inclure au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial.">
                     <input type="checkbox" onclick="showPassword()" > Afficher le mot de passe
                 </div>
                 <div class="mb-3">

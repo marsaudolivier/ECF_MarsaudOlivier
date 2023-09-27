@@ -98,8 +98,10 @@ function ServicesAdmin($pdo)
   <H2 class="p-4">Nouveau Service</H2>
   <div class="lib_horaires admin_conteneur p-3">
     <form action="adminServices.php" method="post" onsubmit="return validateFormServ()">
-      <input type="text" name="titre" placeholder="Titre" required id="titreNewServices">
-      <textarea name="Description" rows="10" cols="200" placeholder="Description" required id="descriptionNewServices"></textarea>
+      <input type="text" name="titre" placeholder="Titre" required id="titreNewServices"
+      data-toggle="tooltip" title="Veuillez entrer le titre affiché à la page d'index.">
+      <textarea name="Description" rows="10" cols="200" placeholder="Description" required id="descriptionNewServices"
+      data-toggle="tooltip" title="Veuillez préciser le texte qui sera affiché lors du clic sur le service proposé."></textarea>
       <button type="submit" name="NewServicesButton" class="btn btn-success">
         <h3>Ajouter</h3>
       </button>
