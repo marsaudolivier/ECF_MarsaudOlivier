@@ -2,9 +2,9 @@
 function showPassword() {
   const passwordInput = document.getElementById("mdp");
   if (passwordInput.type === "password") {
-      passwordInput.type = "text";
+    passwordInput.type = "text";
   } else {
-      passwordInput.type = "password";
+    passwordInput.type = "password";
   }
 }
 //fonction de controle formulaire employé
