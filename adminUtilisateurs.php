@@ -63,20 +63,21 @@ if (!empty($_COOKIE)) {
             <form action="adminUtilisateurs.php" method="post" onsubmit="return validateFormUser()">
                 <div class="mb-3">
                     <label for="nom" class="form-label">Nom</label>
-                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom"required>
                 </div>
                 <div class="mb-3">
                     <label for="prenom" class="form-label">Prénom</label>
-                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
+                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom"required>
                 </div>
                 <div class="mb-3">
                     <label for="mail" class="form-label">Mail</label>
-                    <input type="email" class="form-control" id="mail" name="mail" placeholder="Mail">
+                    <input type="email" class="form-control" id="mail" name="mail" placeholder="Mail"required>
                 </div>
                 <div class="mb-3">
                     <label for="mdp" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe">
-                    <input type="checkbox" onclick="showPassword()"> Afficher le mot de passe
+                    <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe"required 
+                    data-toggle="tooltip" title="Le mot de passe doit contenir au moins 12 caractères et inclure au moins une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial.">>
+                    <input type="checkbox" onclick="showPassword()" > Afficher le mot de passe
                 </div>
                 <div class="mb-3">
                     <label for="Id_Roles" class="form-label">Rôle</label>
