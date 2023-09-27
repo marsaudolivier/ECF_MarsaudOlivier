@@ -131,19 +131,19 @@ function AvisAdmin($pdo)
         <label for="nom">
           <h3>Nom:</h3>
         </label>
-        <input type="text" name="nom" value="<?= $Aviss['nom'] ?>">
+        <input type="text" name="nom" value="<?= $Aviss['nom'] ?>"required>
         <label for="prenom">
           <h3>Prenom:</h3>
         </label>
-        <input type="text" name="prenom" value="<?= $Aviss['prenom'] ?>">
+        <input type="text" name="prenom" value="<?= $Aviss['prenom'] ?>"required>
         <label for="commentaire">
           <h3>Commentaire:</h3>
         </label>
-        <textarea name="commentaire" rows="5" style="width: 100%"><?= $Aviss['commentaire'] ?></textarea>
+        <textarea name="commentaire" rows="5" style="width: 100%" required><?= $Aviss['commentaire'] ?></textarea>
         <label for="note">
           <h3>Note:</h3>
         </label>
-        <input type="number" name="note" value="<?= $Aviss['note'] ?>">
+        <input type="number" name="note" value="<?= $Aviss['note'] ?>" required>
         <label for="Id_Validations">
           <h3>Validations:</h3>
         </label>
@@ -170,7 +170,7 @@ function AvisAdmin($pdo)
     <div class="justify-content-center index_text p-2">
       <h2>Ajouté un avis</h2>
       <div class="FormulaireAvis">
-        <form enctype="multipart/form-data" method="POST">
+        <form enctype="multipart/form-data" method="POST" onsubmit="return validateFormAvis()">
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="nom" class="text-primary">Nom:</label>
