@@ -304,20 +304,20 @@ function fetchDetailAnnonce(annonceId) {
 
                 <div class="FormulaireContact">
                     <label for="nom" class="text-primary">Nom:</label>
-                    <input type="text" id="nomFormVente" name="nom" />
+                    <input type="text" id="nomFormVente" name="nom" required/>
                     <label for="prenom" class="text-primary">Prenom:</label>
-                    <input type="text" id="prenomFormVente" name="prenom" />
+                    <input type="text" id="prenomFormVente" name="prenom" required/>
                 </div>
                 <div class="FormulaireContact">
                     <label for="mail" class="text-primary">Email:</label>
-                    <input type="text" id="mailFormVente" name="mail" />
+                    <input type="text" id="mailFormVente" name="mail"required />
                     <label for="telephone" class="text-primary">Telephone:</label>
-                    <input type="text" id="telephoneFormVente" name="telephone" />
+                    <input type="text" id="telephoneFormVente" name="telephone"required />
                     <input type="hidden" id="Annonce" name="Annonce" value="${premiereAnnonce.titre} | Marque: ${premiereAnnonce.marque} | Modèle: ${premiereAnnonce.modele} | Année: ${premiereAnnonce.annee} | Kilométrage: ${premiereAnnonce.kilometrage}" />
                 </div>
                 <div class="p-2 FormulaireContact2">
                     <label for="message">message:</label>
-                    <textarea id="messageFormVente" name="message"></textarea>
+                    <textarea id="messageFormVente" name="message"required></textarea>
                 </div>
                 <button type="submit"  name="Contact" class="ventes_bouton btn btn-primary"> VALIDER</button>
         </div>

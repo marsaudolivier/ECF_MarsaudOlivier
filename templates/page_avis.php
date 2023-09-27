@@ -53,21 +53,21 @@ function AvisContact($pdo)
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="nom" class="text-primary">Nom:</label>
-              <input type="text" id="nomAvis" name="nom" />
+              <input type="text" id="nomAvis" name="nom" required/>
             </div>
             <div class="p-1 avis_input">
               <label for="prenom" class="text-primary">Prenom:</label>
-              <input type="text" id="prenomAvis" name="prenom" />
+              <input type="text" id="prenomAvis" name="prenom" required/>
             </div>
           </div>
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="note" class="text-primary note">Note:</label>
-              <input type="number" id="noteAvis" name="note" min="1" max="5" />
+              <input type="number" id="noteAvis" name="note" min="1" max="5" required/>
             </div>
             <div class="p-1 avis_input">
               <label for="commentaire">Commentaire:</label>
-              <textarea id="commentaireAvis" name="commentaire"></textarea>
+              <textarea id="commentaireAvis" name="commentaire" required></textarea>
             </div>
           </div>
           <button type="submit" name="Avis" class="ventes_bouton btn btn-primary">VALIDER</button>
@@ -174,21 +174,21 @@ function AvisAdmin($pdo)
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="nom" class="text-primary">Nom:</label>
-              <input type="text" id="nom" name="nom" />
+              <input type="text" id="nom" name="nom" required/>
             </div>
             <div class="p-1 avis_input">
               <label for="prenom" class="text-primary">Prenom:</label>
-              <input type="text" id="prenom" name="prenom" />
+              <input type="text" id="prenom" name="prenom" required/>
             </div>
           </div>
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="note" class="text-primary note">Note:</label>
-              <input type="number" id="note" name="note" min="1" max="5" />
+              <input type="number" id="note" name="note" min="1" max="5" required/>
             </div>
             <div class="p-1 avis_input">
               <label for="commentaire">Commentaire:</label>
-              <textarea id="commentaire" name="commentaire"></textarea>
+              <textarea id="commentaire" name="commentaire"required></textarea>
             </div>
           </div>
           <button type="submit" name="addAvisButton" class="ventes_bouton btn btn-primary">VALIDER</button>
