@@ -35,8 +35,8 @@ if (!empty($_COOKIE)) {
         require_once('./lib/pdo.php');
         $user = utilisateurs::loginUser($pdo, $mail, $password);
 
-        if ($user) { // création d'un clef hexa sur 50 caractère token connexion
-            $token = bin2hex(random_bytes(50));
+        if ($user) { // création d'un clef hexa sur 40 caractère token connexion
+            $token = bin2hex(random_bytes(40));
             utilisateurs::tokenAdd($pdo, $token, $password, $mail);
             setcookie('token', $token, time() + 3600);
             setcookie('mail', $mail, time() + 3600);

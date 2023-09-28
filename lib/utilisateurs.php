@@ -6,6 +6,7 @@ Class utilisateurs{
     public string $mail;
     public string $mdp;
     public int $Id_Roles;
+    public string $token;
 
     public function GetId(){
         return $this->id;
@@ -25,6 +26,9 @@ Class utilisateurs{
     public function GetId_Roles(){
         return $this->Id_Roles;
     }
+    public function GetToken(){
+        return $this->token;
+    }
     public function SetId($id){
         $this->id = $id;
     }
@@ -42,6 +46,9 @@ Class utilisateurs{
     }
     public function SetId_Roles($Id_Roles){
         $this->Id_Roles = $Id_Roles;
+    }
+    public function SetToken($token){
+        $this->token = $token;
     }
     public function __construct($nom, $prenom, $mail, $mdp, $Id_Roles){
         //ajout hash pass sur le constructeur
@@ -108,5 +115,5 @@ Class utilisateurs{
             }
             return null;  // L'authentification a échoué
         }
+    }
 
-}
