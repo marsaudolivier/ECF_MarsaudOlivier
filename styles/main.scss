@@ -374,6 +374,24 @@ h4 {
     height: 250px;
   }
 }
+@media screen and (max-width: 500px) {
+  .imageCardVentes {
+    width: 350px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .imageCardVentes {
+    width: 300px;
+    height: 150px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .imageCardVentes {
+    width: 250px;
+    height: 100px;
+  }
+}
 .card_text {
   font-size: 35px;
   text-transform: uppercase;
@@ -414,7 +432,7 @@ h4 {
   border-radius: 50px;
   border: 3px solid $success;
   font-size: 19px;
-}
+}  
 .Mentions_legales {
   background-color: $info;
   color: $primary;
