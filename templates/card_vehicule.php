@@ -52,16 +52,16 @@ function CardEdit($voiture, $pdo)
                         <input type="hidden" name="Id_Marques" value="<?= $voiture['Id_Marques'] ?>">
                         <input type="hidden" name="photo_principal" value="<?= $voiture['photo_principal'] ?>">
                         <input type="hidden" name="date_publication" value="<?= $voiture['date_publication'] ?>">
-                        <p class="card-text">Titre: <input type="text" name="titre" value="<?= $voiture['titre'] ?>"></br>Année :<input type="number" name="annee" value="<?= $voiture['annee'] ?>">
-                            Kilométrage : <input type="number" name="kilometrage" value="<?= $voiture['kilometrage'] ?>"></br>
-                            marque : <input type="text" name="marque" value="<?= $voiture['marque'] ?>">
-                            <label for="modele" class="text-primary">modèle</label>
+                        <p class="card-text">Titre: <input type="text" name="titre" value="<?= $voiture['titre'] ?>"></br>Année :<input type="number" name="annee" value="<?= $voiture['annee'] ?>"required>
+                            Kilométrage : <input type="number" name="kilometrage" value="<?= $voiture['kilometrage'] ?>"required></br>
+                            marque : <input type="text" name="marque" value="<?= $voiture['marque'] ?>"required>
+                            <label for="modele" class="text-primary"required>modèle</label>
                             <select name="modele" id="modele">
                                 <?php
                                 $Id_marques = $voiture['Id_Marques'];
                                 $modeles = Modeles::GetModelesByMarques($pdo, $Id_marques);
                                 foreach ($modeles as $modele) {
-                                    echo '<option value="' . $modele['Id_Modeles'] . '">' . $modele['modele'] . '</option>';
+                                    echo '<option value="' . $modele['Id_Modeles'] . '"required>' . $modele['modele'] . '</option>';
                                 }
                                 ?>
                                 Prix : <input type="number" name="prix" value="<?= $voiture['prix'] ?>"></br>
@@ -117,8 +117,8 @@ function Newcard($pdo)
         <form action="adminVoitures.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
             <div class="row admin_conteneur">
                 <div class="col p-2">
-                    <p class="card-text">Titre: <input type="text" name="titre" value=""></br>Année :<input type="number" name="annee" value="">
-                        Kilométrage : <input type="number" name="kilometrage" value=""></br>
+                    <p class="card-text">Titre: <input type="text" name="titre" value=""required></br>Année :<input type="number" name="annee" value=""required>
+                        Kilométrage : <input type="number" name="kilometrage" value=""required></br>
                         <?php
                         require_once('./lib/annonces.php');
                         $annonces = Marques::GetMarques($pdo);
@@ -134,10 +134,10 @@ function Newcard($pdo)
                         <select name="modele" id="modele">
                         </select>
                         </br>
-                        Prix : <input type="number" name="prix" value=""></br>
+                        Prix : <input type="number" name="prix" value=""required></br>
                         <img id="image_preview" src="#" alt="Aperçu de l'image" style="display: none; width: 300px; height: 200px;">
                         <label for="photo_principal">Choisissez une photo principale :</label>
-                        <input type="file" name="photo_principal" id="photo_principal" accept="image/*">
+                        <input type="file" name="photo_principal" id="photo_principal" accept="image/*"required>
                     <fieldset class="p-2 admin_conteneur">
                         <legend> Energie :</legend>
                         <?php
@@ -172,12 +172,12 @@ function Newcard($pdo)
         <div class="admin_conteneurTwo">
             <form id="ajoutMarqueForm" method="post" enctype="multipart/form-data">
                 <label for="nouvelleMarque">Entrez le nom de la nouvelle marque :</label>
-                <input type="text" id="nouvelleMarque" name="nouvelleMarque">
+                <input type="text" id="nouvelleMarque" name="nouvelleMarque"required>
                 <button type="submit" id="validerMarque">Valider</button>
             </form>
             <form id="ajoutOptionFormm" method="post" enctype="multipart/form-data">
                 <label for="nouvelleOption">Entrez le nom de la nouvelle option :</label>
-                <input type="text" id="nouvelleOption" name="nouvelleOption">
+                <input type="text" id="nouvelleOption" name="nouvelleOption"required>
                 <button type="submit" id="validerOption">Valider</button>
             </form>
             <form id="ajoutModeleForm" method="post" enctype="multipart/form-data">

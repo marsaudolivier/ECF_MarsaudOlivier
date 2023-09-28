@@ -25,7 +25,7 @@ noUiSlider.create(snapSlider, {
     "85%": 42500,
     "90%": 45000,
     "95%": 47500,
-     max: 50000,
+    max: 50000,
   },
 });
 
@@ -300,23 +300,24 @@ function fetchDetailAnnonce(annonceId) {
     <div class="justify-content-center index_text p-2">
         <h2>NOUS CONTACTER</h2>
         <div>
-            <form action="/api/api_contact.php" enctype="multipart/form-data" method="POST"  id="formulaireee">
+        <form action="/api/api_contact.php" enctype="multipart/form-data" method="POST" id="formulaireee" onsubmit="return validateFormvente()">
+
                 <div class="FormulaireContact">
                     <label for="nom" class="text-primary">Nom:</label>
-                    <input type="text" id="nom" name="nom" />
+                    <input type="text" id="nomFormVente" name="nom" required/>
                     <label for="prenom" class="text-primary">Prenom:</label>
-                    <input type="text" id="prenom" name="prenom" />
+                    <input type="text" id="prenomFormVente" name="prenom" required/>
                 </div>
                 <div class="FormulaireContact">
                     <label for="mail" class="text-primary">Email:</label>
-                    <input type="text" id="mail" name="mail" />
+                    <input type="text" id="mailFormVente" name="mail"required />
                     <label for="telephone" class="text-primary">Telephone:</label>
-                    <input type="text" id="telephone" name="telephone" />
+                    <input type="text" id="telephoneFormVente" name="telephone"required />
                     <input type="hidden" id="Annonce" name="Annonce" value="${premiereAnnonce.titre} | Marque: ${premiereAnnonce.marque} | Modèle: ${premiereAnnonce.modele} | Année: ${premiereAnnonce.annee} | Kilométrage: ${premiereAnnonce.kilometrage}" />
                 </div>
                 <div class="p-2 FormulaireContact2">
                     <label for="message">message:</label>
-                    <textarea id="message" name="message"></textarea>
+                    <textarea id="messageFormVente" name="message"required></textarea>
                 </div>
                 <button type="submit"  name="Contact" class="ventes_bouton btn btn-primary"> VALIDER</button>
         </div>
@@ -435,4 +436,36 @@ function fetchPhoto(idVoitures, photoPrincipal) {
       );
     });
 }
-
+//validation du formulaire de contact vente
+function validateFormvente() {
+  let nomFormVente = document.getElementById("nomFormVente").value;
+  let prenomFormVente = document.getElementById("prenomFormVente").value;
+  let mailFormVente = document.getElementById("mailFormVente").value;
+  let telephoneFormVente = document.getElementById("telephoneFormVente").value;
+  let messageFormVente = document.getElementById("messageFormVente").value;
+  //Obligé usage que de lettre au nom ou prénom
+  let namePattern = /^[a-zA-Z]+$/;
+  if (!namePattern.test(nomFormVente) || !namePattern.test(prenomFormVente)) {
+    alert("Le nom et le prénom ne doivent contenir que des lettres.");
+    return false;
+  }
+  // Vérification du format de l'adresse email
+  let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  if (!emailPattern.test(mailFormVente)) {
+    alert("Veuillez entrer une adresse email valide.");
+    return false;
+  }
+  //Vérification du format du téléphone
+  let phonePattern = /^0[1-9]([-. ]?[0-9]{2}){4}$/;
+  if (!phonePattern.test(telephoneFormVente)) {
+    alert(
+      "Veuillez entrer un numéro de téléphone français valide (10 chiffres, format : 06XXXXXXXX ou 05XXXXXXXX)."
+    );
+    return false;
+  }
+  if (messageFormVente.trim() === "") {
+    alert("Veuillez entrer votre message");
+    return false;
+  }
+  return true;
+}
