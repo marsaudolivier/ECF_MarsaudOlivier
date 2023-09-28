@@ -26,6 +26,7 @@ function Avis($pdo)
               <img src="../assets/images/etoile<?= $Validationn['note'] ?>.svg">
             </div>
           <?php }
+           if ($i < '4'){
           ?>
           <div class="index_avis2 p-2">
             <H3>Avis Client</H3>
@@ -33,7 +34,7 @@ function Avis($pdo)
             <p><?= $Validationn['nom'] ?> <?= $Validationn['prenom'] ?></p>
             <img src="../assets/images/etoile<?= $Validationn['note'] ?>.svg">
           </div>
-      <?php
+      <?php }
 
         }
       } ?>
@@ -49,21 +50,21 @@ function AvisContact($pdo)
     <div class="justify-content-center index_text p-2">
       <h2>Votre avis nous intéresse</h2>
       <div class="FormulaireAvis">
-      <form enctype="multipart/form-data" method="POST" onsubmit="return validateAvis()">
+        <form enctype="multipart/form-data" method="POST" onsubmit="return validateAvis()">
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="nom" class="text-primary">Nom:</label>
-              <input type="text" id="nomAvis" name="nom" required/>
+              <input type="text" id="nomAvis" name="nom" required />
             </div>
             <div class="p-1 avis_input">
               <label for="prenom" class="text-primary">Prenom:</label>
-              <input type="text" id="prenomAvis" name="prenom" required/>
+              <input type="text" id="prenomAvis" name="prenom" required />
             </div>
           </div>
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="note" class="text-primary note">Note:</label>
-              <input type="number" id="noteAvis" name="note" min="1" max="5" required/>
+              <input type="number" id="noteAvis" name="note" min="1" max="5" required />
             </div>
             <div class="p-1 avis_input">
               <label for="commentaire">Commentaire:</label>
@@ -131,11 +132,11 @@ function AvisAdmin($pdo)
         <label for="nom">
           <h3>Nom:</h3>
         </label>
-        <input type="text" name="nom" value="<?= $Aviss['nom'] ?>"required>
+        <input type="text" name="nom" value="<?= $Aviss['nom'] ?>" required>
         <label for="prenom">
           <h3>Prenom:</h3>
         </label>
-        <input type="text" name="prenom" value="<?= $Aviss['prenom'] ?>"required>
+        <input type="text" name="prenom" value="<?= $Aviss['prenom'] ?>" required>
         <label for="commentaire">
           <h3>Commentaire:</h3>
         </label>
@@ -174,21 +175,21 @@ function AvisAdmin($pdo)
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="nom" class="text-primary">Nom:</label>
-              <input type="text" id="nom" name="nom" required/>
+              <input type="text" id="nom" name="nom" required />
             </div>
             <div class="p-1 avis_input">
               <label for="prenom" class="text-primary">Prenom:</label>
-              <input type="text" id="prenom" name="prenom" required/>
+              <input type="text" id="prenom" name="prenom" required />
             </div>
           </div>
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="note" class="text-primary note">Note:</label>
-              <input type="number" id="note" name="note" min="1" max="5" required/>
+              <input type="number" id="note" name="note" min="1" max="5" required />
             </div>
             <div class="p-1 avis_input">
               <label for="commentaire">Commentaire:</label>
-              <textarea id="commentaire" name="commentaire"required></textarea>
+              <textarea id="commentaire" name="commentaire" required></textarea>
             </div>
           </div>
           <button type="submit" name="addAvisButton" class="ventes_bouton btn btn-primary">VALIDER</button>
