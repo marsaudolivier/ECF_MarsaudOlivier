@@ -99,4 +99,14 @@ class Avis
         $stmt->bindParam(':Id_Validations', $_POST['Id_Validations']);
         $stmt->execute();
     }
+    public static function AvisValidation($pdo)
+    {
+        $sql = 'SELECT * FROM Avis INNER JOIN Validations v 
+        on Avis.Id_Validations = v.Id_Validations 
+        ORDER BY Id_Avis DESC';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $Avis = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $Avis;
+    }
 }

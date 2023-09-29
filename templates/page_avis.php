@@ -2,18 +2,13 @@
 //récupération des avis
 function Avis($pdo)
 {
-  $sql = 'SELECT * FROM Avis INNER JOIN Validations v 
-  on Avis.Id_Validations = v.Id_Validations 
-  ORDER BY Id_Avis DESC';
-  $query = $pdo->prepare($sql);
-  $query->execute();
-  $Validations = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
   <div class="p-3 ">
     <div class="avis">
       <?php
       $i = 0;
-      //Fonction pour affiché que 1 avis en mobile et 3 en format grand écran
+      require('./lib/avis.php');
+      $Validations = Avis::AvisValidation($pdo);
       foreach ($Validations as $Validationn) {
         if ($Validationn['valider'] === 'oui') {
           $i = $i + 1;
@@ -78,7 +73,6 @@ function AvisContact($pdo)
   </div>
 <?php
   //récupération des input avec protection XSS
-  require('./lib/avis.php');
   if (isset($_POST['Avis'])) {
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
