@@ -53,7 +53,7 @@ if (!empty($_COOKIE)) {
     if (isset($_POST['ajouterVoiture'])) {
         $imagetype = $_FILES['photo_principal']["type"];
         $imagetypetwo = $_FILES['photo_secondaire']["type"];
-        //vérification que l'image secondaire est présente si présente on vérifie le type mine et on valide sinon exit()
+        //vérification que l'image secondaire est présente si présente on vérifie le type mine et on valide sinon exit() 
         if (strlen($imagetypetwo[0]) > 0) {
             foreach ($imagetypetwo as $imagetyps) {
                 if (strpos($imagetyps, "jpeg") || strpos($imagetypes, "jpg") || strpos($imagetypes, "png")) {
