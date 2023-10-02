@@ -147,7 +147,7 @@ snapSliderTrois.noUiSlider.on("update", function (values, handle) {
 
 // Variables pour gérer la pagination
 let currentPage = 1;
-const itemsPerPage = 3; // Nombre d'annonces par page
+const itemsPerPage = 3; // Nombre d'annonces par page modification pour avoir plus ou moins annonces par pages
 
 // Mise à jour des résultats en fonction des filtres et de la pagination
 function updateResults() {
