@@ -12166,41 +12166,6 @@ h4, .h4 {
   margin: auto;
 }
 
-.avis {
-  display: grid;
-  grid-template-columns: auto;
-}
-
-.index_avis {
-  display: grid;
-}
-
-.index_avis2 {
-  display: none;
-}
-
-@media screen and (min-width: 960px) {
-  .avis {
-    display: grid;
-    grid-template-columns: auto auto auto;
-  }
-  .index_avis {
-    display: none;
-  }
-  .index_avis2 {
-    width: 300px;
-    height: 250px;
-    background-color: #5cb8ff;
-    color: #2f2569;
-    border-radius: 50px;
-    border: 3px solid #ff8778;
-    text-align: center;
-    font-size: 19px;
-    align-items: center;
-    margin: auto;
-    display: grid;
-  }
-}
 .FormulaireContact {
   display: grid;
   grid-template-columns: 150px auto 150px auto;

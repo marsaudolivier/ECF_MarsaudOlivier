@@ -1,43 +1,4 @@
 <?php
-//récupération des avis
-function Avis($pdo)
-{
-?>
-  <div class="p-3 ">
-    <div class="avis">
-      <?php
-      $i = 0;
-      require('./lib/avis.php');
-      $Validations = Avis::AvisValidation($pdo);
-      foreach ($Validations as $Validationn) {
-        if ($Validationn['valider'] === 'oui') {
-          $i = $i + 1;
-          if ($i == '1') {
-      ?>
-            <div class="index_avis p-2">
-              <H3>Avis Client</H3>
-              <p><?= $Validationn['commentaire'] ?></p>
-              <p><?= $Validationn['nom'] ?> <?= $Validationn['prenom'] ?></p>
-              <img src="../assets/images/etoile<?= $Validationn['note'] ?>.svg">
-            </div>
-          <?php }
-           if ($i < '4'){
-          ?>
-          <div class="index_avis2 p-2">
-            <H3>Avis Client</H3>
-            <p><?= $Validationn['commentaire'] ?></p>
-            <p><?= $Validationn['nom'] ?> <?= $Validationn['prenom'] ?></p>
-            <img src="../assets/images/etoile<?= $Validationn['note'] ?>.svg">
-          </div>
-      <?php }
-
-        }
-      } ?>
-    </div>
-  </div>
-
-<?php
-}
 //Formulaire de contact 
 function AvisContact($pdo)
 {
