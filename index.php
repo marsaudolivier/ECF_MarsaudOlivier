@@ -39,8 +39,9 @@ require_once("./templates/header.php");
 <?php
 require_once("templates/Service.php");
 Service($pdo);
-require_once("./templates/page_avis.php");
-Avis($pdo);
+require_once("./templates/page_avis.php"); ?>
+<div id="carousel" class="carousel-container"></div>
+<?php
 AvisContact($pdo);
 require_once("./templates/contacts.php");
 Contacts();

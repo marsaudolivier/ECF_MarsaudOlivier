@@ -2,11 +2,13 @@
 require_once('../lib/pdo.php');
 try {
     //Usage inerjoin pour récupéré table Marques modeles photo par rapport a la table voiture Id
+    //rajout  v.Id_Voitures pour résoudre problème quand pas de photo secondaire bug affichage
     $Id_Annonces = $_POST['Id_Annonces'];
-    $sql = "SELECT * FROM Annonces 
+    $sql = "SELECT * , v.Id_Voitures
+    FROM Annonces 
     INNER JOIN Voitures v on Annonces.Id_Voitures = v.Id_Voitures
-    left JOIN Marques m on v.Id_Marques = m.Id_Marques
-    left JOIN Modeles mo on v.Id_Modeles = mo.Id_Modeles
+    LEFT JOIN Marques m on v.Id_Marques = m.Id_Marques
+    LEFT JOIN Modeles mo on v.Id_Modeles = mo.Id_Modeles
     LEFT JOIN Photos p on p.Id_Voitures = Annonces.Id_Voitures
     WHERE Id_Annonces = :Id_Annonces
 ";

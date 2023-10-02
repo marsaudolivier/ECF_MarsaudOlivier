@@ -28,7 +28,7 @@ function Card($voiture)
             //Si sur la page ventes alors possibilité avoir détail annonces
             if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/ventes.php") { ?>
                     <form action="ventes.php" method="post">
-                        <input type="hidden" name="Id_Annoncess" value="<?= $voiture['Id_Annonces'] ?>">
+                        <input type="hidden" name="Id_Annonces" value="<?= $voiture['Id_Annonces'] ?>">
                         <button type="submit" name="detailAnnonceButton" class="btn btn-sm btn-warning">Détail</button>
                     <?php }  ?>
         </div>

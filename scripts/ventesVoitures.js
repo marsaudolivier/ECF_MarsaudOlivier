@@ -269,11 +269,12 @@ document.addEventListener("click", function (event) {
 });
 
 // fonction pour récupérer les détails de l'annonce
-function fetchDetailAnnonce(annonceId) {
+function fetchDetailAnnonce(annonceId,voitureId) {
   const url = "./api/api_detailAnnonce.php";
 
   const formData = new FormData();
   formData.append("Id_Annonces", annonceId);
+  formData.append("Id_Voitures", voitureId);
 
   const options = {
     method: "POST",
@@ -294,7 +295,8 @@ function fetchDetailAnnonce(annonceId) {
         card.classList.add("col");
         card.innerHTML = `
           <div class=" admin_conteneur p-2">
-          <h3 class="p-5">${premiereAnnonce.titre}</h3>
+          <h3 class="p-5">${premiereAnnonce.titre}
+          ${premiereAnnonce.Id_Voitures}<br></h3>
               <div class="annoncesContainer" id="annoncesContainer">
                   <div class="">
                       <div id="carouselExampleControls" class="carousel slide imageCardVentes" data-ride="carousel">
@@ -429,7 +431,7 @@ function fetchEnergie(idVoitures) {
     .then((response) => response.json())
     .then((optionsData) => {
       const optionsContainer = document.getElementById("ennergieContainer");
-      optionsContainer.innerHTML = "<h5>Energies:</h5>";
+      optionsContainer.innerHTML = "<h5>ENERGIES:</h5>";
 
       optionsData.energies.forEach((energies) => {
         const optionElement = document.createElement("div");
