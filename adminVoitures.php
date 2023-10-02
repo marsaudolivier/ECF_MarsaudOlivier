@@ -51,6 +51,8 @@ if (!empty($_COOKIE)) {
         CardEdit($voiture, $pdo);
     } // gestion ajout voiture
     if (isset($_POST['ajouterVoiture'])) {
+        $imagetype = $_FILES['photo_principal']["type"];
+        if (strpos($imagetype, "jpeg") || strpos($imagetype, "jpg") || strpos($imagetype, "png")) {
         $annee = htmlspecialchars($_POST['annee']);
         $kilometrage = htmlspecialchars($_POST['kilometrage']);
         $prix = htmlspecialchars($_POST['prix']);
@@ -107,7 +109,13 @@ if (!empty($_COOKIE)) {
         //nsére toutes les photos secondaires dans la base de données
         foreach ($photos_secondaires_uploadées as $photo_secondaire) {
             Photos::CreatePhoto($pdo, $photo_secondaire, $Id_Voitures);
+        }}
+        else {
+            echo "veuillez utilisé une photo";
+            exit();
         }
+
+        
     };
     if (isset($_POST["modifierVoiture"])) {
         $Id_Annonces = htmlspecialchars($_POST['Id_Annonces']);
