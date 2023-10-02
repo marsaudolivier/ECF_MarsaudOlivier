@@ -52,70 +52,78 @@ if (!empty($_COOKIE)) {
     } // gestion ajout voiture
     if (isset($_POST['ajouterVoiture'])) {
         $imagetype = $_FILES['photo_principal']["type"];
+        $imagetypetwo = $_FILES['photo_secondaire']["type"];
+        if (strlen($imagetypetwo[0]) > 0) {
+            foreach ($imagetypetwo as $imagetyps) {
+                if (strpos($imagetyps, "jpeg") || strpos($imagetypes, "jpg") || strpos($imagetypes, "png")) {
+                } else {
+                    echo "veuillez utilisé une photo";
+                    exit();
+                } 
+            }
+        }
         if (strpos($imagetype, "jpeg") || strpos($imagetype, "jpg") || strpos($imagetype, "png")) {
-        $annee = htmlspecialchars($_POST['annee']);
-        $kilometrage = htmlspecialchars($_POST['kilometrage']);
-        $prix = htmlspecialchars($_POST['prix']);
-        $photo_principale = $_FILES['photo_principal'];
-        $dossier_cible = './uploads/voitures/';
-        if ($photo_principale['error'] === 0) {
-            $nom_fichier = $photo_principale['name'];
-            $nom_fichier_unique = uniqid() . '-' . slugify($nom_fichier);
-            $chemin_cible = $dossier_cible . $nom_fichier_unique;
-            if (move_uploaded_file($photo_principale['tmp_name'], $chemin_cible)) {
+            $annee = htmlspecialchars($_POST['annee']);
+            $kilometrage = htmlspecialchars($_POST['kilometrage']);
+            $prix = htmlspecialchars($_POST['prix']);
+            $photo_principale = $_FILES['photo_principal'];
+            $dossier_cible = './uploads/voitures/';
+            if ($photo_principale['error'] === 0) {
+                $nom_fichier = $photo_principale['name'];
+                $nom_fichier_unique = uniqid() . '-' . slugify($nom_fichier);
+                $chemin_cible = $dossier_cible . $nom_fichier_unique;
+                if (move_uploaded_file($photo_principale['tmp_name'], $chemin_cible)) {
+                } else {
+                    echo "Erreur lors du téléchargement du fichier.";
+                }
             } else {
                 echo "Erreur lors du téléchargement du fichier.";
             }
-        } else {
-            echo "Erreur lors du téléchargement du fichier.";
-        }
-        $photo_principal = $chemin_cible;
-        $Id_Modeles = htmlspecialchars($_POST['modele']);
-        $Id_Marques = htmlspecialchars($_POST['marque']);
-        Voitures::CreateVoiture($pdo, $kilometrage, $annee, $prix, $photo_principal, $Id_Marques, $Id_Modeles);
-        $Id_Voitures = $pdo->lastInsertId();
-        $titre = htmlspecialchars($_POST['titre']);
-        $date_publication = date('Y-m-d');
-        Annonces::CreateAnnonce($pdo, $titre, $date_publication, $Id_Voitures);
-        $selectedEnergies = $_POST['energie'];
-        // Parcourez les valeurs cochées et insérez-les dans la table consommer
-        foreach ($selectedEnergies as $Id_Energies) {
-            consommer::CreateConsommer($pdo, $Id_Energies, $Id_Voitures);
-        }
-        $selectedOptions = $_POST['options'];
-        // Parcourez les valeurs cochées et insérez-les dans la table avoir
-        foreach ($selectedOptions as $Id_Options) {
-            avoir::AddOption($pdo, $Id_Options, $Id_Voitures);
-        }
-        $photo_secondaire = $_FILES['photo_secondaire'];
-        $photos_secondaires_uploadées = array(); // Tableau pour stocker les chemins des photos secondaires
+            $photo_principal = $chemin_cible;
+            $Id_Modeles = htmlspecialchars($_POST['modele']);
+            $Id_Marques = htmlspecialchars($_POST['marque']);
+            Voitures::CreateVoiture($pdo, $kilometrage, $annee, $prix, $photo_principal, $Id_Marques, $Id_Modeles);
+            $Id_Voitures = $pdo->lastInsertId();
+            $titre = htmlspecialchars($_POST['titre']);
+            $date_publication = date('Y-m-d');
+            Annonces::CreateAnnonce($pdo, $titre, $date_publication, $Id_Voitures);
+            $selectedEnergies = $_POST['energie'];
+            // Parcourez les valeurs cochées et insérez-les dans la table consommer
+            foreach ($selectedEnergies as $Id_Energies) {
+                consommer::CreateConsommer($pdo, $Id_Energies, $Id_Voitures);
+            }
+            $selectedOptions = $_POST['options'];
+            // Parcourez les valeurs cochées et insérez-les dans la table avoir
+            foreach ($selectedOptions as $Id_Options) {
+                avoir::AddOption($pdo, $Id_Options, $Id_Voitures);
+            }
+            $photo_secondaire = $_FILES['photo_secondaire'];
+            $photos_secondaires_uploadées = array(); // Tableau pour stocker les chemins des photos secondaires
 
-        if (!empty($photo_secondaire['name'][0])) { // Vérifiez si des fichiers ont été téléchargés
-            foreach ($photo_secondaire['name'] as $key => $nom_fichier) {
-                if ($photo_secondaire['error'][$key] === 0) {
-                    $dossier_cibles = './uploads/voitures/';
-                    $nom_fichier_unique = uniqid() . '-' . slugify($nom_fichier);
-                    $chemin_cibles = $dossier_cibles . $nom_fichier_unique;
-                    if (move_uploaded_file($photo_secondaire['tmp_name'][$key], $chemin_cibles)) {
-                        $photos_secondaires_uploadées[] = $chemin_cibles;
+            if (!empty($photo_secondaire['name'][0])) { // Vérifiez si des fichiers ont été téléchargés
+                foreach ($photo_secondaire['name'] as $key => $nom_fichier) {
+                    if ($photo_secondaire['error'][$key] === 0) {
+                        $dossier_cibles = './uploads/voitures/';
+                        $nom_fichier_unique = uniqid() . '-' . slugify($nom_fichier);
+                        $chemin_cibles = $dossier_cibles . $nom_fichier_unique;
+                        if (move_uploaded_file($photo_secondaire['tmp_name'][$key], $chemin_cibles)) {
+                            $photos_secondaires_uploadées[] = $chemin_cibles;
+                        } else {
+                            echo "Erreur lors du téléchargement du fichier $nom_fichier.";
+                        }
                     } else {
                         echo "Erreur lors du téléchargement du fichier $nom_fichier.";
                     }
-                } else {
-                    echo "Erreur lors du téléchargement du fichier $nom_fichier.";
                 }
             }
-        }
-        //nsére toutes les photos secondaires dans la base de données
-        foreach ($photos_secondaires_uploadées as $photo_secondaire) {
-            Photos::CreatePhoto($pdo, $photo_secondaire, $Id_Voitures);
-        }}
-        else {
+            //nsére toutes les photos secondaires dans la base de données
+            foreach ($photos_secondaires_uploadées as $photo_secondaire) {
+                Photos::CreatePhoto($pdo, $photo_secondaire, $Id_Voitures);
+            }
+        } else {
             echo "veuillez utilisé une photo";
             exit();
         }
-
-        
     };
     if (isset($_POST["modifierVoiture"])) {
         $Id_Annonces = htmlspecialchars($_POST['Id_Annonces']);
@@ -125,7 +133,7 @@ if (!empty($_COOKIE)) {
         $prix = htmlspecialchars($_POST['prix']);
         $photo_principal = $_POST['photo_principal'];
         $Id_Voitures = htmlspecialchars($_POST['Id_Voitures']);
-        $Id_Marques =htmlspecialchars( $_POST['Id_Marques']);
+        $Id_Marques = htmlspecialchars($_POST['Id_Marques']);
         $date_publication = $_POST['date_publication'];
         $modele = htmlspecialchars($_POST['modele']);
         Annonces::UpdateAnnonce($pdo, $titre, $date_publication, $Id_Annonces, $Id_Voitures);
