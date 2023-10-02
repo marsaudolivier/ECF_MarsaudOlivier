@@ -18,7 +18,7 @@ try {
     AND v.kilometrage <= :kmMax
     AND v.annee >= :anneeMin
     AND v.annee <= :anneeMax
-";
+    ORDER BY Id_Annonces DESC";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':prixMin', $prixMin, PDO::PARAM_INT);
     $stmt->bindParam(':prixMax', $prixMax, PDO::PARAM_INT);
