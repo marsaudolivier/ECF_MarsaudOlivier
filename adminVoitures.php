@@ -60,7 +60,7 @@ if (!empty($_COOKIE)) {
                 } else {
                     echo "veuillez utilisé une photo";
                     exit();
-                } 
+                }
             }
         }
         //Vérification du type mine pour image principal si pas le bon alors on éxécute pas la suite

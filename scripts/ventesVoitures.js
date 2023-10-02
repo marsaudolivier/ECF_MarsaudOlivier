@@ -145,6 +145,11 @@ snapSliderTrois.noUiSlider.on("update", function (values, handle) {
   document.getElementById("slider_annee_max").value = values[1];
 });
 
+// Variables pour gérer la pagination
+let currentPage = 1;
+const itemsPerPage = 3; // Nombre d'annonces par page
+
+// Mise à jour des résultats en fonction des filtres et de la pagination
 function updateResults() {
   const prixMin = parseInt(
     document.getElementById("slider_prix_min").value,
@@ -186,8 +191,14 @@ function updateResults() {
     .then((data) => {
       const annoncesContainer = document.getElementById("annoncesContainer");
       annoncesContainer.innerHTML = "";
-      // Parcourir les données JSON et créer une carte pour chaque annonce
-      data.Annonces.forEach((annonce) => {
+
+      // Calcul des indices de début et de fin pour la pagination
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const filteredAnnonces = data.Annonces.slice(startIndex, endIndex);
+
+      // Parcourir les données JSON filtrées et créer une carte pour chaque annonce
+      filteredAnnonces.forEach((annonce) => {
         const card = document.createElement("div");
         card.classList.add("col");
         card.innerHTML = `
@@ -208,6 +219,16 @@ function updateResults() {
 
         annoncesContainer.appendChild(card);
       });
+
+      // Mettre à jour la visibilité des boutons de pagination
+      const prevButton = document.querySelector(
+        "#pagination-container button:first-child"
+      );
+      const nextButton = document.querySelector(
+        "#pagination-container button:last-child"
+      );
+      prevButton.disabled = currentPage === 1;
+      nextButton.disabled = endIndex >= data.Annonces.length;
     })
     .catch((error) => {
       console.error(
@@ -216,15 +237,30 @@ function updateResults() {
       );
     });
 }
+// Fonction pour changer de page en fonction des boutons de pagination
+function changePage(direction) {
+  currentPage += direction;
+  updateResults();
+}
+
 // Écouter les événements de changement des sliders
 document.addEventListener("DOMContentLoaded", function () {
+  currentPage = 1; // Initialise la page courante
   [snapSlider, snapSliderTwo, snapSliderTrois].forEach(function (slider) {
     slider.noUiSlider.on("update", function () {
       updateResults();
     });
   });
 });
-
+// Écouter les clics sur les boutons de pagination
+document
+  .getElementById("pagination-container")
+  .addEventListener("click", function (event) {
+    if (event.target.classList.contains("pagination-button")) {
+      const direction = event.target.textContent === "Suivant" ? 1 : -1;
+      changePage(direction);
+    }
+  });
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("detailButton")) {
     const annonceId = event.target.getAttribute("data-id");

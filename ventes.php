@@ -23,6 +23,10 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         <div class="row row-cols-1  row-cols-md-2 row-cols-lg-3 g-3" id="annoncesContainer">
         </div>
     </div>
+    <div id="pagination-container" class="d-flex justify-content-center mt-4">
+  <button class="btn pagination-button" id="prev-button">Précédent</button>
+  <button class="btn pagination-button" id="next-button">Suivant</button>
+</div>
 </div>
 <?php
 require_once("./templates/Footer.php");
