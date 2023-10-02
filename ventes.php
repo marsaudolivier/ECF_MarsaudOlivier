@@ -24,8 +24,9 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
         </div>
     </div>
     <div id="pagination-container" class="d-flex justify-content-center mt-4">
-  <button class="btn pagination-button" id="prev-button">Précédent</button>
-  <button class="btn pagination-button" id="next-button">Suivant</button>
+  <button class="btn pagination-button btn-success" id="prev-button">Précédent</button>
+  <p class="p-5">Choix de Page</p>
+  <button class="btn pagination-button btn-primary" id="next-button">Suivant</button>
 </div>
 </div>
 <?php
