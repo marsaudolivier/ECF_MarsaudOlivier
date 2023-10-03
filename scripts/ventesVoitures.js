@@ -332,7 +332,7 @@ function fetchDetailAnnonce(annonceId,voitureId) {
                       </div>
                   </div>
               </div>
-              <p class="p-3 card_text admin_conteneur">Ce modèle vous intéresse hésité pas à nous contacter avec le formulaire suivant:</p>
+              <p class="p-3 card_text admin_conteneur">Ce modèle vous intéresse n'hésitez pas à nous contacter avec le formulaire suivant:</p>
 <div class="p-2">
     <div class="justify-content-center index_text p-2">
         <h2>NOUS CONTACTER</h2>
