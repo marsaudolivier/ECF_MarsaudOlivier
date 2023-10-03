@@ -269,7 +269,7 @@ document.addEventListener("click", function (event) {
 });
 
 // fonction pour récupérer les détails de l'annonce
-function fetchDetailAnnonce(annonceId,voitureId) {
+function fetchDetailAnnonce(annonceId, voitureId) {
   const url = "./api/api_detailAnnonce.php";
 
   const formData = new FormData();
@@ -338,8 +338,9 @@ function fetchDetailAnnonce(annonceId,voitureId) {
         <h2>NOUS CONTACTER</h2>
         <div>
         <form action="/api/api_contact.php" enctype="multipart/form-data" method="POST" id="formulaireee" onsubmit="return validateFormvente()">
-
+                <h3>Annonce: ${premiereAnnonce.titre}| Marque: ${premiereAnnonce.marque} | Modèle: ${premiereAnnonce.modele}  </h3>
                 <div class="FormulaireContact">
+               
                     <label for="nom" class="text-primary">Nom:</label>
                     <input type="text" id="nomFormVente" name="nom" required/>
                     <label for="prenom" class="text-primary">Prenom:</label>
