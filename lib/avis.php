@@ -58,14 +58,20 @@ class Avis
     }
     public function insertAvis($avis, $pdo)
     {
+        // Stocker les valeurs dans des variables
+        $nom = $avis->GetNom();
+        $prenom = $avis->GetPrenom();
+        $commentaire = $avis->GetCommentaire();
+        $note = $avis->GetNote();
+        $idValidations = $avis->GetId_Validations();
         //Ajout avis client
         $sql = "INSERT INTO Avis (nom, prenom, commentaire, note, Id_Validations) VALUES (:nom, :prenom, :commentaire, :note, :Id_Validations)";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':nom', $avis->GetNom());
-        $stmt->bindParam(':prenom', $avis->GetPrenom());
-        $stmt->bindParam(':commentaire', $avis->GetCommentaire());
-        $stmt->bindParam(':note', $avis->GetNote());
-        $stmt->bindParam(':Id_Validations', $avis->GetId_Validations());
+        $stmt->bindParam(':nom', $nom);
+        $stmt->bindParam(':prenom', $prenom);
+        $stmt->bindParam(':commentaire', $commentaire);
+        $stmt->bindParam(':note', $note);
+        $stmt->bindParam(':Id_Validations', $idValidations);
         if ($stmt->execute()) {
             echo "Avis ajouté";
         } else {
