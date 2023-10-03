@@ -39,12 +39,14 @@ function AvisContact($pdo)
     $prenom = htmlspecialchars($_POST['prenom']);
     $commentaire = htmlspecialchars($_POST['commentaire']);
     $note = htmlspecialchars(intval($_POST['note']));
+    $Id_Validations = 1;
+    
     if (empty($nom) || empty($prenom) || empty($commentaire) || $note < 1 || $note > 5) {
       echo "Veuillez remplir tous les champs correctement.";
     } else {
-      $Id_Validations = 1;
-      $avis = new Avis($nom, $prenom, $commentaire, $note, $Id_Validations);
-      $avis->insertAvis($avis, $pdo);
+      require_once('./lib/avis.php');
+      $aviss = new Avis($nom, $prenom, $commentaire, $note, $Id_Validations);
+      $aviss->insertAvis($aviss, $pdo);
     }
   }
 }
