@@ -295,8 +295,7 @@ function fetchDetailAnnonce(annonceId,voitureId) {
         card.classList.add("col");
         card.innerHTML = `
           <div class=" admin_conteneur p-2">
-          <h3 class="p-5">${premiereAnnonce.titre}
-          ${premiereAnnonce.Id_Voitures}<br></h3>
+          <h3 class="p-5">${premiereAnnonce.titre}<br></h3>
               <div class="annoncesContainer" id="annoncesContainer">
                   <div class="">
                       <div id="carouselExampleControls" class="carousel slide imageCardVentes" data-ride="carousel">
