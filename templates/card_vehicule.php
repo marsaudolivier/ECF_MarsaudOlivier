@@ -17,13 +17,13 @@ function Card($voiture)
             if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminVoitures.php") { ?>
                 <form action="adminVoitures.php" method="post">
                     <input type="hidden" name="Id_Voitures" value="<?= $voiture['Id_Voitures'] ?>">
-
                     <input type="hidden" name="Id_Annonces" value="<?= $voiture['Id_Annonces'] ?>">
                     <button type="submit" name="deleteAnnonceButton" class="btn btn-sm btn-danger">Supprimer</button>
-                </form>
+                    </form>
                 <form action="adminVoitures.php" method="post">
                     <input type="hidden" name="Id_Annoncess" value="<?= $voiture['Id_Annonces'] ?>">
                     <button type="submit" name="modifieAnnonceButton" class="btn btn-sm btn-warning">Modifier</button>
+                    </form>
                 <?php }
             //Si sur la page ventes alors possibilité avoir détail annonces
             if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/ventes.php") { ?>
