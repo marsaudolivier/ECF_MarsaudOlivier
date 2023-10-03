@@ -338,7 +338,7 @@ function fetchDetailAnnonce(annonceId, voitureId) {
         <h2>NOUS CONTACTER</h2>
         <div>
         <form action="/api/api_contact.php" enctype="multipart/form-data" method="POST" id="formulaireee" onsubmit="return validateFormvente()">
-                <h3>Annonce: ${premiereAnnonce.titre}| Marque: ${premiereAnnonce.marque} | Modèle: ${premiereAnnonce.modele}  </h3>
+                <h3>Annonce: ${premiereAnnonce.titre}| Marque: ${premiereAnnonce.marque} | Modèle: ${premiereAnnonce.modele} | Année: ${premiereAnnonce.annee} | Kilométrage: ${premiereAnnonce.kilometrage}Km</h3>
                 <div class="FormulaireContact">
                
                     <label for="nom" class="text-primary">Nom:</label>
