@@ -418,3 +418,9 @@ h4 {
   text-transform: uppercase;
   padding-left: 40px;
 }
+//Standardisation du fomat des photos pour avoir toute mes card de la même taille
+.card_photo {
+  width: 100%; 
+  height: 250px; 
+  object-fit: cover; 
+}
