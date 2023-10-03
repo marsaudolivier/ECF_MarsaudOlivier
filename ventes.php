@@ -10,7 +10,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
 }
 ?>
 <!--Intégration de la Fil ariane-->
-<a href="index.php" class="text-success p-2">Acceuil</a>
+<a href="index.php" class="text-success p-2">Accueil</a>
 <a href="ventes.php" class="text-success p-2">/Ventes</a>
 <!--Ajout titre de la page-->
 <h2>Voiture d’occasion</h2>

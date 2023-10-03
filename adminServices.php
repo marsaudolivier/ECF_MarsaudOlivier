@@ -9,7 +9,7 @@ if (!empty($_COOKIE)) {
     $user = utilisateurs::UtilisateurVerificationToken($pdo, $mail, $token);
 ?>
     <!--Intégration de la Fil ariane-->
-    <a href="index.php" class="text-success p-2">Acceuil</a>
+    <a href="index.php" class="text-success p-2">Accueil</a>
     <a href="admin.php" class="text-success p-2">Espace Administration</a>
     <a href="adminServices.php" class="text-success p-2">Gestion des Services</a>
     <div class="p-4">
