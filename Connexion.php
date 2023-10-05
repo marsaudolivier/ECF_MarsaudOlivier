@@ -9,7 +9,7 @@ if (!empty($_COOKIE)) {
     header('Location: ./admin.php');
 } else {
 ?>
-    <h2 class="p-3">Connexion administrateur</h2>
+    <h2 class="p-3 connexion">Connexion administrateur</h2>
     <div class="admin_conteneur p-5 container align-middle ">
         <h3>Veuillez entrer vos identifiants pour vous connecter :</h3>
         <form enctype="multipart/form-data" method="POST">

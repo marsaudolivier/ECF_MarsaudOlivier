@@ -12419,4 +12419,20 @@ h4, .h4 {
   height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media screen and (max-width: 450px) {
+  .connexion {
+    font-size: 37px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .connexion {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .connexion {
+    font-size: 27px;
+  }
 }/*# sourceMappingURL=main.css.map */
