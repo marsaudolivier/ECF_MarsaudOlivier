@@ -1,5 +1,5 @@
 
-# ECF MARSAUD olivier
+# ECF MARSAUD Olivier
 Bonjour mon Nom est Marsaud Olivier, Actuellement en train de préparé ma certification DWWM.
 
 Ce "site", est mon ECF, sur le sujet garage de mr V Parrot.
@@ -12,7 +12,7 @@ Pour faciliter la vente de véhicule, part importante du garage, j’ai aussi in
 
 
 
-## Installation en local
+## Installation en local:
 1- Téléchargement et installation de mon Repo.
 
 - Pour commencé il sera nécéssaire de clone mon projet.
@@ -24,7 +24,7 @@ git clone https://github.com/marsaudolivier/ECF_MarsaudOlivier
 ```bash
 composer install
 ```
-2- Installation de la BDD.
+2- Mise en place de la  BDD.
 - Pour commencé récupéré l'ensemble des donnés sur le Repo SQL .
 https://github.com/marsaudolivier/ECF_SQL_MarsaudO
 
@@ -50,10 +50,19 @@ https://marsaudolivier.alwaysdata.net/
 
 ![Charte graphique](https://marsaudolivier.alwaysdata.net/CharteGraphique.png)
 
-- Charte graphique vue mobile:
+- Maquette vue mobile:
 https://www.figma.com/file/rTPY9yQ7WFo9G3DD6w6OPZ/Parrot--V2?type=design&node-id=0-1&mode=design
-- Charte graphique vue desktop:
+- Maquettevue desktop:
 https://www.figma.com/file/rTPY9yQ7WFo9G3DD6w6OPZ/Parrot--V2?type=design&node-id=36-24548&mode=design
+
+## Technologie
+Le site est développé avec les technologies suivantes:
+* HTML 5
+* CSS 3 (Bootstrap 4)
+* PHP 8+ (POO)
+* MySQL / MariaDB
+
+
 
 ## Notice utilisation du site
 Retrouvé la notice utilisation du site à cette emplacement:
