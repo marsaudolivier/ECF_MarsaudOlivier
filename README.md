@@ -48,7 +48,7 @@ https://marsaudolivier.alwaysdata.net/
 
 ## Charte graphique
 
-![Charte graphique](Livrable_studi\Visuel\CharteGraphique.png)
+![Charte graphique](https://marsaudolivier.alwaysdata.net/CharteGraphique.png)
 
 - Charte graphique vue mobile:
 https://www.figma.com/file/rTPY9yQ7WFo9G3DD6w6OPZ/Parrot--V2?type=design&node-id=0-1&mode=design
