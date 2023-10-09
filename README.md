@@ -55,6 +55,11 @@ https://www.figma.com/file/rTPY9yQ7WFo9G3DD6w6OPZ/Parrot--V2?type=design&node-id
 - Charte graphique vue desktop:
 https://www.figma.com/file/rTPY9yQ7WFo9G3DD6w6OPZ/Parrot--V2?type=design&node-id=36-24548&mode=design
 
+## Notice utilisation du site
+Retrouvé la notice utilisation du site à cette emplacement:
+https://marsaudolivier.alwaysdata.net/noticeutilisation.pdf
+
+
 ## Authors
 
 - [@Marsaudolivier](https://github.com/marsaudolivier)

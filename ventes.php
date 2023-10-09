@@ -19,7 +19,7 @@ if (isset($_GET['success']) && $_GET['success'] == 1) {
     // Intégration du slider
     Slider();
     ?>
-    <div class="container">
+    <div class="container p-3">
         <div class="row row-cols-1  row-cols-md-2 row-cols-lg-3 g-3" id="annoncesContainer">
         </div>
     </div>
