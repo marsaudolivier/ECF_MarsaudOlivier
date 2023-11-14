@@ -11,6 +11,7 @@ require("./lib/config.php");
   <meta name="description" content="Venez découvrir chez Garage V. Parrot des services automobiles de qualité supérieure et un savoir-faire inégalé depuis 2021. 
     Nous sommes votre partenaire de confiance pour l'entretien, la réparation et la maintenance de votre véhicule. Prenez soin de votre voiture avec notre équipe expérimentée. 
     Demandez un devis dès aujourd'hui">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">
   <title>Garage V. Parrot</title>
   <!-- CSS + Font Aref Rugaa usage de SAss pour compilation donc besoin que de main.css  -->
   <link rel="stylesheet" href="../styles/main.css">
