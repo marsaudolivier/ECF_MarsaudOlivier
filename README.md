@@ -35,7 +35,7 @@ Coté Back, le Choix ce portera sur PHP sans framework.
 
 En ce qui concerne hébergement : nous utiliserons alwaysdata solution gratuite pour un projet PHP.
 
-Par MR marsaud olivier pour ECF Studi..
+
 - Pour la création en local, lancé votre serveur Apache via Wamp, Xamp ou autres.
 Une fois lancé créée la base de données Exemple : marsaudolivier_garageparrot.
 
