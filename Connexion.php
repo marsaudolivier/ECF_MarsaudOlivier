@@ -38,8 +38,8 @@ if (!empty($_COOKIE)) {
         if ($user) { // création d'un clef hexa sur 40 caractère token connexion
             $token = bin2hex(random_bytes(40));
             utilisateurs::tokenAdd($pdo, $token, $password, $mail);
-            setcookie('token', $token, time() + 3600);
-            setcookie('mail', $mail, time() + 3600);
+            setcookie('token', $token, time() + 3600, '/', '', true, true);
+            setcookie('mail', $mail, time() + 3600, '/', '', true, true);
             header("location: admin.php");
             exit();
         } else {

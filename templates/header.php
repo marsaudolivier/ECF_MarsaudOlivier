@@ -11,17 +11,18 @@ require("./lib/config.php");
   <meta name="description" content="Venez découvrir chez Garage V. Parrot des services automobiles de qualité supérieure et un savoir-faire inégalé depuis 2021. 
     Nous sommes votre partenaire de confiance pour l'entretien, la réparation et la maintenance de votre véhicule. Prenez soin de votre voiture avec notre équipe expérimentée. 
     Demandez un devis dès aujourd'hui">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">
+  <!-- Content-Security-Policy avec googlemap et script CDN -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'self' https://www.google.com; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com;">
   <title>Garage V. Parrot</title>
   <!-- CSS + Font Aref Rugaa usage de SAss pour compilation donc besoin que de main.css  -->
-  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="./styles/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <!--Intégration de la navbar Responsive-->
   <header class="navigation_bandeau d-flex">
-    <img src="../assets/images/Logo Parrot.svg" class="logo" alt="Logo de notre garage V parrot">
+    <img src="./assets/images/Logo Parrot.svg" class="logo" alt="Logo de notre garage V parrot">
     <h1 class="d-flex align-items-center text-center p-2">Garage
       V. Parrot</h1>
     <nav class="navbar navbar-expand-lg navbar-info text-info" data-bs-theme="dark">

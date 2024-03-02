@@ -1,7 +1,6 @@
 <?php
 require_once('../lib/pdo.php');
 try {
-    //Usage du filtre avec les tables jointes usage contrainte
     $prixMin = $_POST['prixMin'];
     $prixMax = $_POST['prixMax'];
     $kmMin = $_POST['kmMin'];

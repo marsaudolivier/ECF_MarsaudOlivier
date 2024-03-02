@@ -14,7 +14,7 @@ function Card($voiture)
             </p>
             <?php
             //Si admin Alors possibilité delette et modifier
-            if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminVoitures.php") { ?>
+            if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminVoitures.php") { ?>
                 <form action="adminVoitures.php" method="post">
                     <input type="hidden" name="Id_Voitures" value="<?= $voiture['Id_Voitures'] ?>">
                     <input type="hidden" name="Id_Annonces" value="<?= $voiture['Id_Annonces'] ?>">
@@ -26,7 +26,7 @@ function Card($voiture)
                     </form>
                 <?php }
             //Si sur la page ventes alors possibilité avoir détail annonces
-            if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/ventes.php") { ?>
+            if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/ventes.php") { ?>
                     <form action="ventes.php" method="post">
                         <input type="hidden" name="Id_Annonces" value="<?= $voiture['Id_Annonces'] ?>">
                         <button type="submit" name="detailAnnonceButton" class="btn btn-sm btn-warning">Détail</button>
@@ -207,7 +207,7 @@ function recupAnonce($pdo){
     <!-- On affiche les annonces -->
     <form action="adminVoitures.php" method="post">
         <?php
-        if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminVoitures.php") { ?>
+        if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminVoitures.php") { ?>
             <h2>Liste des véhicules</h2>
             <button type="submit" name="CreateVehicule" class="btn btn-sm btn-success">création d'un nouveau vehicule</button>
         <?php } ?>

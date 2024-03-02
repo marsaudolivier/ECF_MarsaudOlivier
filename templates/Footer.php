@@ -10,7 +10,7 @@ require_once('./lib/horaires.php');
             <?php horaires($pdo); ?>
         </div>
         <!-- Ajout logo + social -->
-        <img class="col-0 col-md-2 logo_footer hidden" src="../assets/images/Logo Parrot.svg" alt="Logo Garage V. Parrot"></img>
+        <img class="col-0 col-md-2 logo_footer hidden" src="./assets/images/Logo Parrot.svg" alt="Logo Garage V. Parrot"></img>
         <div class="col-12 col-md-5 p-3">
             <h3 class="text-danger text-uppercase align-items-center text-center">Contacter Nous</h3>
             <p class="text-info">Garage V. Parrot</br>
@@ -19,13 +19,13 @@ require_once('./lib/horaires.php');
                 05 46 00 00 00</br>
             <div class="hidden">
                 <a href="https://www.twitter.com/" title="Notre twitter">
-                    <img src="../assets/images/twitter.svg" height="35px" width="35px">
+                    <img src="./assets/images/twitter.svg" height="35px" width="35px">
                 </a>
                 <a href="https://www.facebook.com/" title="Notre Facebook">
-                    <img src="../assets/images/facebook.svg" height="35px" width="35px" class=>
+                    <img src="./assets/images/facebook.svg" height="35px" width="35px" class=>
                 </a>
                 <a href="https://www.instagram.com/" title="Notre instagram">
-                    <img src="../assets/images/instagram.svg" height="35px" width="35px">
+                    <img src="./assets/images/instagram.svg" height="35px" width="35px">
                 </a>
             </div>
         </div>
@@ -42,41 +42,41 @@ require_once('./lib/horaires.php');
 </div>
 <!--Ajout JS-->
 <?php // Ajout condition pour chargement des fichiez JS
-if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminVoitures.php") { ?>
-    <script src="../scripts/adminVoitures.js"></script>
+if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminVoitures.php") { ?>
+    <script src="../par/scripts/adminVoitures.js"></script>
 <?php } ?>
 <?php
-if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/index.php") { ?>
-    <script src="../scripts/formulaires.js"></script>
+if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/index.php") { ?>
+    <script src="../par/scripts/formulaires.js"></script>
 <?php } ?>
 <?php
-if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/ventes.php") { ?>
-    <script src="../scripts/nouislider.min.js"></script>
-    <script src="../scripts/ventesVoitures.js"></script>
+if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/ventes.php") { ?>
+    <script src="../par/scripts/nouislider.min.js"></script>
+    <script src="../par/scripts/ventesVoitures.js"></script>
 <?php } ?>
 <?php
-if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminContacts.php") { ?>
-    <script src="../scripts/adminContact.js"></script>
+if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminContacts.php") { ?>
+    <script src="../par/scripts/adminContact.js"></script>
 <?php } ?>
 <?php
-if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminHoraires.php") { ?>
-    <script src="../scripts/FormAdminHoraires.js"></script>
+if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminHoraires.php") { ?>
+    <script src="../par/scripts/FormAdminHoraires.js"></script>
 <?php } ?>
 <?php
-if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminUtilisateurs.php") { ?>
-    <script src="../scripts/FormAdminUtilisateurs.js"></script>
+if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminUtilisateurs.php") { ?>
+    <script src="../par/scripts/FormAdminUtilisateurs.js"></script>
 <?php } ?>
 <?php
-if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminServices.php") { ?>
-    <script src="../scripts/FormAdminServices.js"></script>
+if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminServices.php") { ?>
+    <script src="../par/scripts/FormAdminServices.js"></script>
 <?php } ?>
 <?php
-if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/adminAvis.php") { ?>
-    <script src="../scripts/FormAdminAvis.js"></script>
+if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminAvis.php") { ?>
+    <script src="../par/scripts/FormAdminAvis.js"></script>
 <?php } ?>
 <?php
-if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/index.php") { ?>
-    <script src="../scripts/indexAvis.js"></script>
+if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/index.php") { ?>
+    <script src="../par/scripts/indexAvis.js"></script>
 <?php } ?>
 <script src="vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

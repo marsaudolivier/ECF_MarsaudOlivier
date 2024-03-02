@@ -179,7 +179,7 @@ function updateResults() {
   formData.append("anneeMax", anneeMax);
 
   // Configuration de la requête fetch
-  const url = "./api/api_filtre.php";
+  const url = "../par/api/api_filtre.php";
   const options = {
     method: "POST",
     body: formData,
@@ -270,7 +270,7 @@ document.addEventListener("click", function (event) {
 
 // fonction pour récupérer les détails de l'annonce
 function fetchDetailAnnonce(annonceId, voitureId) {
-  const url = "./api/api_detailAnnonce.php";
+  const url = "../par/api/api_detailAnnonce.php";
 
   const formData = new FormData();
   formData.append("Id_Annonces", annonceId);
@@ -387,7 +387,7 @@ function fetchDetailAnnonce(annonceId, voitureId) {
     });
 }
 function fetchOptions(idVoitures) {
-  const optionsUrl = "./api/api_optionVente.php";
+  const optionsUrl = "../par/api/api_optionVente.php";
 
   const formDataOptions = new FormData();
   formDataOptions.append("Id_Voitures", idVoitures);
@@ -417,7 +417,7 @@ function fetchOptions(idVoitures) {
     });
 }
 function fetchEnergie(idVoitures) {
-  const optionsUrl = "./api/api_energieVente.php";
+  const optionsUrl = "../par/api/api_energieVente.php";
 
   const formDataOptions = new FormData();
   formDataOptions.append("Id_Voitures", idVoitures);
@@ -447,7 +447,7 @@ function fetchEnergie(idVoitures) {
     });
 }
 function fetchPhoto(idVoitures, photoPrincipal) {
-  const optionsUrl = "./api/api_obtenirPhoto.php";
+  const optionsUrl = "../par/api/api_obtenirPhoto.php";
   const formDataOptions = new FormData();
   formDataOptions.append("Id_Voitures", idVoitures);
   const optionsOptions = {

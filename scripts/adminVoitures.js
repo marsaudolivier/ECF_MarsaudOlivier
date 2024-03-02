@@ -13,7 +13,7 @@ marqueSelect.addEventListener("change", () => {
   const formData = new FormData();
   formData.append("marque", selectedMarque);
   // Configuration de la requête fetch
-  const url = "./api/api_modele.php";
+  const url = "../par/api/api_modele.php";
   const options = {
     method: "POST",
     body: formData,
@@ -50,7 +50,7 @@ ajoutMarqueForm.addEventListener("submit", (e) => {
     const formData = new FormData();
     formData.append("nouvelleMarque", nouvelleMarque);
 
-    const url = "./api/api_ajoutMarque.php";
+    const url = "../par/api/api_ajoutMarque.php";
     const options = {
       method: "POST",
       body: formData,
@@ -73,7 +73,7 @@ ajoutMarqueForm.addEventListener("submit", (e) => {
   }
 
   function refreshMarquesList() {
-    fetch("./api/api_obtenirMarques.php")
+    fetch("../par/api/api_obtenirMarques.php")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors de la requête");
@@ -126,7 +126,7 @@ ajoutOptionForm.addEventListener("submit", (e) => {
 });
 function refreshOptionsList() {
   console.log("La fonction refreshOptionsList est exécutée.");
-  fetch("./api/api_obtenirOption.php")
+  fetch("./par./api/api_obtenirOption.php")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Erreur lors de la requête");
@@ -184,7 +184,7 @@ ajoutModeleForm.addEventListener("submit", (e) => {
   }
 });
 function refreshModelesList() {
-  fetch("./api/api_obtenirModeles.php")
+  fetch("./par./api/api_obtenirModeles.php")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Erreur lors de la requête");

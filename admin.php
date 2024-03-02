@@ -14,9 +14,10 @@ if (!empty($_COOKIE)) {
     </form>
     <?php
     if (isset($_POST['logoutButton'])) {
-        // Supprimer les cookies si appui sur bouton déconnection
-        setcookie('token', '', time() - 3600);
-        setcookie('mail', '', time() - 3600);
+        // Supprimer les cookies
+        setcookie('token', '', time() - 3600, '/', '', true, true);
+        setcookie('mail', '', time() - 3600, '/', '', true, true);
+        // Redirection après la suppression des cookies sur ma page d'accueil
         header('Location: index.php');
         exit();
     }

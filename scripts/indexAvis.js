@@ -38,7 +38,7 @@ function displayAvis(avisData) {
                             <h3>Avis Client</h3>
                             <p>${avisData[j].commentaire}</p>
                             <p>${avisData[j].nom} ${avisData[j].prenom}</p>
-                            <img src="../assets/images/etoile${avisData[j].note}.svg" alt="Note">
+                            <img src="./assets/images/etoile${avisData[j].note}.svg" alt="Note">
                         </div>
                     </div>`;
       }
