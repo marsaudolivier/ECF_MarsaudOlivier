@@ -359,7 +359,7 @@ function fetchDetailAnnonce(annonceId, voitureId) {
                 </div>
                 <button type="submit"  name="Contact" class="ventes_bouton btn btn-primary"> VALIDER</button>
                 <div class="admin_conteneur p-3 mb-2 mt-3">
-                <img class="col-md-2 logo_footer" src="../assets/images/Logo Parrot.svg" alt="Logo Garage V. Parrot"></img>
+                <img class="col-md-2 logo_footer" src="./assets/images/Logo Parrot.svg" alt="Logo Garage V. Parrot"></img>
                 <h4>Garage V. Parrot</br>
                 Téléphone : 05 46 00 00 00</br></h4>
                 </div>

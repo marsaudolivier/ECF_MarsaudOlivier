@@ -55,10 +55,6 @@ if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/ventes.ph
     <script src="../par/scripts/ventesVoitures.js"></script>
 <?php } ?>
 <?php
-if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminContacts.php") { ?>
-    <script src="../par/scripts/adminContact.js"></script>
-<?php } ?>
-<?php
 if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminHoraires.php") { ?>
     <script src="../par/scripts/FormAdminHoraires.js"></script>
 <?php } ?>
