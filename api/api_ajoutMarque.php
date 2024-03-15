@@ -6,12 +6,10 @@ if (TokenTest($pdo)) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         if (isset($_POST['nouvelleMarque'])) {
             $nouvelleMarque = $_POST['nouvelleMarque'];
-            //requête préparée pour insérer la nouvelle marque
             $sql = "INSERT INTO Marques(marque) VALUES (:nouvelleMarque)";
             $query = $pdo->prepare($sql);
-            $query->bindParam(':nouvelleMarque', $nouvelleMarque, PDO::PARAM_STR); // Utilisez PDO::PARAM_STR pour une chaîne de caractères
+            $query->bindParam(':nouvelleMarque', $nouvelleMarque, PDO::PARAM_STR); 
             $query->execute();
-            // Envoyez une réponse JSON pour indiquer que l'ajout a réussi
             header('Content-Type: application/json');
             echo json_encode(["success" => true]);
         } else {
