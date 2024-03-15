@@ -76,17 +76,25 @@ class Contact
         $this->Id_FormulairesOk = $Id_FormulairesOk;
     }
 
-    public function insertContact($contact, $pdo)
-    {// Création formulaire contact
+    public function insertContact($contact, $pdo) {
+        // Création formulaire contact
+        $nom = $contact->GetNom();
+        $prenom = $contact->GetPrenom();
+        $mail = $contact->GetMail();
+        $telephone = $contact->GetTelephone();
+        $message = $contact->GetMessage();
+        $idMotifs = $contact->GetId_Motifs();
+        $idFormulairesOk = $contact->GetId_FormulairesOk();
+    
         $sql = "INSERT INTO Formulaires (nom, prenom, mail, telephone, message, Id_Motifs, Id_FormulairesOk) VALUES (:nom, :prenom, :mail, :telephone, :message, :Id_Motifs, :Id_FormulairesOk)";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':nom', $contact->GetNom());
-        $stmt->bindParam(':prenom', $contact->GetPrenom());
-        $stmt->bindParam(':mail', $contact->GetMail());
-        $stmt->bindParam(':telephone', $contact->GetTelephone());
-        $stmt->bindParam(':message', $contact->GetMessage());
-        $stmt->bindParam(':Id_Motifs', $contact->GetId_Motifs());
-        $stmt->bindParam(':Id_FormulairesOk', $contact->GetId_FormulairesOk());
+        $stmt->bindParam(':nom', $nom);
+        $stmt->bindParam(':prenom', $prenom);
+        $stmt->bindParam(':mail', $mail);
+        $stmt->bindParam(':telephone', $telephone);
+        $stmt->bindParam(':message', $message);
+        $stmt->bindParam(':Id_Motifs', $idMotifs);
+        $stmt->bindParam(':Id_FormulairesOk', $idFormulairesOk);
         try {
             $stmt->execute();
             echo "Votre message a bien été enregistré";
@@ -94,6 +102,7 @@ class Contact
             echo "Erreur : " . $e->getMessage();
         }
     }
+    
     public static function GetAll($pdo)
     { //récup formulaire contact
         $sql = "SELECT * FROM Formulaires  
