@@ -9,21 +9,21 @@ function AvisContact($pdo)
         <form enctype="multipart/form-data" method="POST" onsubmit="return validateAvis()">
           <div class="input-container">
             <div class="p-1 avis_input">
-              <label for="nom" class="text-primary">Nom:</label>
+              <label for="nomAvis" class="text-primary">Nom:</label>
               <input type="text" id="nomAvis" name="nom" required >
             </div>
             <div class="p-1 avis_input">
-              <label for="prenom" class="text-primary">Prenom:</label>
+              <label for="prenomAvis" class="text-primary">Prenom:</label>
               <input type="text" id="prenomAvis" name="prenom" required >
             </div>
           </div>
           <div class="input-container">
             <div class="p-1 avis_input">
-              <label for="note" class="text-primary note">Note:</label>
+              <label for="noteAvis" class="text-primary note">Note:</label>
               <input type="number" id="noteAvis" name="note" min="1" max="5" required >
             </div>
             <div class="p-1 avis_input">
-              <label for="commentaire">Commentaire:</label>
+              <label for="commentaireAvis">Commentaire:</label>
               <textarea id="commentaireAvis" name="commentaire" required></textarea>
             </div>
           </div>

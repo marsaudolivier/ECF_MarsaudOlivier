@@ -19,13 +19,13 @@ require_once('./lib/horaires.php');
                 05 46 00 00 00<br>
             <div class="hidden">
                 <a href="https://www.twitter.com/" title="Notre twitter">
-                    <img src="./assets/images/twitter.svg" height="35px" width="35px">
+                    <img src="./assets/images/twitter.svg" height="35" width="35" alt="twitter">
                 </a>
                 <a href="https://www.facebook.com/" title="Notre Facebook">
-                    <img src="./assets/images/facebook.svg" height="35px" width="35px" class=>
+                    <img src="./assets/images/facebook.svg" height="35" width="35" alt="facebook">
                 </a>
                 <a href="https://www.instagram.com/" title="Notre instagram">
-                    <img src="./assets/images/instagram.svg" height="35px" width="35px">
+                    <img src="./assets/images/instagram.svg" height="35" width="35" alt="instagram">
                 </a>
             </div>
         </div>
@@ -38,8 +38,8 @@ require_once('./lib/horaires.php');
             ECF Mr Marsaud Olivier
         </div>
     </div>
-
 </div>
+
 <!--Ajout JS-->
 <?php // Ajout condition pour chargement des fichiez JS
 if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/adminVoitures.php") { ?>
