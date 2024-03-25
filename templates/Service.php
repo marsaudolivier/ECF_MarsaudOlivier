@@ -8,18 +8,18 @@ function Service($pdo)
 
     <?php foreach ($Services as $Service) {
     ?>
-      <div class="d-flex p-4">
-        <li><?= $Service['titre'] ?></li> <button type="button" class="btn btn-secondary index_bouton" data-bs-toggle="modal" data-bs-target="#<?= $Service['Id_Services'] ?>">
+
+      <li class="d-flex p-4"><?= $Service['titre'] ?><button type="button" class="btn btn-secondary index_bouton" data-bs-toggle="modal" data-bs-target="#modal<?= $Service['Id_Services'] ?>">
           Plus d'info
         </button>
-      </div>
-      </div>
+      </li>
+
     <?php
     } ?>
   </ul>
   <!-- Modal pour chaque service -->
   <?php foreach ($Services as $Service) { ?>
-    <div class="modal fade p-5" id="<?= $Service['Id_Services'] ?>" tabindex="-1" aria-labelledby="<?= $Service['Id_Services'] ?>" aria-hidden="true">
+    <div class="modal fade p-5" id="modal<?= $Service['Id_Services'] ?>" tabindex="<?= $Service['Id_Services'] ?>" aria-labelledby="<?= $Service['Id_Services'] ?>" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content test">
           <div class="modal-header">
@@ -34,8 +34,7 @@ function Service($pdo)
           </div>
         </div>
       </div>
-    </div>
-    </div>
+   
     </div>
 <?php
   }
@@ -98,10 +97,8 @@ function ServicesAdmin($pdo)
   <H2 class="p-4">Nouveau Service</H2>
   <div class="lib_horaires admin_conteneur p-3">
     <form action="adminServices.php" method="post" onsubmit="return validateFormServ()">
-      <input type="text" name="titre" placeholder="Titre" required id="titreNewServices"
-      data-toggle="tooltip" title="Veuillez entrer le titre affiché à la page d'index.">
-      <textarea name="Description" rows="10" cols="200" placeholder="Description" required id="descriptionNewServices"
-      data-toggle="tooltip" title="Veuillez préciser le texte qui sera affiché lors du clic sur le service proposé."></textarea>
+      <input type="text" name="titre" placeholder="Titre" required id="titreNewServices" data-toggle="tooltip" title="Veuillez entrer le titre affiché à la page d'index.">
+      <textarea name="Description" rows="10" cols="200" placeholder="Description" required id="descriptionNewServices" data-toggle="tooltip" title="Veuillez préciser le texte qui sera affiché lors du clic sur le service proposé."></textarea>
       <button type="submit" name="NewServicesButton" class="btn btn-success">
         <h3>Ajouter</h3>
       </button>

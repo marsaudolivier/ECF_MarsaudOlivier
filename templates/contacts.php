@@ -11,15 +11,15 @@ function Contacts()
         <form enctype="multipart/form-data" method="POST" onsubmit="return validateForm()">
           <div class="FormulaireContact">
             <label for="nom" class="text-primary">Nom:</label>
-            <input type="text" id="nomContact" name="nom" required/>
+            <input type="text" id="nomContact" name="nom" required>
             <label for="prenom" class="text-primary">Prenom:</label>
-            <input type="text" id="prenomContact" name="prenom" required/>
+            <input type="text" id="prenomContact" name="prenom" required>
           </div>
           <div class="FormulaireContact">
             <label for="mail" class="text-primary">Email:</label>
-            <input type="text" id="mailContact" name="mail" required/>
+            <input type="text" id="mailContact" name="mail" required>
             <label for="telephone" class="text-primary">Telephone:</label>
-            <input type="text" id="telephoneContact" name="telephone"required />
+            <input type="text" id="telephoneContact" name="telephone" required>
           </div>
           <?php
           if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/index.php") { ?>
@@ -38,10 +38,9 @@ function Contacts()
     ?>
     <div class="p-2 FormulaireContact2">
       <label for="message">message:</label>
-      <textarea id="messageContact" name="message"required></textarea>
+      <textarea id="messageContact" name="message" required></textarea>
     </div>
     <button type="submit" name="Contact" class="ventes_bouton btn btn-primary"> VALIDER</button>
-    </div>
     </form>
 
   </div>

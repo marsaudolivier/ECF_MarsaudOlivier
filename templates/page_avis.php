@@ -10,17 +10,17 @@ function AvisContact($pdo)
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="nom" class="text-primary">Nom:</label>
-              <input type="text" id="nomAvis" name="nom" required />
+              <input type="text" id="nomAvis" name="nom" required >
             </div>
             <div class="p-1 avis_input">
               <label for="prenom" class="text-primary">Prenom:</label>
-              <input type="text" id="prenomAvis" name="prenom" required />
+              <input type="text" id="prenomAvis" name="prenom" required >
             </div>
           </div>
           <div class="input-container">
             <div class="p-1 avis_input">
               <label for="note" class="text-primary note">Note:</label>
-              <input type="number" id="noteAvis" name="note" min="1" max="5" required />
+              <input type="number" id="noteAvis" name="note" min="1" max="5" required >
             </div>
             <div class="p-1 avis_input">
               <label for="commentaire">Commentaire:</label>
