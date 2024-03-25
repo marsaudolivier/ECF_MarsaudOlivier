@@ -22,7 +22,7 @@ function Contacts()
           <input type="text" id="telephoneContact" name="telephone" required>
         </div>
         <?php
-        if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "par/index.php") { ?>
+        if (isset($_SERVER["SCRIPT_NAME"]) && $_SERVER["SCRIPT_NAME"] == "/par/index.php") { ?>
           <div class="FormulaireContact">
             <label for="Id_Motifs" class="text-primary">Votre demande:</label>
             <select id="Id_Motifs" name="Id_Motifs" class="text-primary">
@@ -32,7 +32,6 @@ function Contacts()
               <option value="4">Vehicule à vendre</option>
               <option value="5">Autre</option>
             </select>
-          </div>
     </div>
   <?php }
   ?>
