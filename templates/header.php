@@ -22,7 +22,7 @@ require("./lib/config.php");
 <body>
   <!--Intégration de la navbar Responsive-->
   <header class="navigation_bandeau d-flex">
-    <img src="./assets/images/Logo Parrot.svg" class="logo" alt="Logo de notre garage V parrot">
+    <img src="./assets/images/LogoParrot.svg" class="logo" alt="Logo de notre garage V parrot">
     <h1 class="d-flex align-items-center text-center p-2">Garage
       V. Parrot</h1>
     <nav class="navbar navbar-expand-lg navbar-info text-info" data-bs-theme="dark">

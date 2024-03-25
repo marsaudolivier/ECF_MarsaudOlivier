@@ -10,7 +10,7 @@ require_once('./lib/horaires.php');
             <?php horaires($pdo); ?>
         </div>
         <!-- Ajout logo + social -->
-        <img class="col-0 col-md-2 logo_footer hidden" src="./assets/images/Logo Parrot.svg" alt="Logo Garage V. Parrot"></img>
+        <img class="col-0 col-md-2 logo_footer hidden" src="./assets/images/LogoParrot.svg" alt="Logo Garage V. Parrot"></img>
         <div class="col-12 col-md-5 p-3">
             <h3 class="text-danger text-uppercase align-items-center text-center">Contacter Nous</h3>
             <p class="text-info">Garage V. Parrot</br>
