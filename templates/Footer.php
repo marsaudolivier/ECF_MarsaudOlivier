@@ -36,6 +36,8 @@ require_once('./lib/horaires.php');
         <!-- Signature bas de page -->
         <div class="col-12 text-success text-center p-1">
             ECF Mr Marsaud Olivier
+            <a href="http://marsaudolivierdev.fr/" title="Webmaster">Site web du Webmaster
+            </a>
         </div>
     </div>
 </div>
